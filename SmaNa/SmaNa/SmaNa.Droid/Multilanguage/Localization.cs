@@ -17,7 +17,7 @@ namespace SmaNa.Droid.Multilanguage
         }
         public CultureInfo GetCurrentCultureInfo()
         {
-            var netLanguage = "en";
+            var netLanguage = "de-CH";
             var androidLocale = Java.Util.Locale.Default;
             netLanguage = AndroidToDotnetLanguage(androidLocale.ToString().Replace("_", "-"));
             // this gets called a lot - try/catch can be expensive so consider caching or something
@@ -49,13 +49,17 @@ namespace SmaNa.Droid.Multilanguage
             //certain languages need to be converted to CultureInfo equivalent
             switch (androidLanguage)
             {
-                case "ms-BN":   // "Malaysian (Brunei)" not supported .NET culture
-                case "ms-MY":   // "Malaysian (Malaysia)" not supported .NET culture
-                case "ms-SG":   // "Malaysian (Singapore)" not supported .NET culture
-                    netLanguage = "ms"; // closest supported
+                case "de-LU":   
+                case "de-LI":   
+                case "de-DE":
+                case "DE":
+                    netLanguage = "de-ch"; // closest supported
                     break;
-                case "in-ID":  // "Indonesian (Indonesia)" has different code in  .NET
-                    netLanguage = "id-ID"; // correct code for .NET
+                case "fr-CH":
+                case "fr-MC":
+                case "fr-LU":
+                case "fr-FR":
+                    netLanguage = "fr-CH"; // correct code for .NET
                     break;
                 case "gsw-CH":  // "Schwiizertüütsch (Swiss German)" not supported .NET culture
                     netLanguage = "de-CH"; // closest supported

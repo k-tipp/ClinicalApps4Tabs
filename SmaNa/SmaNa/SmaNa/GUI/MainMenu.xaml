@@ -3,7 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SmaNa.GUI.MainMenu"
              xmlns:i18n="clr-namespace:SmaNa.Multilanguage;assembly=SmaNa">
-  
-  <Label Text="{i18n:Translate Test}" VerticalOptions="Center" HorizontalOptions="Center" />
-  
+  <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+    <Label Text="{i18n:Translate MainMenuWelcome}" VerticalOptions="Center" HorizontalOptions="Center" />
+    <Button Text ="{i18n:Translate MainMenuAppointments}" Clicked="OnAppointmentsClicked" VerticalOptions="Center" HorizontalOptions="Center" />
+    <Button Text ="{i18n:Translate MainMenuOperation}" Clicked="OnOperationClicked" VerticalOptions="Center" HorizontalOptions="Center" />
+    <Button Text ="{i18n:Translate MainMenuSettings}" Clicked="OnSettingsClicked" VerticalOptions="Center" HorizontalOptions="Center" />
+  </StackLayout>
 </ContentPage>

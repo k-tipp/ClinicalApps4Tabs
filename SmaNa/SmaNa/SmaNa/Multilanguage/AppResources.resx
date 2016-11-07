@@ -117,8 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Test" xml:space="preserve">
-    <value>Test</value>
-    <comment>Just a dumb test...</comment>
+  <data name="MainMenuAppointments" xml:space="preserve">
+    <value>Meine Termine</value>
+  </data>
+  <data name="MainMenuOperation" xml:space="preserve">
+    <value>Meine Operation</value>
+  </data>
+  <data name="MainMenuSettings" xml:space="preserve">
+    <value>Einstellungen</value>
+  </data>
+  <data name="MainMenuWelcome" xml:space="preserve">
+    <value>Willkommen bei deiner smarten Nachsorge!</value>
   </data>
 </root>

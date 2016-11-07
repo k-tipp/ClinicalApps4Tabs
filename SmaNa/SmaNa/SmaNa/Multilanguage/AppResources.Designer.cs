@@ -62,11 +62,38 @@ namespace SmaNa.Multilanguage {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Test ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Meine Termine ähnelt.
         /// </summary>
-        public static string Test {
+        public static string MainMenuAppointments {
             get {
-                return ResourceManager.GetString("Test", resourceCulture);
+                return ResourceManager.GetString("MainMenuAppointments", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Meine Operation ähnelt.
+        /// </summary>
+        public static string MainMenuOperation {
+            get {
+                return ResourceManager.GetString("MainMenuOperation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Einstellungen ähnelt.
+        /// </summary>
+        public static string MainMenuSettings {
+            get {
+                return ResourceManager.GetString("MainMenuSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Willkommen bei deiner smarten Nachsorge! ähnelt.
+        /// </summary>
+        public static string MainMenuWelcome {
+            get {
+                return ResourceManager.GetString("MainMenuWelcome", resourceCulture);
             }
         }
     }

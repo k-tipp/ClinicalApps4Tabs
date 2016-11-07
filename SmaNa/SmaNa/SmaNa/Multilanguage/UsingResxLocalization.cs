@@ -11,7 +11,7 @@ namespace SmaNa.Multilanguage
     [ContentProperty("Text")]
     public class TranslateExtension : IMarkupExtension
     {
-        readonly CultureInfo ci;
+        CultureInfo ci;
         const string ResourceId = "SmaNa.Multilanguage.AppResources";
 
         public TranslateExtension()

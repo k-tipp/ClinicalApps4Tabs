@@ -22,7 +22,7 @@ namespace SmaNa
                 DependencyService.Get<ILocalize>().SetLocale(ci); // set the Thread for locale-aware methods
             }
 
-            MainPage = new GUI.MainMenu();
+            MainPage = new NavigationPage(new GUI.MainMenu());
 
         }
 
