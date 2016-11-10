@@ -17,9 +17,9 @@ namespace SmaNa.Droid.Multilanguage
         }
         public CultureInfo GetCurrentCultureInfo()
         {
-            var netLanguage = "de-CH";
-            var androidLocale = Java.Util.Locale.Default;
-            netLanguage = AndroidToDotnetLanguage(androidLocale.ToString().Replace("_", "-"));
+            var netLanguage = "fr-CH";
+            //var androidLocale = Java.Util.Locale.Default;
+            //netLanguage = AndroidToDotnetLanguage(androidLocale.ToString().Replace("_", "-"));
             // this gets called a lot - try/catch can be expensive so consider caching or something
             System.Globalization.CultureInfo ci = null;
             try

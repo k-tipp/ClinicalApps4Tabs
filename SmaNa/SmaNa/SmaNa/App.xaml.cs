@@ -5,7 +5,7 @@ using System.Text;
 
 using SmaNa.Multilanguage;
 using Xamarin.Forms;
-
+using System.Globalization;
 
 namespace SmaNa
 {

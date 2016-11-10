@@ -1,5 +1,7 @@
-﻿using System;
+﻿using SmaNa.Multilanguage;
+using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,7 +28,11 @@ namespace SmaNa.GUI
         }
         async void OnOperationClicked(object sender, EventArgs e)
         {
+            CultureInfo ci = new CultureInfo("fr-CH");
+            DependencyService.Get<ILocalize>().SetLocale(ci);
+            AppResources.Culture = ci;
             await Navigation.PushAsync(new Operation());
+
         }
     }
 }
