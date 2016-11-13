@@ -18,6 +18,8 @@ namespace SmaNa.Droid
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
             LoadApplication(new App());
+            var x = typeof(Xamarin.Forms.Themes.LightThemeResources);
+            ActionBar.SetIcon(Android.Resource.Color.Transparent);
         }
     }
 }

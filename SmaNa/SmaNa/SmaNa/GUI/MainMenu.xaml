@@ -4,9 +4,9 @@
              x:Class="SmaNa.GUI.MainMenu"
              xmlns:i18n="clr-namespace:SmaNa.Multilanguage;assembly=SmaNa">
   <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
-    <Label Text="{i18n:Translate MainMenuWelcome}" VerticalOptions="Center" HorizontalOptions="Center" />
-    <Button Text ="{i18n:Translate MainMenuAppointments}" Clicked="OnAppointmentsClicked" VerticalOptions="Center" HorizontalOptions="Center" />
-    <Button Text ="{i18n:Translate MainMenuOperation}" Clicked="OnOperationClicked" VerticalOptions="Center" HorizontalOptions="Center" />
-    <Button Text ="{i18n:Translate MainMenuSettings}" Clicked="OnSettingsClicked" VerticalOptions="Center" HorizontalOptions="Center" />
+    <Label Text="{i18n:Translate MainMenuWelcome}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="Black"/>
+    <Button Text ="{i18n:Translate MainMenuAppointments}" Clicked="OnAppointmentsClicked" />
+    <Button Text ="{i18n:Translate MainMenuOperation}" Clicked="OnOperationClicked"  />
+    <Button Text ="{i18n:Translate MainMenuSettings}" Clicked="OnSettingsClicked" />
   </StackLayout>
 </ContentPage>

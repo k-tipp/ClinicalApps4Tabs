@@ -13,6 +13,7 @@ namespace SmaNa.GUI
         public Operation()
         {
             InitializeComponent();
+            NavigationPage.SetBackButtonTitle(this, "Hauptmenu");
         }
     }
 }
