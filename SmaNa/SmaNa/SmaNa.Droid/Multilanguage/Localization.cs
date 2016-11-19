@@ -4,7 +4,11 @@ using System.Threading;
 using SmaNa.Multilanguage;
 
 [assembly: Dependency(typeof(SmaNa.Droid.Multilanguage.Localize))]
-
+/// <summary>
+/// @created: Marwin Philips
+/// See important comment on source in ILocalize!
+/// Android-Specific implementation to get the netLanguage of the System which is the base of the multilanguage ability.
+/// </summary>
 namespace SmaNa.Droid.Multilanguage
 {
 
@@ -17,6 +21,7 @@ namespace SmaNa.Droid.Multilanguage
         }
         public CultureInfo GetCurrentCultureInfo()
         {
+            // currently hard-coded german language
             var netLanguage = "de-CH";
             //var androidLocale = Java.Util.Locale.Default;
             //netLanguage = AndroidToDotnetLanguage(androidLocale.ToString().Replace("_", "-"));

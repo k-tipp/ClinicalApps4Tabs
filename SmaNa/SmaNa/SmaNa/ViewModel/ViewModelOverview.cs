@@ -5,7 +5,10 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+/// <summary>
+/// @created: Marwin Philips
+/// ViewModel for the AppointmentOverview which contains a list of all Appointments.
+/// </summary>
 namespace SmaNa.ViewModel
 {
     class ViewModelOverview
@@ -13,6 +16,7 @@ namespace SmaNa.ViewModel
         public ObservableCollection<Appointment> Appointments { get; set; }
         public ViewModelOverview()
         {
+            // Currently we load all Data from this static list.
             Appointments = new ObservableCollection<Appointment>()
             {
                 new Appointment() {

@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+/*
+@created: Marwin Philips
+POCO to store the information needed to modify an Appointment. 
+*/
 namespace SmaNa.Model
 {
     class Appointment
