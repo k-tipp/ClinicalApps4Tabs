@@ -11,9 +11,9 @@ namespace SmaNa.Multilanguage
     [ContentProperty("Text")]
     public class TranslateExtension : IMarkupExtension
     {
-        CultureInfo ci;
+        private static CultureInfo ci;
         const string ResourceId = "SmaNa.Multilanguage.AppResources";
-
+        public static ResourceManager resManager { get; set; }
         public TranslateExtension()
         {
             if (Device.OS == TargetPlatform.iOS || Device.OS == TargetPlatform.Android)
@@ -21,18 +21,22 @@ namespace SmaNa.Multilanguage
                 ci = DependencyService.Get<ILocalize>().GetCurrentCultureInfo();
             }
         }
-
+        public static String getString(String textName)
+        {
+            return resManager.GetString(textName, ci);
+        }
         public string Text { get; set; }
 
         public object ProvideValue(IServiceProvider serviceProvider)
         {
             if (Text == null)
                 return "";
-
-            ResourceManager resmgr = new ResourceManager(ResourceId
-                                , typeof(TranslateExtension).GetTypeInfo().Assembly);
-
-            var translation = resmgr.GetString(Text, ci);
+            if (resManager == null)
+            {
+                resManager = new ResourceManager(ResourceId
+                                   , typeof(TranslateExtension).GetTypeInfo().Assembly);
+            }
+            var translation = resManager.GetString(Text, ci);
 
             if (translation == null)
             {

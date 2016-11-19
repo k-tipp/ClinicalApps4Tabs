@@ -62,6 +62,15 @@ namespace SmaNa.Multilanguage {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Neuen Termin erfassen ähnelt.
+        /// </summary>
+        public static string addNewAppointment {
+            get {
+                return ResourceManager.GetString("addNewAppointment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Meine Termine ähnelt.
         /// </summary>
         public static string MainMenuAppointments {

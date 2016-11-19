@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 
-namespace SmaNa.GUI
+namespace SmaNa.View
 {
-    public partial class AppointmentEdit : ContentPage
+    public partial class Operation : ContentPage
     {
-        public AppointmentEdit()
+        public Operation()
         {
             InitializeComponent();
+            NavigationPage.SetBackButtonTitle(this, "Hauptmenu");
         }
     }
 }

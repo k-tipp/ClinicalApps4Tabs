@@ -164,7 +164,10 @@
     <Content Include="Properties\AndroidManifest.xml">
       <SubType>Designer</SubType>
     </Content>
-    <AndroidResource Include="Resources\drawable\Logo.png" />
+    <AndroidResource Include="Resources\drawable\logo.png" />
+    <AndroidResource Include="Resources\drawable\surgeon.png" />
+    <AndroidResource Include="Resources\drawable\gears.png" />
+    <AndroidResource Include="Resources\drawable\calendar.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SmaNa\SmaNa.csproj">

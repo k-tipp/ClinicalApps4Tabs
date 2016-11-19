@@ -21,7 +21,7 @@ namespace SmaNa
                 SmaNa.Multilanguage.AppResources.Culture = ci; // set the RESX for resource localization
                 DependencyService.Get<ILocalize>().SetLocale(ci); // set the Thread for locale-aware methods
             }
-            var navPage = new NavigationPage(new GUI.MainMenu());
+            var navPage = new NavigationPage(new View.MainMenu());
             MainPage = navPage;
 
         }

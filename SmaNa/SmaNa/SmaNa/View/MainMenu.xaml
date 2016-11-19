@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SmaNa.View.MainMenu"
+             xmlns:i18n="clr-namespace:SmaNa.Multilanguage;assembly=SmaNa">
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="10*" />
+      <RowDefinition Height="29*" />
+      <RowDefinition Height="29*" />
+      <RowDefinition Height="29*" />
+    </Grid.RowDefinitions>
+    <Label Grid.Row="0" Text="{i18n:Translate MainMenuWelcome}" VerticalOptions="Fill" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="Black"/>
+    <Button Grid.Row="1" Text ="{i18n:Translate MainMenuAppointments}" VerticalOptions="Fill" Image="calendar.png" ContentLayout="Top,0" Clicked="OnAppointmentsClicked" />
+    <Button Grid.Row="2" Text ="{i18n:Translate MainMenuOperation}" VerticalOptions="Fill" Image="surgeon.png" ContentLayout="Top,0" Clicked="OnOperationClicked"  />
+    <Button Grid.Row="3" Text ="{i18n:Translate MainMenuSettings}" VerticalOptions="Fill" Image="gears.png" ContentLayout="Top,0"  Clicked="OnSettingsClicked" />
+  </Grid>
+</ContentPage>

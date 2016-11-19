@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 
-namespace SmaNa.GUI
+namespace SmaNa.View
 {
-    public partial class AppointmentOverview : ContentPage
+    public partial class Settings : ContentPage
     {
-        public AppointmentOverview()
+        public Settings()
         {
             InitializeComponent();
         }

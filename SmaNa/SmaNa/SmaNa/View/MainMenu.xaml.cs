@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 
-namespace SmaNa.GUI
+namespace SmaNa.View
 {
     public partial class MainMenu : ContentPage
     {

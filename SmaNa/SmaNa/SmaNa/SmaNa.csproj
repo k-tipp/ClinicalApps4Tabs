@@ -38,19 +38,21 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GUI\AppointmentEdit.xaml.cs">
+    <Compile Include="Model\Appointment.cs" />
+    <Compile Include="ViewModel\ViewModelOverview.cs" />
+    <Compile Include="View\AppointmentEdit.xaml.cs">
       <DependentUpon>AppointmentEdit.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GUI\AppointmentOverview.xaml.cs">
+    <Compile Include="View\AppointmentOverview.xaml.cs">
       <DependentUpon>AppointmentOverview.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GUI\MainMenu.xaml.cs">
+    <Compile Include="View\MainMenu.xaml.cs">
       <DependentUpon>MainMenu.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Operation.xaml.cs">
+    <Compile Include="View\Operation.xaml.cs">
       <DependentUpon>Operation.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Settings.xaml.cs">
+    <Compile Include="View\Settings.xaml.cs">
       <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
     <Compile Include="Multilanguage\AppResources.Designer.cs">
@@ -64,7 +66,7 @@
       <DependentUpon>AppResources.fr-CH.resx</DependentUpon>
     </Compile>
     <Compile Include="Multilanguage\ILocalize.cs" />
-    <Compile Include="Multilanguage\UsingResxLocalization.cs" />
+    <Compile Include="Multilanguage\TranslateExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -118,31 +120,31 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="GUI\MainMenu.xaml">
+    <EmbeddedResource Include="View\MainMenu.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="GUI\Settings.xaml">
+    <EmbeddedResource Include="View\Settings.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="GUI\AppointmentOverview.xaml">
+    <EmbeddedResource Include="View\AppointmentOverview.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="GUI\AppointmentEdit.xaml">
+    <EmbeddedResource Include="View\AppointmentEdit.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="GUI\Operation.xaml">
+    <EmbeddedResource Include="View\Operation.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -150,6 +152,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.2.3.2.127\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.3.2.127\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
