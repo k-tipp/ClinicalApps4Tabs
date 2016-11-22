@@ -62,11 +62,29 @@ namespace SmaNa.Multilanguage {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Termin hinzufügen ähnelt.
+        /// </summary>
+        public static string addAppointment {
+            get {
+                return ResourceManager.GetString("addAppointment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Neuen Termin erfassen ähnelt.
         /// </summary>
         public static string addNewAppointment {
             get {
                 return ResourceManager.GetString("addNewAppointment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Terminname ähnelt.
+        /// </summary>
+        public static string EditTerminName {
+            get {
+                return ResourceManager.GetString("EditTerminName", resourceCulture);
             }
         }
         
@@ -103,6 +121,15 @@ namespace SmaNa.Multilanguage {
         public static string MainMenuWelcome {
             get {
                 return ResourceManager.GetString("MainMenuWelcome", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Termin speichern ähnelt.
+        /// </summary>
+        public static string saveAppointment {
+            get {
+                return ResourceManager.GetString("saveAppointment", resourceCulture);
             }
         }
     }

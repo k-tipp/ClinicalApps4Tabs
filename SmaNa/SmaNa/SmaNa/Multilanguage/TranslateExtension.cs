@@ -7,6 +7,10 @@ using Xamarin.Forms.Xaml;
 
 namespace SmaNa.Multilanguage
 {
+    /// <summary>
+    /// downloaded and modified from https://github.com/xamarin/xamarin-forms-samples/blob/master/UsingResxLocalization/UsingResxLocalization/ILocalize.cs 
+    /// @created Marwin
+    /// </summary>
     // You exclude the 'Extension' suffix when using in Xaml markup
     [ContentProperty("Text")]
     public class TranslateExtension : IMarkupExtension

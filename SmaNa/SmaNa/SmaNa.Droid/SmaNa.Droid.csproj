@@ -166,8 +166,8 @@
     </Content>
     <AndroidResource Include="Resources\drawable\logo.png" />
     <AndroidResource Include="Resources\drawable\surgeon.png" />
-    <AndroidResource Include="Resources\drawable\gears.png" />
     <AndroidResource Include="Resources\drawable\calendar.png" />
+    <AndroidResource Include="Resources\drawable\gears.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SmaNa\SmaNa.csproj">

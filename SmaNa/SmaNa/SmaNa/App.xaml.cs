@@ -15,6 +15,7 @@ namespace SmaNa
 {
     public partial class App : Application
     {
+        public static App CurrentApp { private set; get; }
         public App()
         {
             InitializeComponent();
@@ -35,6 +36,8 @@ namespace SmaNa
 
         protected override void OnStart()
         {
+
+            CurrentApp = this;
             // Handle when your app starts
         }
 

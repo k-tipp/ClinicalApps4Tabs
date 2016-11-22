@@ -9,7 +9,7 @@ POCO to store the information needed to modify an Appointment.
 */
 namespace SmaNa.Model
 {
-    class Appointment
+    public class Appointment
     {
         public String Name { get; set; }
         public String Doctor { get; set; }

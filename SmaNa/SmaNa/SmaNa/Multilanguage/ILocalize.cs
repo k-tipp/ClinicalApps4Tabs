@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Globalization;
-// https://github.com/xamarin/xamarin-forms-samples/blob/master/UsingResxLocalization/UsingResxLocalization/ILocalize.cs 
+// @created: Marwin Philips
+// downloaded and modified from https://github.com/xamarin/xamarin-forms-samples/blob/master/UsingResxLocalization/UsingResxLocalization/ILocalize.cs 
 namespace SmaNa.Multilanguage
 {
     /// <summary>

@@ -39,6 +39,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\Appointment.cs" />
+    <Compile Include="ViewModel\ViewModelAppointmentEdit.cs" />
     <Compile Include="ViewModel\ViewModelOverview.cs" />
     <Compile Include="View\AppointmentEdit.xaml.cs">
       <DependentUpon>AppointmentEdit.xaml</DependentUpon>

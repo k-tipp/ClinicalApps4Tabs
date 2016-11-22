@@ -117,8 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="addAppointment" xml:space="preserve">
+    <value>Termin hinzufügen</value>
+  </data>
   <data name="addNewAppointment" xml:space="preserve">
     <value>Neuen Termin erfassen</value>
+  </data>
+  <data name="EditTerminName" xml:space="preserve">
+    <value>Terminname</value>
   </data>
   <data name="MainMenuAppointments" xml:space="preserve">
     <value>Meine Termine</value>
@@ -131,5 +137,8 @@
   </data>
   <data name="MainMenuWelcome" xml:space="preserve">
     <value>Willkommen bei deiner smarten Nachsorge!</value>
+  </data>
+  <data name="saveAppointment" xml:space="preserve">
+    <value>Termin speichern</value>
   </data>
 </root>

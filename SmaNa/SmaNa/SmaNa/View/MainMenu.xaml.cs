@@ -10,6 +10,9 @@ using Xamarin.Forms;
 
 namespace SmaNa.View
 {
+    /// <summary>
+    /// Main Page for the application which provides the 3 Navigation Actions to Appointments, Operation and Settings.
+    /// </summary>
     public partial class MainMenu : ContentPage
     {
         public MainMenu()
@@ -28,9 +31,6 @@ namespace SmaNa.View
         }
         async void OnOperationClicked(object sender, EventArgs e)
         {
-            CultureInfo ci = new CultureInfo("fr-CH");
-            DependencyService.Get<ILocalize>().SetLocale(ci);
-            AppResources.Culture = ci;
             await Navigation.PushAsync(new Operation());
 
         }

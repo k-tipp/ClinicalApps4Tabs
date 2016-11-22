@@ -3,16 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SmaNa.View.AppointmentOverview"
              xmlns:i18n="clr-namespace:SmaNa.Multilanguage;assembly=SmaNa">
-  <ListView x:Name ="AppointmentList" >
+  <ListView x:Name ="AppointmentList" ItemSelected="OnAppointmentSelected" RowHeight="60">
     <ListView.ItemTemplate>
       <DataTemplate>
         <ViewCell>
           <StackLayout Orientation="Vertical">
-            <Label Text="{Binding GuiFirstLine}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
-            TextColor="Black" />
-            <Label Text="{Binding GuiSecondLine}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
-            HorizontalOptions="EndAndExpand"
-            TextColor="Black" />
+            <Label Text="{Binding GuiFirstLine}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="Black" />
+            <Label Text="{Binding GuiSecondLine}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="Black" />
           </StackLayout>
         </ViewCell>
       </DataTemplate>

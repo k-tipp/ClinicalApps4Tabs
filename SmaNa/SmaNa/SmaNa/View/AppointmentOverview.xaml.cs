@@ -1,6 +1,8 @@
-﻿using SmaNa.ViewModel;
+﻿using SmaNa.Model;
+using SmaNa.ViewModel;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,11 +25,40 @@ namespace SmaNa.View
         public AppointmentOverview()
         {
             InitializeComponent();
+
             viewModel = new ViewModelOverview();
+
             // Item-Binding in Code, all Appointments in the List are Displayed in the GUI.
-            AppointmentList.ItemsSource = viewModel.Appointments;
+            AppointmentList.ItemsSource = ViewModelOverview.Appointments;
+
             //Displays a button in the navbar to add a new Appointment
-            ToolbarItems.Add(new ToolbarItem(Multilanguage.TranslateExtension.getString("addNewAppointment"), "", async () => await Navigation.PushAsync(new AppointmentEdit())));
+            ToolbarItems.Add(new ToolbarItem(Multilanguage.TranslateExtension.getString("addNewAppointment"), "", async () =>
+            {
+                var edit = new AppointmentEdit(OnClose);
+                await Navigation.PushAsync(edit);
+            }));
+        }
+
+        /// <summary>
+        /// This method is delegated to the AppointmentEditView and will be called on its OnClose-Event.
+        /// </summary>
+        /// <returns>Always an empty string.</returns>
+        public string OnClose()
+        {
+            AppointmentList.ItemsSource = ViewModelOverview.Appointments;
+            return "";
+        }
+
+        public async void OnAppointmentSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            // the event is fired when you select and deselct an item. Because the edit menu only opens when we select the item we return here.
+            if (e.SelectedItem == null)
+            {
+                return;
+            }
+
+            await Navigation.PushAsync(new AppointmentEdit(OnClose,(Appointment)e.SelectedItem));
+            AppointmentList.SelectedItem = null;
         }
     }
 }
