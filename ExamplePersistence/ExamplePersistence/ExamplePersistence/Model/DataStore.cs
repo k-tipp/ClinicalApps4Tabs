@@ -3,6 +3,7 @@ using SmaNa.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -22,9 +23,9 @@ namespace ExamplePersistence.Model
             appointments.Add(appointment);
         }
 
-        public void save()
+        public void save(TripleDESCryptoServiceProvider tDESkey, string path)
         {
-            DataPersister.serialize(this);
+            DataPersister.serialize(this, tDESkey, path);
         }
     }
 }
