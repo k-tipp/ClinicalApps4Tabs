@@ -12,7 +12,7 @@ namespace ExamplePersistence
 {
     class Program
     {
-        static string path = @"C:\Users\kevin\Desktop\xml\Xml.xml";
+        static string path = @"C:\temp\dataStore.xml";// @"C:\Users\kevin\Desktop\xml\Xml.xml";
         static void Main(string[] args)
         {
             Console.WriteLine("Starting...");

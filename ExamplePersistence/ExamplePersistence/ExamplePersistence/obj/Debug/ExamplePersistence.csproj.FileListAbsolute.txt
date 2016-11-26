@@ -1,0 +1,6 @@
+C:\VisualStudioProjects\ClinicalApps4Tabs\ExamplePersistence\ExamplePersistence\ExamplePersistence\bin\Debug\ExamplePersistence.exe.config
+C:\VisualStudioProjects\ClinicalApps4Tabs\ExamplePersistence\ExamplePersistence\ExamplePersistence\bin\Debug\ExamplePersistence.exe
+C:\VisualStudioProjects\ClinicalApps4Tabs\ExamplePersistence\ExamplePersistence\ExamplePersistence\bin\Debug\ExamplePersistence.pdb
+C:\VisualStudioProjects\ClinicalApps4Tabs\ExamplePersistence\ExamplePersistence\ExamplePersistence\obj\Debug\ExamplePersistence.csprojResolveAssemblyReference.cache
+C:\VisualStudioProjects\ClinicalApps4Tabs\ExamplePersistence\ExamplePersistence\ExamplePersistence\obj\Debug\ExamplePersistence.exe
+C:\VisualStudioProjects\ClinicalApps4Tabs\ExamplePersistence\ExamplePersistence\ExamplePersistence\obj\Debug\ExamplePersistence.pdb

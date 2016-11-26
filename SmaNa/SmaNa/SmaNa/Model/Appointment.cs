@@ -11,14 +11,16 @@ namespace SmaNa.Model
 {
     public class Appointment
     {
-        public String Name { get; set; }
-        public String Doctor { get; set; }
-        public String Location { get; set; }
+        public string Name { get; set; }
+        public string Doctor { get; set; }
+        public string Location { get; set; }
         public bool AppointmentFixed { get; set; }
         public bool AppointmentDone { get; set; }
+        public bool AppointmentReminder { get; set; }
         public DateTime AppointmentDate { get; set; }
 
-        public String GuiFirstLine { get { return Name + " (" + AppointmentDate.ToString("dd.MM.yyyy") + ")"; } }
-        public String GuiSecondLine { get { return Doctor + ", " + Location; } }
+        public DateTime AppointmentPeriode { get; set; }
+        public string GuiFirstLine { get { return Name + " (" + AppointmentDate.ToString("dd.MM.yyyy") + ")"; } }
+        public string GuiSecondLine { get { return Doctor + ", " + Location; } }
     }
 }

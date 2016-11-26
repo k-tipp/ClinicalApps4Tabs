@@ -141,4 +141,25 @@
   <data name="saveAppointment" xml:space="preserve">
     <value>Termin speichern</value>
   </data>
+  <data name="EditTerminDate" xml:space="preserve">
+    <value>Termin</value>
+  </data>
+  <data name="EditTerminPeriode" xml:space="preserve">
+    <value>Terminperiode</value>
+  </data>
+  <data name="EditTerminDoctor" xml:space="preserve">
+    <value>Durchführender Arzt</value>
+  </data>
+  <data name="EditTerminDone" xml:space="preserve">
+    <value>Termin durchgeführt</value>
+  </data>
+  <data name="EditTerminFixed" xml:space="preserve">
+    <value>Termin abgemacht</value>
+  </data>
+  <data name="EditTerminLocation" xml:space="preserve">
+    <value>Ort</value>
+  </data>
+  <data name="EditTerminRemind" xml:space="preserve">
+    <value>Erinnern</value>
+  </data>
 </root>

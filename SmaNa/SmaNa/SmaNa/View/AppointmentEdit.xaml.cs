@@ -34,7 +34,15 @@ namespace SmaNa.View
             
             ViewModel = new ViewModelAppointmentEdit(Appointment);
             // set all the Attributes of an Appointment
+            AppointmentTitle.Text = Appointment.Name;
             AppointmentName.Text = Appointment.Name;
+            AppointmentPeriode.Date = Appointment.AppointmentPeriode;
+            AppointmentDate.Date = Appointment.AppointmentDate;
+            AppointmentDoctor.Text = Appointment.Doctor;
+            AppointmentLocation.Text = Appointment.Location;
+            AppointmentFixed.IsToggled = Appointment.AppointmentFixed;
+            AppointmentReminder.IsToggled = Appointment.AppointmentReminder;
+            AppointmentDone.IsToggled = Appointment.AppointmentDone;
             addToolbarItems();
         }
         /// <summary>

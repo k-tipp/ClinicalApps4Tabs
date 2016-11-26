@@ -35,6 +35,8 @@ namespace SmaNa.ViewModel
             Appointment inList = ViewModelOverview.Appointments.FirstOrDefault(x => x.Equals(Appointment));
             if(inList != null)
             {
+                ViewModelOverview.Appointments.Remove(inList);
+                ViewModelOverview.Appointments.Add(inList);
             }
             else
             {

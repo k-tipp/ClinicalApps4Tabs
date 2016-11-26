@@ -27,6 +27,8 @@ namespace SmaNa.Droid
 		public static void UpdateIdValues()
 		{
 			global::ModernHttpClient.Resource.String.library_name = global::SmaNa.Droid.Resource.String.library_name;
+			global::PCLCrypto.Resource.String.ApplicationName = global::SmaNa.Droid.Resource.String.ApplicationName;
+			global::PCLCrypto.Resource.String.Hello = global::SmaNa.Droid.Resource.String.Hello;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::SmaNa.Droid.Resource.Attribute.actionBarSize;
 		}
 		

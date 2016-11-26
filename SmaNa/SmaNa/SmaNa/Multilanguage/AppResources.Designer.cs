@@ -80,11 +80,74 @@ namespace SmaNa.Multilanguage {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Termin ähnelt.
+        /// </summary>
+        public static string EditTerminDate {
+            get {
+                return ResourceManager.GetString("EditTerminDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Durchführender Arzt ähnelt.
+        /// </summary>
+        public static string EditTerminDoctor {
+            get {
+                return ResourceManager.GetString("EditTerminDoctor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Termin durchgeführt ähnelt.
+        /// </summary>
+        public static string EditTerminDone {
+            get {
+                return ResourceManager.GetString("EditTerminDone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Termin abgemacht ähnelt.
+        /// </summary>
+        public static string EditTerminFixed {
+            get {
+                return ResourceManager.GetString("EditTerminFixed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Ort ähnelt.
+        /// </summary>
+        public static string EditTerminLocation {
+            get {
+                return ResourceManager.GetString("EditTerminLocation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Terminname ähnelt.
         /// </summary>
         public static string EditTerminName {
             get {
                 return ResourceManager.GetString("EditTerminName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Terminperiode ähnelt.
+        /// </summary>
+        public static string EditTerminPeriode {
+            get {
+                return ResourceManager.GetString("EditTerminPeriode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Erinnern ähnelt.
+        /// </summary>
+        public static string EditTerminRemind {
+            get {
+                return ResourceManager.GetString("EditTerminRemind", resourceCulture);
             }
         }
         

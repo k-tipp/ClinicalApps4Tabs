@@ -6,6 +6,7 @@ using System.Text;
 using SmaNa.Multilanguage;
 using Xamarin.Forms;
 using System.Globalization;
+using SmaNa.LocalDataAccess;
 
 /// <summary>
 /// @created: Marwin Philips
@@ -15,7 +16,9 @@ namespace SmaNa
 {
     public partial class App : Application
     {
-        public static App CurrentApp { private set; get; }
+        public static IFileManager FileManager { private set; get; }
+        public static Encrypter Encrypter { private set; get; }
+
         public App()
         {
             InitializeComponent();
@@ -27,6 +30,12 @@ namespace SmaNa
                 var ci = DependencyService.Get<ILocalize>().GetCurrentCultureInfo();
                 SmaNa.Multilanguage.AppResources.Culture = ci; // set the RESX for resource localization
                 DependencyService.Get<ILocalize>().SetLocale(ci); // set the Thread for locale-aware methods
+
+                // Load the FileAcces for secure Data Storage
+                FileManager = DependencyService.Get<IFileManager>();
+                // ToDo: Load key from local Key Store!
+                string key = "testpassword";
+                Encrypter = new Encrypter(key);
             }
             // Main Navigation for the whole app which works with a NavigationStack.
             var navPage = new NavigationPage(new View.MainMenu());
@@ -36,8 +45,6 @@ namespace SmaNa
 
         protected override void OnStart()
         {
-
-            CurrentApp = this;
             // Handle when your app starts
         }
 

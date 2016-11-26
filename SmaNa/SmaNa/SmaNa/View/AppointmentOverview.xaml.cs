@@ -45,7 +45,7 @@ namespace SmaNa.View
         /// <returns>Always an empty string.</returns>
         public string OnClose()
         {
-            AppointmentList.ItemsSource = ViewModelOverview.Appointments;
+            //AppointmentList.ItemsSource = ViewModelOverview.Appointments;
             return "";
         }
 
