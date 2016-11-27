@@ -31,7 +31,7 @@ namespace SmaNa.Droid.Multilanguage
             {
                 ci = new System.Globalization.CultureInfo(netLanguage);
             }
-            catch (CultureNotFoundException e1)
+            catch
             {
                 // iOS locale not valid .NET culture (eg. "en-ES" : English in Spain)
                 // fallback to first characters, in this case "en"
@@ -40,10 +40,10 @@ namespace SmaNa.Droid.Multilanguage
                     var fallback = ToDotnetFallbackLanguage(new PlatformCulture(netLanguage));
                     ci = new System.Globalization.CultureInfo(fallback);
                 }
-                catch (CultureNotFoundException e2)
+                catch
                 {
-                    // iOS language not valid .NET culture, falling back to English
-                    ci = new System.Globalization.CultureInfo("en");
+                    // iOS language not valid .NET culture, falling back to German
+                    ci = new System.Globalization.CultureInfo("de-CH");
                 }
             }
             return ci;

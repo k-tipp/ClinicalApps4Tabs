@@ -80,6 +80,15 @@ namespace SmaNa.Multilanguage {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Colonkarzinom ähnelt.
+        /// </summary>
+        public static string Colonkarzinom {
+            get {
+                return ResourceManager.GetString("Colonkarzinom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Termin ähnelt.
         /// </summary>
         public static string EditTerminDate {
@@ -188,11 +197,74 @@ namespace SmaNa.Multilanguage {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Rektumkarzinom ähnelt.
+        /// </summary>
+        public static string Rektumkarzinom {
+            get {
+                return ResourceManager.GetString("Rektumkarzinom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Termin speichern ähnelt.
         /// </summary>
         public static string saveAppointment {
             get {
                 return ResourceManager.GetString("saveAppointment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Einstellungen speichern ähnelt.
+        /// </summary>
+        public static string SaveSettings {
+            get {
+                return ResourceManager.GetString("SaveSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Karzinomart ähnelt.
+        /// </summary>
+        public static string SettingsCarcinomType {
+            get {
+                return ResourceManager.GetString("SettingsCarcinomType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Sprache ähnelt.
+        /// </summary>
+        public static string SettingsLanguage {
+            get {
+                return ResourceManager.GetString("SettingsLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die OP-Datum ähnelt.
+        /// </summary>
+        public static string SettingsOPDate {
+            get {
+                return ResourceManager.GetString("SettingsOPDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Volles Stageing ähnelt.
+        /// </summary>
+        public static string SettingsStageingComplete {
+            get {
+                return ResourceManager.GetString("SettingsStageingComplete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die TNM ähnelt.
+        /// </summary>
+        public static string SettingsTNM {
+            get {
+                return ResourceManager.GetString("SettingsTNM", resourceCulture);
             }
         }
     }

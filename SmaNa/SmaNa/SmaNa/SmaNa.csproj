@@ -42,9 +42,11 @@
     <Compile Include="LocalDataAccess\IFileManager.cs" />
     <Compile Include="LocalDataAccess\XMLAccess.cs" />
     <Compile Include="Model\Appointment.cs" />
+    <Compile Include="Model\Enumerations.cs" />
     <Compile Include="Model\Settings.cs" />
     <Compile Include="ViewModel\ViewModelAppointmentEdit.cs" />
     <Compile Include="ViewModel\ViewModelOverview.cs" />
+    <Compile Include="ViewModel\ViewModelSettings.cs" />
     <Compile Include="View\AppointmentEdit.xaml.cs">
       <DependentUpon>AppointmentEdit.xaml</DependentUpon>
     </Compile>
@@ -78,10 +80,12 @@
     <EmbeddedResource Include="Multilanguage\AppResources.fr-CH.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>AppResources.fr-CH.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Multilanguage\AppResources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

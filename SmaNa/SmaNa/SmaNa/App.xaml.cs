@@ -7,6 +7,8 @@ using SmaNa.Multilanguage;
 using Xamarin.Forms;
 using System.Globalization;
 using SmaNa.LocalDataAccess;
+using SmaNa.Model;
+using System.Collections.ObjectModel;
 
 /// <summary>
 /// @created: Marwin Philips
@@ -18,29 +20,38 @@ namespace SmaNa
     {
         public static IFileManager FileManager { private set; get; }
         public static Encrypter Encrypter { private set; get; }
+        public static ViewModel.ViewModelSettings ViewModelSettings { private set; get; }
+        public static App currentApp;
 
         public App()
         {
+            currentApp = this;
             InitializeComponent();
-            // See ILocalize for specific source
-            // Access the platformdependant resources over the ILocalize-Interface to get the right cultureInformation
-            if (Device.OS == TargetPlatform.iOS || Device.OS == TargetPlatform.Android)
-            {
-                // determine the correct, supported .NET culture
-                var ci = DependencyService.Get<ILocalize>().GetCurrentCultureInfo();
-                SmaNa.Multilanguage.AppResources.Culture = ci; // set the RESX for resource localization
-                DependencyService.Get<ILocalize>().SetLocale(ci); // set the Thread for locale-aware methods
 
-                // Load the FileAcces for secure Data Storage
-                FileManager = DependencyService.Get<IFileManager>();
-                // ToDo: Load key from local Key Store!
-                string key = "testpassword";
-                Encrypter = new Encrypter(key);
-            }
+            // Load the FileAcces for secure Data Storage
+            FileManager = DependencyService.Get<IFileManager>();
+            // ToDo: Load key from local Key Store!
+            string key = "testpassword";
+            Encrypter = new Encrypter(key);
+            ViewModelSettings = new ViewModel.ViewModelSettings();
+
             // Main Navigation for the whole app which works with a NavigationStack.
-            var navPage = new NavigationPage(new View.MainMenu());
-            MainPage = navPage;
+            if (ViewModelSettings.newSettings)
+            {
+                ((NavigationPage)MainPage).PushAsync(new View.Settings());
+            }
+        }
 
+        /// <summary>
+        /// Sets the Apps culture to ci
+        /// </summary>
+        /// <param name="ci"></param>
+        public static void SetCulture(CultureInfo ci)
+        {
+            SmaNa.Multilanguage.AppResources.Culture = ci; // set the RESX for resource localization
+            DependencyService.Get<ILocalize>().SetLocale(ci); // set the Thread for locale-aware method
+            TranslateExtension.ci = ci;
+            currentApp.MainPage = new NavigationPage(new View.MainMenu());
         }
 
         protected override void OnStart()

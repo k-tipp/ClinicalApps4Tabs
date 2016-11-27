@@ -34,19 +34,9 @@ namespace SmaNa.View
             //Displays a button in the navbar to add a new Appointment
             ToolbarItems.Add(new ToolbarItem(Multilanguage.TranslateExtension.getString("addNewAppointment"), "", async () =>
             {
-                var edit = new AppointmentEdit(OnClose);
+                var edit = new AppointmentEdit();
                 await Navigation.PushAsync(edit);
             }));
-        }
-
-        /// <summary>
-        /// This method is delegated to the AppointmentEditView and will be called on its OnClose-Event.
-        /// </summary>
-        /// <returns>Always an empty string.</returns>
-        public string OnClose()
-        {
-            //AppointmentList.ItemsSource = ViewModelOverview.Appointments;
-            return "";
         }
 
         public async void OnAppointmentSelected(object sender, SelectedItemChangedEventArgs e)
@@ -57,7 +47,7 @@ namespace SmaNa.View
                 return;
             }
 
-            await Navigation.PushAsync(new AppointmentEdit(OnClose,(Appointment)e.SelectedItem));
+            await Navigation.PushAsync(new AppointmentEdit((Appointment)e.SelectedItem));
             AppointmentList.SelectedItem = null;
         }
     }

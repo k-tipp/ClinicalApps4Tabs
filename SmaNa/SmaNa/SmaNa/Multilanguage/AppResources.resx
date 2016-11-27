@@ -162,4 +162,28 @@
   <data name="EditTerminRemind" xml:space="preserve">
     <value>Erinnern</value>
   </data>
+  <data name="Colonkarzinom" xml:space="preserve">
+    <value>Colonkarzinom</value>
+  </data>
+  <data name="Rektumkarzinom" xml:space="preserve">
+    <value>Rektumkarzinom</value>
+  </data>
+  <data name="SaveSettings" xml:space="preserve">
+    <value>Einstellungen speichern</value>
+  </data>
+  <data name="SettingsCarcinomType" xml:space="preserve">
+    <value>Karzinomart</value>
+  </data>
+  <data name="SettingsLanguage" xml:space="preserve">
+    <value>Sprache</value>
+  </data>
+  <data name="SettingsOPDate" xml:space="preserve">
+    <value>OP-Datum</value>
+  </data>
+  <data name="SettingsStageingComplete" xml:space="preserve">
+    <value>Volles Stageing</value>
+  </data>
+  <data name="SettingsTNM" xml:space="preserve">
+    <value>TNM</value>
+  </data>
 </root>

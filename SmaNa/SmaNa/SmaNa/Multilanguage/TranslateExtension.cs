@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SmaNa.ViewModel;
+using System;
 using System.Globalization;
 using System.Reflection;
 using System.Resources;
@@ -15,15 +16,13 @@ namespace SmaNa.Multilanguage
     [ContentProperty("Text")]
     public class TranslateExtension : IMarkupExtension
     {
-        private static CultureInfo ci;
+        public static CultureInfo ci {
+            get;
+            set; }
         const string ResourceId = "SmaNa.Multilanguage.AppResources";
         public static ResourceManager resManager { get; set; }
         public TranslateExtension()
         {
-            if (Device.OS == TargetPlatform.iOS || Device.OS == TargetPlatform.Android)
-            {
-                ci = DependencyService.Get<ILocalize>().GetCurrentCultureInfo();
-            }
         }
         public static String getString(String textName)
         {

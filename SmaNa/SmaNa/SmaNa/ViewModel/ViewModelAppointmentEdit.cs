@@ -12,7 +12,7 @@ namespace SmaNa.ViewModel
     /// </summary>
     class ViewModelAppointmentEdit
     {
-        public Appointment Appointment { get; set; }
+        public Appointment Appointment { get; private set; }
 
         /// <summary>
         /// Use this constructor to create a new Appointment
@@ -29,18 +29,41 @@ namespace SmaNa.ViewModel
         {
             this.Appointment = Appointment;
         }
+        /// <summary>
+        /// Saves the Appointment in the appointment list while holding its sorting after AppointmentDate.
+        /// </summary>
         public void Save()
         {
-            //currently we save a new Appointment in the static appointment-list.
-            Appointment inList = ViewModelOverview.Appointments.FirstOrDefault(x => x.Equals(Appointment));
-            if(inList != null)
+            //currently we save a new Appointment in the static appointment-list, which is saved by the ViewModelOverview instance.
+            var appointmentList = ViewModelOverview.Appointments;
+            var listCount = appointmentList.Count;
+            // we have to keep the appointmentList sorted after the AppointmentDate.
+            if (listCount > 0)
             {
-                ViewModelOverview.Appointments.Remove(inList);
-                ViewModelOverview.Appointments.Add(inList);
+                // first we remove it. If it was not in the list, it doesn't matter (Remove returns false instead of true)
+                appointmentList.Remove(Appointment);
+                var current = appointmentList.ElementAt(0);
+                // if the modified appointment is before the first one, we insert it right there.
+                if (current.AppointmentDate > Appointment.AppointmentDate)
+                {
+                    appointmentList.Insert(0, Appointment);
+                }
+                else {
+                    var Allbefore = appointmentList.Where(x => x.AppointmentDate < Appointment.AppointmentDate);
+                    var index = Allbefore.Count();
+                    if (index > 0) // we insert the Appointment right after the one which it's later than.
+                    {
+                        appointmentList.Insert(index, Appointment);
+                    }
+                    else // it has to be at the very end.
+                    {
+                        appointmentList.Add(Appointment);
+                    }
+                }
             }
-            else
+            else // if there is just this appointment in the list we don't have to sort.
             {
-                ViewModelOverview.Appointments.Add(Appointment);
+                appointmentList.Add(Appointment);
             }
         }
 

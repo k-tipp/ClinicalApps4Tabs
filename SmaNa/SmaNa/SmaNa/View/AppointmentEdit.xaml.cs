@@ -15,22 +15,16 @@ namespace SmaNa.View
     /// </summary>
     public partial class AppointmentEdit : ContentPage
     {
-        /// <summary>
-        /// Delegate-Function which is called when the view is closed due to save or abort action
-        /// </summary>
-        Func<string> OnClose;
 
         ViewModel.ViewModelAppointmentEdit ViewModel;
 
         /// <summary>
         /// Call this constructor when you want to edit an existing Appointment
         /// </summary>
-        /// <param name="OnClose">The function called right before this page is closed </param>
         /// <param name="Appointment">The appointment to edit</param>
-        public AppointmentEdit(Func<string> OnClose, Appointment Appointment)
+        public AppointmentEdit(Appointment Appointment)
         {
             InitializeComponent();
-            this.OnClose = OnClose;
             
             ViewModel = new ViewModelAppointmentEdit(Appointment);
             // set all the Attributes of an Appointment
@@ -48,11 +42,9 @@ namespace SmaNa.View
         /// <summary>
         /// Call this constructor when you want to create a new Appointment
         /// </summary>
-        /// <param name="Function"></param>
-        public AppointmentEdit(Func<string> OnClose)
+        public AppointmentEdit()
         {
             InitializeComponent();
-            this.OnClose = OnClose;
             ViewModel = new ViewModelAppointmentEdit();
             addToolbarItems();
         }
@@ -65,15 +57,16 @@ namespace SmaNa.View
         private void Save()
         {
             Appointment editedAppointment = ViewModel.Appointment;
+            editedAppointment.AppointmentDate = AppointmentDate.Date;
+            editedAppointment.AppointmentDone = AppointmentDone.IsToggled;
+            editedAppointment.AppointmentFixed = AppointmentFixed.IsToggled;
+            editedAppointment.AppointmentPeriode = AppointmentPeriode.Date;
+            editedAppointment.AppointmentReminder = AppointmentReminder.IsToggled;
+            editedAppointment.Doctor = AppointmentDoctor.Text;
+            editedAppointment.Location = AppointmentLocation.Text;
             editedAppointment.Name = AppointmentName.Text;
             ViewModel.Save();
-            OnClose();
             Navigation.PopAsync();
-        }
-        protected override bool OnBackButtonPressed()
-        {
-            OnClose();
-            return base.OnBackButtonPressed();
         }
     }
 }

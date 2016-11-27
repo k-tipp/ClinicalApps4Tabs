@@ -33,7 +33,6 @@ namespace SmaNa.ViewModel
         private void SaveData(object sender, NotifyCollectionChangedEventArgs e)
         {
             _xmlAccess.Save(Appointments);
-            Reload();
         }
 
         public void Reload()
@@ -41,9 +40,8 @@ namespace SmaNa.ViewModel
             ObservableCollection<Appointment> loadedList;
             try {
                 loadedList = _xmlAccess.Load();
-                loadedList.OrderBy(x => x.AppointmentDate);
-                Appointments = loadedList;
-            }catch(Exception e)
+                Appointments = new ObservableCollection<Appointment>(loadedList.OrderBy(x => x.AppointmentDate));
+            }catch
             {
             }
             if (Appointments == null)

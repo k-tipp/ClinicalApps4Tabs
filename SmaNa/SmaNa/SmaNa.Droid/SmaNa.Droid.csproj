@@ -186,9 +186,9 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Properties\AndroidManifest.xml">
+    <EmbeddedResource Include="Properties\AndroidManifest.xml">
       <SubType>Designer</SubType>
-    </Content>
+    </EmbeddedResource>
     <AndroidResource Include="Resources\drawable\logo.png" />
     <AndroidResource Include="Resources\drawable\surgeon.png" />
     <AndroidResource Include="Resources\drawable\calendar.png" />
