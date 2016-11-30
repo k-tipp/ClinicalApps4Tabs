@@ -3,13 +3,13 @@ using System.Globalization;
 using System.Threading;
 using SmaNa.Multilanguage;
 
-[assembly: Dependency(typeof(SmaNa.Droid.Multilanguage.Localize))]
+[assembly: Dependency(typeof(SmaNa.Droid.PlatformDebendent.Localize))]
 /// <summary>
 /// @created: Marwin Philips
 /// See important comment on source in ILocalize!
 /// Android-Specific implementation to get the netLanguage of the System which is the base of the multilanguage ability.
 /// </summary>
-namespace SmaNa.Droid.Multilanguage
+namespace SmaNa.Droid.PlatformDebendent
 {
 
     public class Localize : SmaNa.Multilanguage.ILocalize

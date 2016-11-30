@@ -30,9 +30,16 @@ namespace SmaNa
 
             // Load the FileAcces for secure Data Storage
             FileManager = DependencyService.Get<IFileManager>();
-            // ToDo: Load key from local Key Store!
-            string key = "testpassword";
-            Encrypter = new Encrypter(key);
+            var passwordManager = DependencyService.Get<IPasswordManager>();
+            // loads the password from the platform dependent key manager
+            var password = passwordManager.GetPassword();
+            if(password == null)
+            {
+                // the first time we have to create a new password and save it.
+                password = Encrypter.CreatePassword();
+                passwordManager.SavePassword(password);
+            }
+            Encrypter = new Encrypter(password);
             ViewModelSettings = new ViewModel.ViewModelSettings();
 
             // Main Navigation for the whole app which works with a NavigationStack.

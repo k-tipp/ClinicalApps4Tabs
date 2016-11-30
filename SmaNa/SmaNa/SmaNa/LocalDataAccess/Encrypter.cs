@@ -61,5 +61,14 @@ namespace SmaNa.LocalDataAccess
             var bytes = WinRTCrypto.CryptographicEngine.Decrypt(_symetricKey, Convert.FromBase64String(data));
             return Encoding.Unicode.GetString(bytes,0, bytes.Length);
         }
+        /// <summary>
+        /// Generates a Password based on the GUID-Algorithm.
+        /// </summary>
+        /// <returns>a new Password String</returns>
+        public static string CreatePassword()
+        {
+            // Far from perfect but still pretty random.
+            return System.Guid.NewGuid().ToString(); 
+        }
     }
 }
