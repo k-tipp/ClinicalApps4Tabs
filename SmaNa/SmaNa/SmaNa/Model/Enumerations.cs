@@ -33,5 +33,11 @@ namespace SmaNa.Model
             M0 = 0,
             M1 = 1
         }
+        public enum AppointmentState
+        {
+            geplant = 1,
+            abgemacht = 2,
+            durchgeführt = 3
+        }
     }
 }

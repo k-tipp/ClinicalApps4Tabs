@@ -26,7 +26,14 @@ namespace SmaNa.ViewModel
             if (SmaNaSettings == null)
             {
                 newSettings = true;
-                SmaNaSettings = new Settings();
+                SmaNaSettings = new Settings()
+                {
+                    TnmM = Enumerations.TnmM.M0,
+                    TnmN = Enumerations.TnmN.N0,
+                    TnmT = Enumerations.TnmT.T0,
+                    OperationDate = new DateTime(),
+                    StageingComplete = false
+                };
                 // determine the correct, supported .NET culture
 
                 // See ILocalize for specific source

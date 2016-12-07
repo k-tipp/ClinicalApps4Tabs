@@ -5,6 +5,43 @@
              xmlns:light="clr-namespace:Xamarin.Forms.Themes;assembly=Xamarin.Forms.Theme.Light">
   <Application.Resources>
     <!-- Application resource dictionary -->
-    <ResourceDictionary MergedWith="light:LightThemeResources" />
+    <!-- Basic Light Theme Style -->
+    <ResourceDictionary MergedWith="light:LightThemeResources">
+      <!-- Styles for the Controls used in the entire app-->
+
+      <!-- default Text-Color for any Text-Component in the app-->
+      <Color x:Key="textColor">Black</Color>
+
+      <Style x:Key="label3070" TargetType="Label">
+        <Setter Property="FontSize" Value="Medium"/>
+        <Setter Property="TextColor" Value="{DynamicResource textColor}" />
+        <Setter Property="VerticalOptions" Value="Center"/>
+        <Setter Property="HorizontalOptions" Value="Start"/>
+      </Style>
+
+      <Style x:Key="labelOverviewLine" TargetType="Label">
+        <Setter Property="FontSize" Value="Medium"/>
+        <Setter Property="TextColor" Value="{DynamicResource textColor}" />
+        <Setter Property="VerticalOptions" Value="Center"/>
+        <Setter Property="HorizontalOptions" Value="Center"/>
+        <Setter Property="HorizontalTextAlignment" Value="Center"/>
+      </Style>
+      
+      <Style x:Key="labelTitleLine" TargetType="Label">
+        <Setter Property="FontSize" Value="Large"/>
+        <Setter Property="TextColor" Value="{DynamicResource textColor}" />
+        <Setter Property="VerticalOptions" Value="Center"/>
+        <Setter Property="HorizontalOptions" Value="Center"/>
+      </Style>
+
+      <Style x:Key="stackLayoutOverviewTitle" TargetType="StackLayout">
+        <Setter Property="Orientation" Value="Vertical"/>
+        <Setter Property="BackgroundColor" Value="Color.Accent" />
+        <Setter Property="Padding" Value="0,10,0,10"/>
+        <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+      </Style>
+
+    </ResourceDictionary>
+
   </Application.Resources>
 </Application>

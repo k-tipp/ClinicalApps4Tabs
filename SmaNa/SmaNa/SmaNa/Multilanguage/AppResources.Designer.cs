@@ -98,7 +98,7 @@ namespace SmaNa.Multilanguage {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Durchführender Arzt ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Arzt ähnelt.
         /// </summary>
         public static string EditTerminDoctor {
             get {
@@ -193,6 +193,33 @@ namespace SmaNa.Multilanguage {
         public static string MainMenuWelcome {
             get {
                 return ResourceManager.GetString("MainMenuWelcome", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Durchgeführte Termine ähnelt.
+        /// </summary>
+        public static string OverviewDone {
+            get {
+                return ResourceManager.GetString("OverviewDone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Abgemachte Termine ähnelt.
+        /// </summary>
+        public static string OverviewFixed {
+            get {
+                return ResourceManager.GetString("OverviewFixed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Geplante Termine ähnelt.
+        /// </summary>
+        public static string OverviewPlanned {
+            get {
+                return ResourceManager.GetString("OverviewPlanned", resourceCulture);
             }
         }
         

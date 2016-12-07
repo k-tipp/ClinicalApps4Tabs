@@ -19,7 +19,14 @@ namespace SmaNa.ViewModel
         /// </summary>
         public ViewModelAppointmentEdit()
         {
-            Appointment = new Appointment();
+            Appointment = new Appointment()
+            {
+                AppointmentDate = DateTime.Now,
+                AppointmentPeriode = DateTime.Now,
+                AppointmentReminder = false,
+                AppointmentDone = false,
+                AppointmentFixed = false
+            };
         }
         /// <summary>
         /// The Appointment is used and will be edited.

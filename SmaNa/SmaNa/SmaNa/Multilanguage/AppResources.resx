@@ -148,7 +148,7 @@
     <value>Terminperiode</value>
   </data>
   <data name="EditTerminDoctor" xml:space="preserve">
-    <value>Durchführender Arzt</value>
+    <value>Arzt</value>
   </data>
   <data name="EditTerminDone" xml:space="preserve">
     <value>Termin durchgeführt</value>
@@ -185,5 +185,14 @@
   </data>
   <data name="SettingsTNM" xml:space="preserve">
     <value>TNM</value>
+  </data>
+  <data name="OverviewDone" xml:space="preserve">
+    <value>Durchgeführte Termine</value>
+  </data>
+  <data name="OverviewFixed" xml:space="preserve">
+    <value>Abgemachte Termine</value>
+  </data>
+  <data name="OverviewPlanned" xml:space="preserve">
+    <value>Geplante Termine</value>
   </data>
 </root>

@@ -16,7 +16,7 @@ namespace SmaNa.View
     public partial class AppointmentEdit : ContentPage
     {
 
-        ViewModel.ViewModelAppointmentEdit ViewModel;
+        private ViewModelAppointmentEdit _viewModel;
 
         /// <summary>
         /// Call this constructor when you want to edit an existing Appointment
@@ -26,8 +26,26 @@ namespace SmaNa.View
         {
             InitializeComponent();
             
-            ViewModel = new ViewModelAppointmentEdit(Appointment);
-            // set all the Attributes of an Appointment
+            _viewModel = new ViewModelAppointmentEdit(Appointment);
+            addToolbarItems();
+            bindData();
+        }
+        /// <summary>
+        /// Call this constructor when you want to create a new Appointment
+        /// </summary>
+        public AppointmentEdit()
+        {
+            InitializeComponent();
+            _viewModel = new ViewModelAppointmentEdit();
+            addToolbarItems();
+            bindData();
+        }
+        /// <summary>
+        ///  set all the Attributes of an Appointment to the GUI-Controls
+        /// </summary>
+        private void bindData()
+        {
+            var Appointment = _viewModel.Appointment;
             AppointmentTitle.Text = Appointment.Name;
             AppointmentName.Text = Appointment.Name;
             AppointmentPeriode.Date = Appointment.AppointmentPeriode;
@@ -37,26 +55,19 @@ namespace SmaNa.View
             AppointmentFixed.IsToggled = Appointment.AppointmentFixed;
             AppointmentReminder.IsToggled = Appointment.AppointmentReminder;
             AppointmentDone.IsToggled = Appointment.AppointmentDone;
-            addToolbarItems();
-        }
-        /// <summary>
-        /// Call this constructor when you want to create a new Appointment
-        /// </summary>
-        public AppointmentEdit()
-        {
-            InitializeComponent();
-            ViewModel = new ViewModelAppointmentEdit();
-            addToolbarItems();
         }
 
         private void addToolbarItems()
         {
             ToolbarItems.Add(new ToolbarItem(Multilanguage.TranslateExtension.getString("saveAppointment"), "", () => Save()));
         }
-
+        /// <summary>
+        /// Saves all the Content from the view into the object from the viewModel and stores it to the Database over the viewModel.
+        /// Navigates back to the Overview.
+        /// </summary>
         private void Save()
         {
-            Appointment editedAppointment = ViewModel.Appointment;
+            Appointment editedAppointment = _viewModel.Appointment;
             editedAppointment.AppointmentDate = AppointmentDate.Date;
             editedAppointment.AppointmentDone = AppointmentDone.IsToggled;
             editedAppointment.AppointmentFixed = AppointmentFixed.IsToggled;
@@ -65,7 +76,7 @@ namespace SmaNa.View
             editedAppointment.Doctor = AppointmentDoctor.Text;
             editedAppointment.Location = AppointmentLocation.Text;
             editedAppointment.Name = AppointmentName.Text;
-            ViewModel.Save();
+            _viewModel.Save();
             Navigation.PopAsync();
         }
     }
