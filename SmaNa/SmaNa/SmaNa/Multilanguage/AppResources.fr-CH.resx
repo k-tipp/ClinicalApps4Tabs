@@ -186,4 +186,7 @@
   <data name="SettingsTNM" xml:space="preserve">
     <value>TNM</value>
   </data>
+  <data name="SettingsSchema" xml:space="preserve">
+    <value>Schème</value>
+  </data>
 </root>

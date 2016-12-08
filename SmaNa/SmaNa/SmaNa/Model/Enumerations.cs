@@ -33,6 +33,13 @@ namespace SmaNa.Model
             M0 = 0,
             M1 = 1
         }
+
+        public enum Schema
+        {
+            T0_N0_M0 = 0,
+            T1_N1_M0 = 1,
+            T2_N1_M0 = 2
+        }
         public enum AppointmentState
         {
             geplant = 1,

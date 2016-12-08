@@ -195,4 +195,7 @@
   <data name="OverviewPlanned" xml:space="preserve">
     <value>Geplante Termine</value>
   </data>
+  <data name="SettingsSchema" xml:space="preserve">
+    <value>Schema</value>
+  </data>
 </root>

@@ -12,6 +12,7 @@ using Xamarin.Forms;
 using SmaNa.LocalDataAccess;
 using System.IO;
 using SmaNa.Droid.PlatformDependent;
+using Android.Content.Res;
 
 [assembly: Dependency(typeof(FileManager))]
 namespace SmaNa.Droid.PlatformDependent
@@ -48,6 +49,17 @@ namespace SmaNa.Droid.PlatformDependent
             {
                 return "";
             }
+        }
+
+        public string LoadAsset(string filename)
+        {
+            string content;
+            AssetManager assets = Android.App.Application.Context.Assets;
+            using (StreamReader sr = new StreamReader(assets.Open(filename)))
+            {
+                content = sr.ReadToEnd();
+            }
+            return content;
         }
     }
 }

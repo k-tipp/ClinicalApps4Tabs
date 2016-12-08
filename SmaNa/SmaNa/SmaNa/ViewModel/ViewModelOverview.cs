@@ -79,7 +79,8 @@ namespace SmaNa.ViewModel
                             Doctor = "Dr. Meier",
                             Location = "Biel",
                             AppointmentPeriode = new DateTime(2017,1,1),
-                            AppointmentReminder = false
+                            AppointmentReminder = false,
+                            Generated = false
                         },
                         new Appointment() {
                             Name = "Koloskopie",
@@ -89,7 +90,8 @@ namespace SmaNa.ViewModel
                             Doctor = "Dr. Troyanski",
                             Location = "Biel",
                             AppointmentPeriode = new DateTime(2017,11,1),
-                            AppointmentReminder = false
+                            AppointmentReminder = false,
+                            Generated = false
                         },
                         new Appointment() {
                             Name = "CT Thorax-Abdomen-Becken",
@@ -99,7 +101,8 @@ namespace SmaNa.ViewModel
                             Doctor = "Dr. House",
                             Location = "Biel",
                             AppointmentPeriode = new DateTime(2017,11,1),
-                            AppointmentReminder = false
+                            AppointmentReminder = false,
+                            Generated = false
                         }
                     };
             }

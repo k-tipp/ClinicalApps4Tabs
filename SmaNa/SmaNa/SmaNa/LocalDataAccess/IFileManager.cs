@@ -14,5 +14,7 @@ namespace SmaNa.LocalDataAccess
     {
         void SaveFile(string filename, string document);
         string LoadFile(string filename);
+
+        string LoadAsset(string filename);
     }
 }

@@ -38,12 +38,14 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="LocalDataAccess\CsvAccess.cs" />
     <Compile Include="LocalDataAccess\Encrypter.cs" />
     <Compile Include="LocalDataAccess\IFileManager.cs" />
     <Compile Include="LocalDataAccess\IPasswordManager.cs" />
     <Compile Include="LocalDataAccess\XMLAccess.cs" />
     <Compile Include="Model\Appointment.cs" />
     <Compile Include="Model\Enumerations.cs" />
+    <Compile Include="Model\Schema.cs" />
     <Compile Include="Model\Settings.cs" />
     <Compile Include="ViewModel\ViewModelAppointmentEdit.cs" />
     <Compile Include="ViewModel\ViewModelOverview.cs" />

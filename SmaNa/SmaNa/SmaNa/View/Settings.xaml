@@ -15,6 +15,7 @@
       <RowDefinition Height="*" />
       <RowDefinition Height="*" />
       <RowDefinition Height="*" />
+      <RowDefinition Height="*" />
     </Grid.RowDefinitions>
     <Grid.ColumnDefinitions>
       <ColumnDefinition Width="1*" />
@@ -29,6 +30,8 @@
       <Picker  x:Name="SettingsTnmN" TextColor="Black"/>
       <Picker  x:Name="SettingsTnmM" TextColor="Black"/>
     </StackLayout>
+    <Label Grid.Row="5" Grid.Column="1" Text="{i18n:Translate SettingsSchema}" Style="{DynamicResource label3070}" />
+    <Picker Grid.Row="5" Grid.Column="2" x:Name="SettingsSchema" TextColor="Black"/>
     <Label Grid.Row="2" Grid.Column="1" Text="{i18n:Translate SettingsOPDate}" Style="{DynamicResource label3070}" />
     <DatePicker Grid.Row="2" Grid.Column="2" Format="dd.MM.yyyy" x:Name="OperationDate" TextColor="Black" />
     <Label Grid.Row="3" Grid.Column="1" Text="{i18n:Translate SettingsStageingComplete}" Style="{DynamicResource label3070}" />

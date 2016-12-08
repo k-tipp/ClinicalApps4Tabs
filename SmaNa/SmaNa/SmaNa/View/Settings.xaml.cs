@@ -18,6 +18,7 @@ namespace SmaNa.View
         private Dictionary<string, Enumerations.TnmT> TnmTDictionary;
         private Dictionary<string, Enumerations.TnmN> TnmNDictionary;
         private Dictionary<string, Enumerations.TnmM> TnmMDictionary;
+        private Dictionary<string, Enumerations.Schema> SchemaDictionary;
         private Dictionary<string, CultureInfo> LanguageDictionary;
         public Settings()
         {
@@ -38,6 +39,9 @@ namespace SmaNa.View
                 Enumerations.TnmM tnmM;
                 TnmMDictionary.TryGetValue(SettingsTnmM.Items[SettingsTnmM.SelectedIndex], out tnmM);
                 saveSettings.TnmM = tnmM;
+                Enumerations.Schema schema;
+                SchemaDictionary.TryGetValue(SettingsSchema.Items[SettingsSchema.SelectedIndex], out schema);
+                saveSettings.Schema = schema;
                 saveSettings.OperationDate = OperationDate.Date;
                 saveSettings.StageingComplete = StageingComplete.IsToggled;
                 var languageChanged = false;
@@ -62,6 +66,7 @@ namespace SmaNa.View
             SettingsTnmT.SelectedIndex = SettingsTnmT.Items.IndexOf(TnmTDictionary.FirstOrDefault(x => x.Value == settings.TnmT).Key);
             SettingsTnmN.SelectedIndex = SettingsTnmN.Items.IndexOf(TnmNDictionary.FirstOrDefault(x => x.Value == settings.TnmN).Key);
             SettingsTnmM.SelectedIndex = SettingsTnmM.Items.IndexOf(TnmMDictionary.FirstOrDefault(x => x.Value == settings.TnmM).Key);
+            SettingsSchema.SelectedIndex = SettingsSchema.Items.IndexOf(SchemaDictionary.FirstOrDefault(x => x.Value == settings.Schema).Key);
             Language.SelectedIndex = Language.Items.IndexOf(LanguageDictionary.FirstOrDefault(x => x.Value.Name == settings.LanguageString).Key);
             OperationDate.Date = settings.OperationDate;
             StageingComplete.IsToggled = settings.StageingComplete;
@@ -123,6 +128,18 @@ namespace SmaNa.View
             foreach (string s in TnmMDictionary.Keys)
             {
                 SettingsTnmM.Items.Add(s);
+            }
+
+            // Fill Dropdown for schema
+            var schemas = Enum.GetValues(typeof(Enumerations.Schema)).Cast<Enumerations.Schema>();
+            SchemaDictionary = new Dictionary<string, Enumerations.Schema>();
+            foreach (Enumerations.Schema t in schemas)
+            {
+                SchemaDictionary.Add(t.ToString("F").Replace('_', ' '), t);
+            }
+            foreach (string s in SchemaDictionary.Keys)
+            {
+                SettingsSchema.Items.Add(s);
             }
         }
         
