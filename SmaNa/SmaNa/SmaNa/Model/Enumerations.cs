@@ -36,9 +36,9 @@ namespace SmaNa.Model
 
         public enum Schema
         {
-            T0_N0_M0 = 0,
-            T1_N1_M0 = 1,
-            T2_N1_M0 = 2
+            T0_N0_M0 = 1,
+            T1_N1_M0 = 2,
+            T2_N1_M0 = 3
         }
         public enum AppointmentState
         {

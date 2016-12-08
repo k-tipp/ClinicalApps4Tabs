@@ -39,18 +39,18 @@ namespace SmaNa.ViewModel
                     StageingComplete = false
                 };
 
-                
+
 
                 // determine the correct, supported .NET culture
 
                 // See ILocalize for specific source
                 // Access the platformdependant resources over the ILocalize-Interface to get the right cultureInformation
                 if (Device.OS == TargetPlatform.iOS || Device.OS == TargetPlatform.Android)
-                { 
+                {
                     SmaNaSettings.Language = DependencyService.Get<ILocalize>().GetCurrentCultureInfo();
                     App.SetCulture(SmaNaSettings.Language);
                 }
-                
+
             }
             else
             {
@@ -67,23 +67,20 @@ namespace SmaNa.ViewModel
             if (old_schema != SmaNaSettings.Schema.ToString("F"))
             {
                 CsvAccess csv = new CsvAccess(SmaNaSettings.Schema.ToString("F") + ".csv");
-                List<int> removeList = new List<int>();
-                foreach(Appointment appointment in ViewModelOverview.Appointments)
-                {
-                    if(appointment.Generated && appointment.AppointmentState == Enumerations.AppointmentState.geplant)
-                    {
-                        removeList.Add(ViewModelOverview.Appointments.IndexOf(appointment));
-                    }
-                }
-                foreach(int toRemove in removeList)
-                {
-                    ViewModelOverview.Appointments.RemoveAt(toRemove);
-                }
+                var removeList = ViewModelOverview.Appointments.Where(x => x.Generated &&
+                    x.AppointmentState == Enumerations.AppointmentState.geplant).ToList();
 
-                foreach (Appointment appointment in csv.Load())
+                foreach (var toRemove in removeList)
+                {
+                    ViewModelOverview.Appointments.Remove(toRemove);
+                }
+                var appointments = csv.Load();
+                foreach (Appointment appointment in appointments)
                 {
                     ViewModelOverview.Appointments.Add(appointment);
                 }
+
+                old_schema = SmaNaSettings.Schema.ToString("F");
             }
             _xmlAccess.Save(SmaNaSettings);
         }

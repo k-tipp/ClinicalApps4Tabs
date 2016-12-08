@@ -47,7 +47,6 @@ namespace SmaNa.View
                 var languageChanged = false;
                 if(saveSettings.LanguageString != Language.Items[Language.SelectedIndex])
                 {
-
                     CultureInfo ci;
                     LanguageDictionary.TryGetValue(Language.Items[Language.SelectedIndex], out ci);
                     saveSettings.Language = ci;
