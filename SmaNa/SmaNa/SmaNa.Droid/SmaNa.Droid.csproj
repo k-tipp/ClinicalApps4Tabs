@@ -181,9 +181,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\T0_N0_M0.csv" />
-    <AndroidAsset Include="Assets\T1_N1_M0.csv" />
-    <AndroidAsset Include="Assets\T2_N1_M0.csv" />
+    <AndroidAsset Include="Assets\DE_Kolon1.csv" />
+    <AndroidAsset Include="Assets\DE_Kolon2.csv" />
+    <AndroidAsset Include="Assets\DE_Kolon3.csv" />
+    <AndroidAsset Include="Assets\DE_Rektal1.csv" />
+    <AndroidAsset Include="Assets\DE_Rektal2.csv" />
     <None Include="packages.config" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />

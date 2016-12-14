@@ -36,30 +36,69 @@ namespace SmaNa.LocalDataAccess
         /// Loads the file stored under the filename and returns its deserialized Item
         /// </summary>
         /// <returns>the stored item or its default if there is no item saved.</returns>
-        public List<Appointment> Load()
+        public List<Appointment> Load(DateTime operationDate)
         {
             // Load encrypted file from filesystem
             string stringData = _fileManager.LoadAsset(_fileName);
             string[] lines = stringData.Split(Environment.NewLine.ToCharArray());
             List<Appointment> appointments = new List<Appointment>();
 
-            foreach(string line in lines)
+            foreach (string line in lines)
             {
                 string[] fields = line.Split('|');
+                if (fields.Length != 5)
+                {
+                    continue;
+                }
                 Appointment appointment = new Appointment();
                 appointment.Name = fields[0];
-                appointment.Location = fields[1];
-                appointment.Doctor = fields[2];
-                appointment.AppointmentPeriode = DateTime.Parse(fields[3]);
-                appointment.AppointmentDate = DateTime.Parse(fields[4]);
-                appointment.AppointmentReminder = (fields[5] == "true" ? true : false);
-                appointment.AppointmentFixed = (fields[6] == "true" ? true : false);
-                appointment.AppointmentDone = (fields[7] == "true" ? true : false);
+                appointment.Location = "";
+                appointment.Doctor = "";
+                appointment.AppointmentPeriode = operationDate.Add(TimeSpan.ParseExact(fields[1], "c", null));
+                appointment.AppointmentDate = default(DateTime);
+                appointment.AppointmentReminder = (fields[2] == "true" ? true : false);
+                appointment.AppointmentFixed = (fields[3] == "true" ? true : false);
+                appointment.AppointmentDone = (fields[4] == "true" ? true : false);
                 appointment.Generated = true;
                 appointments.Add(appointment);
             }
 
             return appointments;
+        }
+
+        public Dictionary<string, Schema> LoadSchemas(string language)
+        {
+
+            Dictionary<string, string> schemasStrings = _fileManager.LoadSchemas(language);
+            Dictionary<string, Schema> schemaDict = new Dictionary<string, Schema>();
+
+            foreach (string schemaString in schemasStrings.Values)
+            {
+                string[] lines = schemaString.Split(Environment.NewLine.ToCharArray());
+                List<Appointment> appointments = new List<Appointment>();
+
+                Schema schema = new Model.Schema();
+                schema.filename = schemasStrings.Where(p => p.Value == schemaString).Select(p => p.Key).First<string>();
+
+
+                foreach (string line in lines)
+                {
+                    string[] fields = line.Split('|');
+                    if (fields.Length != 8)
+                    {
+                        // the schema name in line 1 is not splitable and therefor does not result in a array
+                        schema.name = line;
+                        break;
+                    }
+                    Appointment appointment = new Appointment();
+                    appointment.Name = fields[0];
+                    appointment.Generated = true;
+                    appointments.Add(appointment);
+                }
+                schema.appointments = appointments;
+                schemaDict.Add(schema.name, schema);
+            }
+            return schemaDict;
         }
     }
 }

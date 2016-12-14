@@ -34,7 +34,7 @@ namespace SmaNa.ViewModel
                     TnmM = Enumerations.TnmM.M0,
                     TnmN = Enumerations.TnmN.N0,
                     TnmT = Enumerations.TnmT.T0,
-                    Schema = Enumerations.Schema.T0_N0_M0,
+                    Schema = "",
                     OperationDate = new DateTime(),
                     StageingComplete = false
                 };
@@ -55,7 +55,7 @@ namespace SmaNa.ViewModel
             else
             {
                 App.SetCulture(SmaNaSettings.Language);
-                old_schema = SmaNaSettings.Schema.ToString("F");
+                old_schema = SmaNaSettings.Schema;
             }
             //TODO initialize Appointments-List in a more clever way 
             if (ViewModelOverview.Appointments == null)
@@ -64,9 +64,9 @@ namespace SmaNa.ViewModel
 
         public void SaveSettings()
         {
-            if (old_schema != SmaNaSettings.Schema.ToString("F"))
+            if (old_schema != SmaNaSettings.Schema)
             {
-                CsvAccess csv = new CsvAccess(SmaNaSettings.Schema.ToString("F") + ".csv");
+                CsvAccess csv = new CsvAccess(SmaNaSettings.Schema);
                 var removeList = ViewModelOverview.Appointments.Where(x => x.Generated &&
                     x.AppointmentState == Enumerations.AppointmentState.geplant).ToList();
 
@@ -74,13 +74,13 @@ namespace SmaNa.ViewModel
                 {
                     ViewModelOverview.Appointments.Remove(toRemove);
                 }
-                var appointments = csv.Load();
+                var appointments = csv.Load(SmaNaSettings.OperationDate);
                 foreach (Appointment appointment in appointments)
                 {
                     ViewModelOverview.Appointments.Add(appointment);
                 }
 
-                old_schema = SmaNaSettings.Schema.ToString("F");
+                old_schema = SmaNaSettings.Schema;
             }
             _xmlAccess.Save(SmaNaSettings);
         }

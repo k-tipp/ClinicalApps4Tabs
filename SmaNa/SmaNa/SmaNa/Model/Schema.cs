@@ -6,14 +6,16 @@ using System.Threading.Tasks;
 
 namespace SmaNa.Model
 {
-    class Schema
+    public class Schema
     {
-        string name { get; set; }
-        List<Appointment> appointments { get; set; }
+        public string filename { get; set; }
+        public string name { get; set; }
+        public List<Appointment> appointments { get; set; }
 
         public Schema()
         {
             name = "";
+            filename = "";
             appointments = new List<Appointment>();
         }
     }

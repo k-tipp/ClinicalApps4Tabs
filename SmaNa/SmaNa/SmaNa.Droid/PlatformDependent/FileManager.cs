@@ -45,10 +45,25 @@ namespace SmaNa.Droid.PlatformDependent
             if (File.Exists(filePath))
             {
                 return File.ReadAllText(filePath);
-            }else
+            }
+            else
             {
                 return "";
             }
+        }
+
+        public Dictionary<string, string> LoadSchemas(string language)
+        {
+            AssetManager assets = Android.App.Application.Context.Assets;
+            Dictionary<string, string> contents = new Dictionary<string, string>();
+            foreach (string s in assets.List(""))
+            {
+                if (s.StartsWith(language) && s.EndsWith(".csv"))
+                {
+                    contents.Add(s, LoadAsset(s));
+                }
+            }
+            return contents;
         }
 
         public string LoadAsset(string filename)

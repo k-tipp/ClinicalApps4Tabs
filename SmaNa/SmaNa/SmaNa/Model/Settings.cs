@@ -13,7 +13,9 @@ namespace SmaNa.Model
         // the selected Langauge
         [XmlIgnore]
         public CultureInfo Language { get; set; }
-        public string LanguageString { get
+        public string LanguageString
+        {
+            get
             {
                 return Language.Name;
             }
@@ -25,9 +27,9 @@ namespace SmaNa.Model
         public Enumerations.TnmT TnmT { get; set; }
         public Enumerations.TnmN TnmN { get; set; }
         public Enumerations.TnmM TnmM { get; set; }
-        public Enumerations.Schema Schema { get; set; }
+        public string Schema { get; set; }
         public DateTime OperationDate { get; set; }
         public Enumerations.CancerType CarcinomType { get; set; }
-        public bool StageingComplete { get; set; }        
+        public bool StageingComplete { get; set; }
     }
 }

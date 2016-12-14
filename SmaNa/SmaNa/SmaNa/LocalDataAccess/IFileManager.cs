@@ -16,5 +16,7 @@ namespace SmaNa.LocalDataAccess
         string LoadFile(string filename);
 
         string LoadAsset(string filename);
+
+        Dictionary<string, string> LoadSchemas(string language);
     }
 }

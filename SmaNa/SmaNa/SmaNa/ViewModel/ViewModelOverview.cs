@@ -61,7 +61,7 @@ namespace SmaNa.ViewModel
             try
             {
                 loadedList = _xmlAccess.Load();
-                Appointments = new ObservableCollection<Appointment>(loadedList.OrderBy(x => x.AppointmentDate));
+                Appointments = new ObservableCollection<Appointment>(loadedList.OrderBy(x => x.AppointmentDate).ThenBy(x => x.AppointmentPeriode));
             }
             catch
             {
