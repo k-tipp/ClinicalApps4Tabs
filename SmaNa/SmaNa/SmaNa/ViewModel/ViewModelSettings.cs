@@ -77,6 +77,7 @@ namespace SmaNa.ViewModel
                 var appointments = csv.Load(SmaNaSettings.OperationDate);
                 foreach (Appointment appointment in appointments)
                 {
+                    appointment.AppointmentID = Guid.NewGuid();
                     ViewModelOverview.Appointments.Add(appointment);
                 }
 

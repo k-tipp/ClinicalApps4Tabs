@@ -15,7 +15,7 @@ namespace SmaNa.View
     public partial class Settings : ContentPage
     {
         private ViewModelSettings _viewModel;
-        private Dictionary<string, Enumerations.CancerType> CancerTypeDictionary;
+        //private Dictionary<string, Enumerations.CancerType> CancerTypeDictionary;
         //private Dictionary<string, Enumerations.TnmT> TnmTDictionary;
         //private Dictionary<string, Enumerations.TnmN> TnmNDictionary;
         //private Dictionary<string, Enumerations.TnmM> TnmMDictionary;
@@ -84,12 +84,12 @@ namespace SmaNa.View
                 Language.Items.Add(language);
             }
             // Handling different Cancer-Types, which have Multi-Language text within
-            var cancerTypes = Enum.GetValues(typeof(Enumerations.CancerType)).Cast<Enumerations.CancerType>();
-            CancerTypeDictionary = new Dictionary<string, Enumerations.CancerType>();
-            foreach (Enumerations.CancerType t in cancerTypes)
-            {
-                CancerTypeDictionary.Add(Multilanguage.TranslateExtension.getString(t.ToString("F")), t);
-            }
+            //var cancerTypes = Enum.GetValues(typeof(Enumerations.CancerType)).Cast<Enumerations.CancerType>();
+            //CancerTypeDictionary = new Dictionary<string, Enumerations.CancerType>();
+            //foreach (Enumerations.CancerType t in cancerTypes)
+            //{
+            //    CancerTypeDictionary.Add(Multilanguage.TranslateExtension.getString(t.ToString("F")), t);
+            //}
             //foreach (string s in CancerTypeDictionary.Keys)
             //{
             //    CarcinomType.Items.Add(s);

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using SmaNa.Model;
 using Xamarin.Forms;
 using SmaNa.ViewModel;
+using SmaNa.LocalDataAccess;
 
 namespace SmaNa.View
 {
@@ -73,6 +74,11 @@ namespace SmaNa.View
             editedAppointment.AppointmentFixed = AppointmentFixed.IsToggled;
             editedAppointment.AppointmentPeriode = AppointmentPeriode.Date;
             editedAppointment.AppointmentReminder = AppointmentReminder.IsToggled;
+            if(editedAppointment.AppointmentReminder)
+            {
+                App.DroidNotificationManager.createNotification(editedAppointment);
+            }
+
             editedAppointment.Doctor = AppointmentDoctor.Text;
             editedAppointment.Location = AppointmentLocation.Text;
             editedAppointment.Name = AppointmentName.Text;

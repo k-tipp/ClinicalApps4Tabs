@@ -19,6 +19,8 @@ namespace SmaNa.Model
         public bool AppointmentDone { get; set; }
         public bool AppointmentReminder { get; set; }
         public bool Generated { get; set; }
+        public Guid AppointmentID { get; set; }
+
         public DateTime AppointmentDate { get; set; }
 
         public DateTime AppointmentPeriode { get; set; }
