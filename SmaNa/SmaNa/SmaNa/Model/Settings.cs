@@ -24,12 +24,12 @@ namespace SmaNa.Model
                 Language = new CultureInfo(value);
             }
         }
-        public Enumerations.TnmT TnmT { get; set; }
-        public Enumerations.TnmN TnmN { get; set; }
-        public Enumerations.TnmM TnmM { get; set; }
+        //public Enumerations.TnmT TnmT { get; set; }
+        //public Enumerations.TnmN TnmN { get; set; }
+        //public Enumerations.TnmM TnmM { get; set; }
         public string Schema { get; set; }
         public DateTime OperationDate { get; set; }
-        public Enumerations.CancerType CarcinomType { get; set; }
+        //public Enumerations.CancerType CarcinomType { get; set; }
         public bool StageingComplete { get; set; }
     }
 }

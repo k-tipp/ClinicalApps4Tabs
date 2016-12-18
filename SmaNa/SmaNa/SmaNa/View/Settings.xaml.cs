@@ -28,9 +28,9 @@ namespace SmaNa.View
             ToolbarItems.Add(new ToolbarItem(Multilanguage.TranslateExtension.getString("SaveSettings"), "", () =>
             {
                 var saveSettings = ViewModelSettings.SmaNaSettings;
-                Enumerations.CancerType type;
-                CancerTypeDictionary.TryGetValue(CarcinomType.Items[CarcinomType.SelectedIndex], out type);
-                saveSettings.CarcinomType = type;
+                //Enumerations.CancerType type;
+                //CancerTypeDictionary.TryGetValue(CarcinomType.Items[CarcinomType.SelectedIndex], out type);
+                //saveSettings.CarcinomType = type;
                 //Enumerations.TnmT tnmT;
                 //TnmTDictionary.TryGetValue(SettingsTnmT.Items[SettingsTnmT.SelectedIndex], out tnmT);
                 //saveSettings.TnmT = tnmT;
@@ -62,7 +62,7 @@ namespace SmaNa.View
             }));
             InitializeDropdowns();
             var settings = ViewModelSettings.SmaNaSettings;
-            CarcinomType.SelectedIndex = CarcinomType.Items.IndexOf(CancerTypeDictionary.FirstOrDefault(x => x.Value == settings.CarcinomType).Key);
+            //CarcinomType.SelectedIndex = CarcinomType.Items.IndexOf(CancerTypeDictionary.FirstOrDefault(x => x.Value == settings.CarcinomType).Key);
             //SettingsTnmT.SelectedIndex = SettingsTnmT.Items.IndexOf(TnmTDictionary.FirstOrDefault(x => x.Value == settings.TnmT).Key);
             //SettingsTnmN.SelectedIndex = SettingsTnmN.Items.IndexOf(TnmNDictionary.FirstOrDefault(x => x.Value == settings.TnmN).Key);
             //SettingsTnmM.SelectedIndex = SettingsTnmM.Items.IndexOf(TnmMDictionary.FirstOrDefault(x => x.Value == settings.TnmM).Key);
@@ -90,10 +90,10 @@ namespace SmaNa.View
             {
                 CancerTypeDictionary.Add(Multilanguage.TranslateExtension.getString(t.ToString("F")), t);
             }
-            foreach (string s in CancerTypeDictionary.Keys)
-            {
-                CarcinomType.Items.Add(s);
-            }
+            //foreach (string s in CancerTypeDictionary.Keys)
+            //{
+            //    CarcinomType.Items.Add(s);
+            //}
 
             // TNM is in all Languages always the same.
             // Fill Dropdown for T

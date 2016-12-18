@@ -31,9 +31,9 @@ namespace SmaNa.ViewModel
                 newSettings = true;
                 SmaNaSettings = new Settings()
                 {
-                    TnmM = Enumerations.TnmM.M0,
-                    TnmN = Enumerations.TnmN.N0,
-                    TnmT = Enumerations.TnmT.T0,
+                    //TnmM = Enumerations.TnmM.M0,
+                    //TnmN = Enumerations.TnmN.N0,
+                    //TnmT = Enumerations.TnmT.T0,
                     Schema = "",
                     OperationDate = new DateTime(),
                     StageingComplete = false
