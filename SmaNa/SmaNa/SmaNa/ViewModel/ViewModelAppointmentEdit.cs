@@ -12,6 +12,8 @@ namespace SmaNa.ViewModel
     /// </summary>
     class ViewModelAppointmentEdit
     {
+        private Guid appointmentID;
+
         public Appointment Appointment { get; private set; }
 
         /// <summary>
@@ -36,6 +38,12 @@ namespace SmaNa.ViewModel
         {
             this.Appointment = Appointment;
         }
+
+        public ViewModelAppointmentEdit(Guid appointmentID)
+        {
+            this.appointmentID = appointmentID;
+        }
+
         /// <summary>
         /// Saves the Appointment in the appointment list while holding its sorting after AppointmentDate.
         /// </summary>

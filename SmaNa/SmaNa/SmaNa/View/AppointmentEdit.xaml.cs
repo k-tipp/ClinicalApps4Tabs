@@ -31,6 +31,18 @@ namespace SmaNa.View
             addToolbarItems();
             bindData();
         }
+
+        public AppointmentEdit(Guid anAppointmentID)
+        {
+            InitializeComponent();
+            if (ViewModelOverview.Appointments == null)
+                new ViewModelOverview();
+
+            Appointment appointment = ViewModelOverview.GetAppointment(anAppointmentID);
+            _viewModel = new ViewModelAppointmentEdit(appointment);
+            addToolbarItems();
+            bindData();
+        }
         /// <summary>
         /// Call this constructor when you want to create a new Appointment
         /// </summary>

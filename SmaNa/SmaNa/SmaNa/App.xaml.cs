@@ -9,6 +9,7 @@ using System.Globalization;
 using SmaNa.LocalDataAccess;
 using SmaNa.Model;
 using System.Collections.ObjectModel;
+using SmaNa.ViewModel;
 
 /// <summary>
 /// @created: Marwin Philips
@@ -65,13 +66,15 @@ namespace SmaNa
             SmaNa.Multilanguage.AppResources.Culture = ci; // set the RESX for resource localization
             DependencyService.Get<ILocalize>().SetLocale(ci); // set the Thread for locale-aware method
             TranslateExtension.ci = ci;
-            if(PushNotifParameter == null)
+
+            if (PushNotifParameter == null)
             {
                 currentApp.MainPage = new NavigationPage(new View.MainMenu());
             }
             else
             {
-
+                currentApp.MainPage = new NavigationPage(new View.MainMenu());
+                ((NavigationPage)currentApp.MainPage).PushAsync(new View.AppointmentEdit(Guid.Parse(PushNotifParameter)));
             }
         }
 

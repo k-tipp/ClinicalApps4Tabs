@@ -14,18 +14,20 @@ using Android.Support.V7.App;
 using SmaNa.LocalDataAccess;
 using SmaNa.Droid.PlatformDependent;
 using Xamarin.Forms;
+using Android.Text.Format;
 
 [assembly: Dependency(typeof(DroidNotificationManager))]
 namespace SmaNa.Droid.PlatformDependent
 {
-    class DroidNotificationManager: IDroidNotificationManager
+    class DroidNotificationManager : IDroidNotificationManager
     {
         public void createNotification(Appointment appointment)
         {
-
             // Pass the current button press count value to the next activity:
             Bundle valuesForActivity = new Bundle();
             valuesForActivity.PutString("AppointmentID", appointment.AppointmentID.ToString());
+            
+
 
             // When the user clicks the notification, SecondActivity will start up.
             Intent resultIntent = new Intent(Android.App.Application.Context, typeof(NotificationActivity));
@@ -55,19 +57,19 @@ namespace SmaNa.Droid.PlatformDependent
             NotificationCompat.Builder builder = new NotificationCompat.Builder(Android.App.Application.Context);
             builder.SetAutoCancel(true);
             builder.SetContentIntent(resultPendingIntent);
-            builder.SetContentTitle("Appointment");
+            builder.SetContentTitle(appointment.Name + " " + appointment.Doctor);
             builder.SetNumber(1);
             builder.SetSmallIcon(Resource.Drawable.logo);
-            builder.SetContentText("asdfasfdasdfasdfasdf");
+            builder.SetContentText((appointment.AppointmentDate == null ? appointment.AppointmentPeriode.ToString() : appointment.AppointmentDate.ToString()));
 
             // Finally, publish the notification:
             NotificationManager notificationManager = (NotificationManager)Android.App.Application.Context.GetSystemService(Context.NotificationService);
             notificationManager.Notify(1000, builder.Build());
         }
 
-        public void removeNotification(Appointment appointment)
-        {
+    public void removeNotification(Appointment appointment)
+    {
 
-        }
     }
+}
 }

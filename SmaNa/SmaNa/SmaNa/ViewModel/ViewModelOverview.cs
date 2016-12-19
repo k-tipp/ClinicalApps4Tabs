@@ -52,6 +52,12 @@ namespace SmaNa.ViewModel
             Regroup();
         }
 
+
+        public static Appointment GetAppointment(Guid AppointmentID)
+        {
+            return Appointments.First<Appointment>(x => x.AppointmentID.Equals(AppointmentID)); 
+        }
+
         /// <summary>
         /// Reloads the data from the XML-File. If there is no data, creates a default set of appointments.
         /// </summary>

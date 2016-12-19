@@ -11,6 +11,7 @@ namespace SmaNa.Droid
     [Activity(Label = "SmaNa", Icon = "@drawable/logo", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsApplicationActivity
     {
+        static MainActivity currentInstance;
         protected override void OnCreate(Bundle bundle)
         {
             // Default code to get the app running
@@ -24,6 +25,12 @@ namespace SmaNa.Droid
             var x = typeof(Xamarin.Forms.Themes.LightThemeResources);
             // Removes the App-Icon from the Navigation
             ActionBar.SetIcon(Android.Resource.Color.Transparent);
+            currentInstance = this;
+        }
+
+        public static MainActivity getInstance()
+        {
+            return currentInstance;
         }
 
         // The following two methods disable the Landscape orientation so we only have Portrait mode enabled. 
