@@ -11,7 +11,7 @@
       <RowDefinition Height="29*" />
       <RowDefinition Height="29*" />
     </Grid.RowDefinitions>
-    <Label Grid.Row="0" Text="{i18n:Translate MainMenuWelcome}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="Black"/>
+    <Label Grid.Row="0" Text="{i18n:Translate MainMenuWelcome}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="Black" FontSize="Medium"/>
 
     <!--ContentLayout: First Parameter is Position of the Image, second position is Margin between Image and text. Without this the image is simply placed top left. -->
     <Button x:Name="Appointments" Grid.Row="1" Text ="{i18n:Translate MainMenuAppointments}" Image="calendar.png" ContentLayout="Top,0" Clicked="OnAppointmentsClicked" TextColor="Black" />

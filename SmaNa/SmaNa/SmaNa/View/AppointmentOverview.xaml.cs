@@ -34,14 +34,14 @@ namespace SmaNa.View
             PlannedAppointmentList.ItemsSource = viewModel.PlannedAppointments;
             DoneAppointmentList.ItemsSource = viewModel.DoneAppointments;
             FixedAppointmentList.ItemsSource = viewModel.FixedAppointments;
-            // Attaching ChangeListeners
-            viewModel.PlannedAppointments.CollectionChanged += PlannedAppointments_CollectionChanged;
-            viewModel.FixedAppointments.CollectionChanged += FixedAppointments_CollectionChanged; ;
-            viewModel.DoneAppointments.CollectionChanged += DoneAppointments_CollectionChanged;
-            // At Load-Time we want to actually load the list which happens on Change.
-            PlannedAppointments_CollectionChanged(null, null);
-            FixedAppointments_CollectionChanged(null, null);
-            DoneAppointments_CollectionChanged(null, null);
+            //// Attaching ChangeListeners
+            //viewModel.PlannedAppointments.CollectionChanged += PlannedAppointments_CollectionChanged;
+            //viewModel.FixedAppointments.CollectionChanged += FixedAppointments_CollectionChanged; ;
+            //viewModel.DoneAppointments.CollectionChanged += DoneAppointments_CollectionChanged;
+            //// At Load-Time we want to actually load the list which happens on Change.
+            //PlannedAppointments_CollectionChanged(null, null);
+            //FixedAppointments_CollectionChanged(null, null);
+            //DoneAppointments_CollectionChanged(null, null);
             //Displays a button in the navbar to add a new Appointment
             ToolbarItems.Add(new ToolbarItem(Multilanguage.TranslateExtension.getString("addNewAppointment"), "", async () =>
             {
@@ -50,41 +50,41 @@ namespace SmaNa.View
             }));
         }
 
-        private void DoneAppointments_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
-        {
-            setListViewHeight(DoneAppointmentList, viewModel.DoneAppointments, DoneLabel);
-        }
+        //private void DoneAppointments_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        //{
+        //    setListViewHeight(DoneAppointmentList, viewModel.DoneAppointments, DoneLabel);
+        //}
 
-        private void FixedAppointments_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
-        {
-            setListViewHeight(FixedAppointmentList, viewModel.FixedAppointments, FixedLabel);
-        }
+        //private void FixedAppointments_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        //{
+        //    setListViewHeight(FixedAppointmentList, viewModel.FixedAppointments, FixedLabel);
+        //}
 
-        private void PlannedAppointments_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
-        {
-            setListViewHeight(PlannedAppointmentList, viewModel.PlannedAppointments, PlannedLabel);
-        }
-        /// <summary>
-        /// sets the lv's height according to the lists count. if count==0 sets visibility of lv and titleLabel to unvisible, otherwhise to visible.
-        /// </summary>
-        /// <param name="lv"></param>
-        /// <param name="list"></param>
-        /// <param name="titleLabel"></param>
-        private void setListViewHeight(ListView lv, ObservableCollection<Appointment> list, Label titleLabel)
-        {
-            var count = list.Count;
-            if (count > 0)
-            {
-                lv.IsVisible = true;
-                titleLabel.IsVisible = true;
-                lv.HeightRequest = count * _rowHeight;
-            }
-            else
-            {
-                lv.IsVisible = false;
-                titleLabel.IsVisible = false;
-            }
-        }
+        //private void PlannedAppointments_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        //{
+        //    setListViewHeight(PlannedAppointmentList, viewModel.PlannedAppointments, PlannedLabel);
+        //}
+        ///// <summary>
+        ///// sets the lv's height according to the lists count. if count==0 sets visibility of lv and titleLabel to unvisible, otherwhise to visible.
+        ///// </summary>
+        ///// <param name="lv"></param>
+        ///// <param name="list"></param>
+        ///// <param name="titleLabel"></param>
+        //private void setListViewHeight(ListView lv, ObservableCollection<Appointment> list, Label titleLabel)
+        //{
+        //    var count = list.Count;
+        //    if (count > 0)
+        //    {
+        //        lv.IsVisible = true;
+        //        titleLabel.IsVisible = true;
+        //        //lv.HeightRequest = count * _rowHeight;
+        //    }
+        //    else
+        //    {
+        //        lv.IsVisible = false;
+        //        titleLabel.IsVisible = false;
+        //    }
+        //}
 
         public async void OnAppointmentSelected(object sender, SelectedItemChangedEventArgs e)
         {

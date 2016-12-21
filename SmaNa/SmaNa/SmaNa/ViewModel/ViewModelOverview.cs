@@ -19,7 +19,7 @@ namespace SmaNa.ViewModel
         /// <summary>
         /// All Appointments are stored in this list.
         /// </summary>
-        public static ObservableCollection<Appointment> Appointments { get; set; }
+        public static BulkObservableCollection<Appointment> Appointments { get; set; }
 
         public ObservableCollection<Appointment> PlannedAppointments { get; private set; }
         public ObservableCollection<Appointment> FixedAppointments { get; private set; } 
@@ -48,7 +48,7 @@ namespace SmaNa.ViewModel
         /// <param name="e"></param>
         private void SaveData(object sender, NotifyCollectionChangedEventArgs e)
         {
-            _xmlAccess.Save(Appointments);
+            _xmlAccess.Save(new ObservableCollection<Appointment>(Appointments));
             Regroup();
         }
 
@@ -61,50 +61,13 @@ namespace SmaNa.ViewModel
             try
             {
                 loadedList = _xmlAccess.Load();
-                Appointments = new ObservableCollection<Appointment>(loadedList.OrderBy(x => x.AppointmentDate).ThenBy(x => x.AppointmentPeriode));
+                if (loadedList == null) Appointments = new BulkObservableCollection<Appointment>();
+                else Appointments = new BulkObservableCollection<Appointment>(loadedList.OrderBy(x => (x.AppointmentDate == null|| x.AppointmentDate==default(DateTime)) ? x.AppointmentPeriode : x.AppointmentDate));
+                
             }
             catch
             {
-            }
-            if (Appointments == null)
-            {
-                // Currently we load all Data from this static list.
-                Appointments = new ObservableCollection<Appointment>()
-                    {
-                        new Appointment() {
-                            Name = "Klinische Untersuchung CEA-Titer",
-                            AppointmentDate = new DateTime(2017,1,1),
-                            AppointmentDone = false,
-                            AppointmentFixed = true,
-                            Doctor = "Dr. Meier",
-                            Location = "Biel",
-                            AppointmentPeriode = new DateTime(2017,1,1),
-                            AppointmentReminder = false,
-                            Generated = false
-                        },
-                        new Appointment() {
-                            Name = "Koloskopie",
-                            AppointmentDate = new DateTime(2017,11,1),
-                            AppointmentDone = false,
-                            AppointmentFixed = true,
-                            Doctor = "Dr. Troyanski",
-                            Location = "Biel",
-                            AppointmentPeriode = new DateTime(2017,11,1),
-                            AppointmentReminder = false,
-                            Generated = false
-                        },
-                        new Appointment() {
-                            Name = "CT Thorax-Abdomen-Becken",
-                            AppointmentDate = new DateTime(2017,11,1),
-                            AppointmentDone = false,
-                            AppointmentFixed = true,
-                            Doctor = "Dr. House",
-                            Location = "Biel",
-                            AppointmentPeriode = new DateTime(2017,11,1),
-                            AppointmentReminder = false,
-                            Generated = false
-                        }
-                    };
+                
             }
             
 
@@ -117,6 +80,7 @@ namespace SmaNa.ViewModel
             PlannedAppointments.Clear();
             FixedAppointments.Clear();
             DoneAppointments.Clear();
+            if (Appointments.Count == 0) return;
             foreach(Appointment a in Appointments)
             {
                 switch (a.AppointmentState){

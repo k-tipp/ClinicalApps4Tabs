@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SmaNa.View.AppointmentOverview"
              xmlns:i18n="clr-namespace:SmaNa.Multilanguage;assembly=SmaNa">
-  <ScrollView>
+  <StackLayout Orientation="Vertical">
     <StackLayout Orientation="Vertical">
       <StackLayout Style="{DynamicResource stackLayoutOverviewTitle}" >
         <Label x:Name ="FixedLabel" Text="{i18n:Translate OverviewFixed}" Style="{DynamicResource labelTitleLine}" />
@@ -63,5 +63,5 @@
         </ListView.ItemTemplate>
       </ListView>
     </StackLayout>
-  </ScrollView>
+  </StackLayout>
 </ContentPage>

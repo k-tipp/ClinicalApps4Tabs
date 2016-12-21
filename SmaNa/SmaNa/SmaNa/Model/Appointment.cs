@@ -20,6 +20,7 @@ namespace SmaNa.Model
         public bool AppointmentReminder { get; set; }
         public bool Generated { get; set; }
         public DateTime AppointmentDate { get; set; }
+        public TimeSpan AppointmentTime { get; set; }
 
         public DateTime AppointmentPeriode { get; set; }
 

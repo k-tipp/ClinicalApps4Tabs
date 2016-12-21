@@ -12,13 +12,14 @@
       <!-- default Text-Color for any Text-Component in the app-->
       <Color x:Key="textColor">Black</Color>
 
-      <Style x:Key="label3070" TargetType="Label">
-        <Setter Property="FontSize" Value="Medium"/>
+      <Style x:Key="labelDescr" TargetType="Label">
+        <Setter Property="FontSize" Value="Small"/>
         <Setter Property="TextColor" Value="{DynamicResource textColor}" />
         <Setter Property="VerticalOptions" Value="Center"/>
         <Setter Property="HorizontalOptions" Value="Start"/>
+        <Setter Property="Margin" Value="10,-5,0,5"/>
       </Style>
-
+      
       <Style x:Key="labelOverviewLine" TargetType="Label">
         <Setter Property="FontSize" Value="Medium"/>
         <Setter Property="TextColor" Value="{DynamicResource textColor}" />

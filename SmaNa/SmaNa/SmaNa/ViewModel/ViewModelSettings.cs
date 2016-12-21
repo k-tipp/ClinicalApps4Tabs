@@ -35,7 +35,7 @@ namespace SmaNa.ViewModel
                     //TnmN = Enumerations.TnmN.N0,
                     //TnmT = Enumerations.TnmT.T0,
                     Schema = "",
-                    OperationDate = new DateTime(),
+                    OperationDate = DateTime.Now,
                     StageingComplete = false
                 };
 
@@ -69,16 +69,9 @@ namespace SmaNa.ViewModel
                 CsvAccess csv = new CsvAccess(SmaNaSettings.Schema);
                 var removeList = ViewModelOverview.Appointments.Where(x => x.Generated &&
                     x.AppointmentState == Enumerations.AppointmentState.geplant).ToList();
-
-                foreach (var toRemove in removeList)
-                {
-                    ViewModelOverview.Appointments.Remove(toRemove);
-                }
+                ViewModelOverview.Appointments.RemoveRange(removeList);
                 var appointments = csv.Load(SmaNaSettings.OperationDate);
-                foreach (Appointment appointment in appointments)
-                {
-                    ViewModelOverview.Appointments.Add(appointment);
-                }
+                ViewModelOverview.Appointments.AddRange(appointments);
 
                 old_schema = SmaNaSettings.Schema;
             }
