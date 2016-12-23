@@ -170,7 +170,7 @@ namespace SmaNa.Multilanguage {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Meine Operation.
+        ///   Looks up a localized string similar to Meine Behandlungen und Operation.
         /// </summary>
         public static string MainMenuOperation {
             get {
@@ -301,6 +301,24 @@ namespace SmaNa.Multilanguage {
         public static string SettingsTNM {
             get {
                 return ResourceManager.GetString("SettingsTNM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Meine Operationen.
+        /// </summary>
+        public static string Surgerys {
+            get {
+                return ResourceManager.GetString("Surgerys", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Meine Behandlungen.
+        /// </summary>
+        public static string Treatments {
+            get {
+                return ResourceManager.GetString("Treatments", resourceCulture);
             }
         }
     }

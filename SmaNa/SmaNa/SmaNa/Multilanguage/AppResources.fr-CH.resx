@@ -130,7 +130,7 @@
     <value>Rendez-Vous</value>
   </data>
   <data name="MainMenuOperation" xml:space="preserve">
-    <value>Mon opération</value>
+    <value>Mes traitements et mes opérations</value>
   </data>
   <data name="MainMenuSettings" xml:space="preserve">
     <value>Configurations</value>
@@ -188,5 +188,11 @@
   </data>
   <data name="SettingsSchema" xml:space="preserve">
     <value>Schème</value>
+  </data>
+  <data name="Surgerys" xml:space="preserve">
+    <value>Mes opérations</value>
+  </data>
+  <data name="Treatments" xml:space="preserve">
+    <value>Mes traitements</value>
   </data>
 </root>
