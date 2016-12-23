@@ -9,6 +9,7 @@ using System.Globalization;
 using SmaNa.LocalDataAccess;
 using SmaNa.Model;
 using System.Collections.ObjectModel;
+using SmaNa.MidataAccess;
 
 /// <summary>
 /// @created: Marwin Philips
@@ -41,6 +42,9 @@ namespace SmaNa
             }
             Encrypter = new Encrypter(password);
             ViewModelSettings = new ViewModel.ViewModelSettings();
+
+            var midataAccess = new MidataLogin();
+            midataAccess.Login();
 
             // Main Navigation for the whole app which works with a NavigationStack.
             if (ViewModelSettings.newSettings)
