@@ -13,7 +13,7 @@ using Android.Content.PM;
 
 namespace SmaNa.Droid
 {
-    [Activity(Label = "NotificationActivity", Icon = "@drawable/logo", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(Label = "SmaNa", Icon = "@drawable/logo", ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class NotificationActivity : global::Xamarin.Forms.Platform.Android.FormsApplicationActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)

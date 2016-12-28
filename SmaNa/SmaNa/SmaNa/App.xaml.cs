@@ -20,7 +20,7 @@ namespace SmaNa
     public partial class App : Application
     {
         public static IFileManager FileManager { private set; get; }
-        public static IDroidNotificationManager DroidNotificationManager { private set; get; }
+        public static IDroidNotificationService DroidNotificationService { private set; get; }
         public static Encrypter Encrypter { private set; get; }
         public static ViewModel.ViewModelSettings ViewModelSettings { private set; get; }
         public static String PushNotifParameter { get; set; }
@@ -34,7 +34,7 @@ namespace SmaNa
 
             // Load the FileAcces for secure Data Storage
             FileManager = DependencyService.Get<IFileManager>();
-            DroidNotificationManager = DependencyService.Get<IDroidNotificationManager>();
+            DroidNotificationService = DependencyService.Get<IDroidNotificationService>();
             var passwordManager = DependencyService.Get<IPasswordManager>();
             // loads the password from the platform dependent key manager
             var password = passwordManager.GetPassword();

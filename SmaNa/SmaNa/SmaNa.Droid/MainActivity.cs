@@ -4,6 +4,8 @@ using Android.Content.PM;
 using Android.OS;
 using Xamarin.Forms;
 using Android.Content.Res;
+using Android.Content;
+using SmaNa.Droid.PlatformDependent;
 
 namespace SmaNa.Droid
 {
@@ -12,10 +14,13 @@ namespace SmaNa.Droid
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsApplicationActivity
     {
         static MainActivity currentInstance;
+        DroidNotificationServiceConnection droidNotificationServiceConnection;
         protected override void OnCreate(Bundle bundle)
         {
             // Default code to get the app running
             base.OnCreate(bundle);
+
+            
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
             LoadApplication(new App());
@@ -26,6 +31,30 @@ namespace SmaNa.Droid
             // Removes the App-Icon from the Navigation
             ActionBar.SetIcon(Android.Resource.Color.Transparent);
             currentInstance = this;
+
+
+        }
+
+
+        protected override void OnStart()
+        {
+            base.OnStart();
+            var droidNotificationServiceIntent = new Intent(this, typeof(DroidNotificationService));
+            droidNotificationServiceConnection = new DroidNotificationServiceConnection();
+            BindService(droidNotificationServiceIntent, droidNotificationServiceConnection, Bind.AutoCreate);
+            //var demoServiceIntent = new Intent("com.xamarin.DemoMessengerService");
+            //demoServiceConnection = new DemoServiceConnection(this);
+            //BindService(demoServiceIntent, demoServiceConnection, Bind.AutoCreate);
+        }
+
+        protected override void OnDestroy()
+        {
+            base.OnDestroy();
+
+            if (droidNotificationServiceConnection.IsConnected)
+            {
+                UnbindService(droidNotificationServiceConnection);
+            }
         }
 
         public static MainActivity getInstance()

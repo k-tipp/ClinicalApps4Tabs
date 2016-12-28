@@ -19,14 +19,14 @@ using Android.Text.Format;
 [assembly: Dependency(typeof(DroidNotificationManager))]
 namespace SmaNa.Droid.PlatformDependent
 {
-    class DroidNotificationManager : IDroidNotificationManager
+    static class DroidNotificationManager
     {
-        public void createNotification(Appointment appointment)
+        public static void createNotification(Appointment appointment)
         {
             // Pass the current button press count value to the next activity:
             Bundle valuesForActivity = new Bundle();
             valuesForActivity.PutString("AppointmentID", appointment.AppointmentID.ToString());
-            
+
 
 
             // When the user clicks the notification, SecondActivity will start up.
@@ -61,15 +61,12 @@ namespace SmaNa.Droid.PlatformDependent
             builder.SetNumber(1);
             builder.SetSmallIcon(Resource.Drawable.logo);
             builder.SetContentText((appointment.AppointmentDate == null ? appointment.AppointmentPeriode.ToString() : appointment.AppointmentDate.ToString()));
+            TimeSpan span = (DateTime.Now - new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc)).Add(new TimeSpan(5 * 10000));
+            builder.SetWhen((long)span.TotalMilliseconds);
 
             // Finally, publish the notification:
             NotificationManager notificationManager = (NotificationManager)Android.App.Application.Context.GetSystemService(Context.NotificationService);
             notificationManager.Notify(1000, builder.Build());
         }
-
-    public void removeNotification(Appointment appointment)
-    {
-
     }
-}
 }

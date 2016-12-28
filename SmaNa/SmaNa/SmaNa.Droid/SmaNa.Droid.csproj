@@ -176,6 +176,9 @@
     <Compile Include="MainActivity.cs" />
     <Compile Include="NotificationActivity.cs" />
     <Compile Include="PlatformDependent\DroidNotificationManager.cs" />
+    <Compile Include="PlatformDependent\DroidNotificationService.cs" />
+    <Compile Include="PlatformDependent\DroidNotificationServiceBinder.cs" />
+    <Compile Include="PlatformDependent\DroidNotificationServiceConnection.cs" />
     <Compile Include="PlatformDependent\Localization.cs" />
     <Compile Include="PlatformDependent\FileManager.cs" />
     <Compile Include="PlatformDependent\PasswordManager.cs" />
