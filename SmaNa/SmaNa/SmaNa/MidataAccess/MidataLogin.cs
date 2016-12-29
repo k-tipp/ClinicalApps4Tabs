@@ -41,9 +41,18 @@ namespace SmaNa.MidataAccess
             if (response.IsSuccessStatusCode)
             {
                 var authResponse = JsonConvert.DeserializeObject<AuthResponse>(response.Content.ReadAsStringAsync().Result);
+                client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", authResponse.authToken);
                 _loginToken = authResponse.authToken;
                 _refreshToken = authResponse.refreshToken;
             }
+        }
+
+        public async void SaveWeight(BodyWeight bw)
+        {
+            var data = JsonConvert.SerializeObject(bw);
+            var content = new StringContent(data, Encoding.UTF8, "application/json");//+fhir;charset=utf-8
+            var uri = new Uri(endpoint + "/fhir/Observation");
+            var response = await client.PostAsync(uri, content);
         }
     }
 }

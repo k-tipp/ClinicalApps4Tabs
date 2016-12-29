@@ -45,7 +45,9 @@ namespace SmaNa
 
             var midataAccess = new MidataLogin();
             midataAccess.Login();
-
+            //BodyWeight bw = new BodyWeight("85", DateTime.Now);
+            //midataAccess.SaveWeight(bw);
+            
             // Main Navigation for the whole app which works with a NavigationStack.
             if (ViewModelSettings.newSettings)
             {

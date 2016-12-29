@@ -76,5 +76,9 @@ namespace SmaNa.MidataAccess
                              //(in milliseconds after 01.Jan.1970 UTC)
     }
 
-
+    public class FHIRMessage
+    {
+        public string Authorization;
+        public BodyWeight Content;
+    }
 }

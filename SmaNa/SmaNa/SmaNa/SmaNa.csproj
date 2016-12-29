@@ -44,6 +44,7 @@
     <Compile Include="LocalDataAccess\IPasswordManager.cs" />
     <Compile Include="LocalDataAccess\XMLAccess.cs" />
     <Compile Include="MidataAccess\AuthRequest.cs" />
+    <Compile Include="MidataAccess\BodyWeight.cs" />
     <Compile Include="MidataAccess\MidataLogin.cs" />
     <Compile Include="Model\Appointment.cs" />
     <Compile Include="Model\BulkObservableCollection.cs" />
