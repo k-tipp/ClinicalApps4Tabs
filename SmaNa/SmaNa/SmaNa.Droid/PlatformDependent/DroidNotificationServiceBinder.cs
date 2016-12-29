@@ -16,17 +16,17 @@ namespace SmaNa.Droid.PlatformDependent
     class DroidNotificationServiceBinder : Binder
     {
 
-        DroidNotificationService service;
+        //DroidNotificationService service;
 
-        public DroidNotificationServiceBinder(DroidNotificationService service)
-        {
-            this.service = service;
-        }
+        //public DroidNotificationServiceBinder(DroidNotificationService service)
+        //{
+        //    this.service = service;
+        //}
 
-        public DroidNotificationService GetDroidNotificationService()
-        {
-            return this.service;
-        }
+        //public DroidNotificationService GetDroidNotificationService()
+        //{
+        //    return this.service;
+        //}
 
         //public DroidNotificationService Service { get; private set; }
     }

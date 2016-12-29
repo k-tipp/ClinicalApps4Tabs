@@ -88,7 +88,8 @@ namespace SmaNa.View
             editedAppointment.AppointmentReminder = AppointmentReminder.IsToggled;
             if(editedAppointment.AppointmentReminder)
             {
-                App.DroidNotificationService.AddAppointment(editedAppointment);
+                App.NotificationEventReceiver.SetupAlarm();
+                //App.NotificationEventReceiver.AddAppointment(editedAppointment);
             }
 
             editedAppointment.Doctor = AppointmentDoctor.Text;

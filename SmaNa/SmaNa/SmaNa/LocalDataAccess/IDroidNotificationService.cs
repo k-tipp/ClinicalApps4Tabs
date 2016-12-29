@@ -7,9 +7,16 @@ using System.Threading.Tasks;
 
 namespace SmaNa.LocalDataAccess
 {
-    public interface IDroidNotificationService
+    //public interface IDroidNotificationService
+    //{
+    //    void AddAppointment(Appointment appointment);
+    //    void RemoveAppointment(Guid GuidOfAppointment);
+    //}
+
+    public interface INotificationEventReceiver
     {
-        void AddAppointment(Appointment appointment);
-        void RemoveAppointment(Guid GuidOfAppointment);
+        void SetupAlarm();
+        void CancelAlarm();
+
     }
 }
