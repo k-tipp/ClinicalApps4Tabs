@@ -46,6 +46,7 @@
     <Compile Include="MidataAccess\AuthRequest.cs" />
     <Compile Include="MidataAccess\BodyWeight.cs" />
     <Compile Include="MidataAccess\MidataLogin.cs" />
+    <Compile Include="MidataAccess\Response.cs" />
     <Compile Include="Model\Appointment.cs" />
     <Compile Include="Model\BulkObservableCollection.cs" />
     <Compile Include="Model\Enumerations.cs" />

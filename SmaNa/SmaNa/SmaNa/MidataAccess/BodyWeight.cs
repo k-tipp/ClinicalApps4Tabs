@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 
 /*
+Data to Put
 data = {
         resourceType: 'Observation',
         code: {
@@ -25,6 +26,7 @@ data = {
       };
     }
     
+
     */
 namespace SmaNa.MidataAccess
 {
@@ -34,6 +36,9 @@ namespace SmaNa.MidataAccess
         public code code;
         public DateTime effectiveDateTime;
         public valueQuantity valueQuantity;
+        public string id;
+        public meta meta;
+        public subject subject;
         // Default constructor still needed for Deserialization.
         public BodyWeight()
         {
@@ -46,6 +51,12 @@ namespace SmaNa.MidataAccess
             effectiveDateTime = dateTime;
             valueQuantity = new valueQuantity() { system = "http://unitsofmeasure.org", unit = "kg", value = weight };
         }
+    }
+
+    public class subject
+    {
+        public string reference;
+        public string display;
     }
 
     public class code

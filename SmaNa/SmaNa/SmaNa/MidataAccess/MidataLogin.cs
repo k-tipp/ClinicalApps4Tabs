@@ -44,15 +44,31 @@ namespace SmaNa.MidataAccess
                 client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", authResponse.authToken);
                 _loginToken = authResponse.authToken;
                 _refreshToken = authResponse.refreshToken;
+                // get-test :D
+                uri = new Uri(endpoint + "/fhir/Observation?code=3141-9");
+                var get = await client.GetAsync(uri);
+                var result = JsonConvert.DeserializeObject<Response>(get.Content.ReadAsStringAsync().Result);
             }
         }
 
         public async void SaveWeight(BodyWeight bw)
         {
-            var data = JsonConvert.SerializeObject(bw);
+            if(_loginToken == null)
+            {
+                await Task.Delay(1000);
+            }
+            var message = new FHIRMessage() { Authorization = "Bearer " + _loginToken, Content = bw };
+            var data = JsonConvert.SerializeObject(message);
             var content = new StringContent(data, Encoding.UTF8, "application/json");//+fhir;charset=utf-8
-            var uri = new Uri(endpoint + "/fhir/Observation");
-            var response = await client.PostAsync(uri, content);
+            
         }
+
+        //public async BodyWeight getLastWeight()
+        //{
+        //    var uri = new Uri(endpoint + "/fhir/Observation?code=3141-9");
+        //    var get = await client.GetAsync(uri);
+        //    var result = JsonConvert.DeserializeObject<Response>(get.Content.ReadAsStringAsync().Result);
+        //    return result.entry.FirstOrDefault().resource;
+        //}
     }
 }
