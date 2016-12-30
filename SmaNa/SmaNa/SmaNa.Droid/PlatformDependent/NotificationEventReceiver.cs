@@ -19,7 +19,8 @@ using Newtonsoft.Json;
 [assembly: Dependency(typeof(NotificationEventReceiver))]
 namespace SmaNa.Droid.PlatformDependent
 {
-
+    // Erstellt von: Kevin
+  //  http://stackoverflow.com/questions/20501225/using-service-to-run-background-and-create-notification/34207954
     //WakefulBroadcastReceiver used to receive intents fired from the AlarmManager for showing notifications
     //and from the notification itself if it is deleted.
     [BroadcastReceiver(Enabled = true)]

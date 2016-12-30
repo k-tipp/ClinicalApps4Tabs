@@ -24,7 +24,6 @@ namespace SmaNa.Droid.PlatformDependent
 
         public override void OnReceive(Context context, Intent intent)
         {
-            Console.WriteLine("asdfasfasfd");
             XMLAccess<List<Appointment>> xmlAccess = new XMLAccess<List<Appointment>>("Appointments");
             IEnumerable<Appointment> appointmentsWithOpenNotifications = xmlAccess.Load().Where(appointment => appointment.AppointmentReminder && !appointment.AppointmentDone);
 

@@ -27,7 +27,8 @@ namespace SmaNa.ViewModel
                 AppointmentPeriode = DateTime.Now,
                 AppointmentReminder = false,
                 AppointmentDone = false,
-                AppointmentFixed = false
+                AppointmentFixed = false,
+                AppointmentID = Guid.NewGuid()
             };
         }
         /// <summary>
