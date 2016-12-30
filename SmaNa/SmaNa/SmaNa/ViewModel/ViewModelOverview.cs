@@ -49,7 +49,14 @@ namespace SmaNa.ViewModel
         private void SaveData(object sender, NotifyCollectionChangedEventArgs e)
         {
             _xmlAccess.Save(new ObservableCollection<Appointment>(Appointments));
+            App.NotificationEventReceiver.UpdateAlarms(Appointments.Where(appointment => appointment.AppointmentReminder && !appointment.AppointmentDone));
             Regroup();
+        }
+
+
+        public static Appointment GetAppointment(Guid AppointmentID)
+        {
+            return Appointments.First<Appointment>(x => x.AppointmentID.Equals(AppointmentID)); 
         }
 
         /// <summary>

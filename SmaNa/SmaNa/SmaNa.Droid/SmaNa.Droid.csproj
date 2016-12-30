@@ -183,8 +183,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
+    <Compile Include="NotificationActivity.cs" />
+    <Compile Include="PlatformDependent\NotificationEventReceiver.cs" />
+    <Compile Include="PlatformDependent\NotificationIntentService.cs" />
     <Compile Include="PlatformDependent\Localization.cs" />
     <Compile Include="PlatformDependent\FileManager.cs" />
+    <Compile Include="PlatformDependent\NotificationServiceStarterReceiver.cs" />
     <Compile Include="PlatformDependent\PasswordManager.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

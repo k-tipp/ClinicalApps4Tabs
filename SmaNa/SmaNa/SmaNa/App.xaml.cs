@@ -10,6 +10,7 @@ using SmaNa.LocalDataAccess;
 using SmaNa.Model;
 using System.Collections.ObjectModel;
 using SmaNa.MidataAccess;
+using SmaNa.ViewModel;
 
 /// <summary>
 /// @created: Marwin Philips
@@ -20,17 +21,21 @@ namespace SmaNa
     public partial class App : Application
     {
         public static IFileManager FileManager { private set; get; }
+        public static INotificationEventReceiver NotificationEventReceiver { private set; get; }
         public static Encrypter Encrypter { private set; get; }
         public static ViewModel.ViewModelSettings ViewModelSettings { private set; get; }
+        public static String PushNotifParameter { get; set; }
         public static App currentApp;
 
-        public App()
+        public App(String pushNotifParam = null)
         {
+            PushNotifParameter = pushNotifParam;
             currentApp = this;
             InitializeComponent();
 
             // Load the FileAcces for secure Data Storage
             FileManager = DependencyService.Get<IFileManager>();
+            NotificationEventReceiver = DependencyService.Get<INotificationEventReceiver>();
             var passwordManager = DependencyService.Get<IPasswordManager>();
             // loads the password from the platform dependent key manager
             var password = passwordManager.GetPassword();
@@ -51,7 +56,10 @@ namespace SmaNa
             // Main Navigation for the whole app which works with a NavigationStack.
             if (ViewModelSettings.newSettings)
             {
-                ((NavigationPage)MainPage).PushAsync(new View.Settings());
+                if (PushNotifParameter == null)
+                {
+                    ((NavigationPage)MainPage).PushAsync(new View.Settings());
+                }
             }
         }
 
@@ -64,7 +72,16 @@ namespace SmaNa
             SmaNa.Multilanguage.AppResources.Culture = ci; // set the RESX for resource localization
             DependencyService.Get<ILocalize>().SetLocale(ci); // set the Thread for locale-aware method
             TranslateExtension.ci = ci;
-            currentApp.MainPage = new NavigationPage(new View.MainMenu());
+
+            if (PushNotifParameter == null)
+            {
+                currentApp.MainPage = new NavigationPage(new View.MainMenu());
+            }
+            else
+            {
+                currentApp.MainPage = new NavigationPage(new View.MainMenu());
+                ((NavigationPage)currentApp.MainPage).PushAsync(new View.AppointmentEdit(Guid.Parse(PushNotifParameter)));
+            }
         }
 
         protected override void OnStart()

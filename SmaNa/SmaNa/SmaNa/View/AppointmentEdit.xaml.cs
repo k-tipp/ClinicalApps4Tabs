@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using SmaNa.Model;
 using Xamarin.Forms;
 using SmaNa.ViewModel;
+using SmaNa.LocalDataAccess;
 
 namespace SmaNa.View
 {
@@ -27,6 +28,18 @@ namespace SmaNa.View
             InitializeComponent();
             
             _viewModel = new ViewModelAppointmentEdit(Appointment);
+            addToolbarItems();
+            bindData();
+        }
+
+        public AppointmentEdit(Guid anAppointmentID)
+        {
+            InitializeComponent();
+            if (ViewModelOverview.Appointments == null)
+                new ViewModelOverview();
+
+            Appointment appointment = ViewModelOverview.GetAppointment(anAppointmentID);
+            _viewModel = new ViewModelAppointmentEdit(appointment);
             addToolbarItems();
             bindData();
         }
@@ -73,6 +86,7 @@ namespace SmaNa.View
             editedAppointment.AppointmentFixed = AppointmentFixed.IsToggled;
             editedAppointment.AppointmentPeriode = AppointmentPeriode.Date;
             editedAppointment.AppointmentReminder = AppointmentReminder.IsToggled;
+
             editedAppointment.Doctor = AppointmentDoctor.Text;
             editedAppointment.Location = AppointmentLocation.Text;
             editedAppointment.Name = AppointmentName.Text;

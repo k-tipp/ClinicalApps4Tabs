@@ -71,8 +71,11 @@ namespace SmaNa.ViewModel
                     x.AppointmentState == Enumerations.AppointmentState.geplant).ToList();
                 ViewModelOverview.Appointments.RemoveRange(removeList);
                 var appointments = csv.Load(SmaNaSettings.OperationDate);
-                ViewModelOverview.Appointments.AddRange(appointments);
-
+				foreach (Appointment appointment in appointments)
+                {
+                    appointment.AppointmentID = Guid.NewGuid();
+                }
+				ViewModelOverview.Appointments.AddRange(appointments);
                 old_schema = SmaNaSettings.Schema;
             }
             _xmlAccess.Save(SmaNaSettings);
