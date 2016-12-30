@@ -16,14 +16,15 @@ using Xamarin.Forms;
 using SmaNa.Droid.PlatformDependent;
 using Android.Support.V4.Content;
 using Android.Support.V4.App;
+using Newtonsoft.Json;
 
 namespace SmaNa.Droid.PlatformDependent
 {
-    [Service (Enabled= true, Exported = false, Name = "PlatformDependent.NotificationIntentService")]
+    [Service(Enabled = true, Exported = false)]
     class NotificationIntentService : IntentService
     {
 
-        private static readonly int NOTIFICATION_ID = 1;
+        private static int NOTIFICATION_ID = 1;
         private static readonly String ACTION_START = "ACTION_START";
         private static readonly String ACTION_DELETE = "ACTION_DELETE";
 
@@ -32,10 +33,11 @@ namespace SmaNa.Droid.PlatformDependent
             base.OnCreate();
         }
 
-        public static Intent CreateIntentStartNotificationService(Context context)
+        public static Intent CreateIntentStartNotificationService(Context context, Bundle bundleForNotificationIntent)
         {
             Intent intent = new Intent(context, typeof(NotificationIntentService));
             intent.SetAction(ACTION_START);
+            intent.PutExtras(bundleForNotificationIntent);
             return intent;
         }
 
@@ -54,7 +56,7 @@ namespace SmaNa.Droid.PlatformDependent
                 String action = intent.Action;
                 if (ACTION_START.Equals(action))
                 {
-                    processStartNotification();
+                    processStartNotification(intent.Extras);
                 }
             }
             finally
@@ -68,27 +70,59 @@ namespace SmaNa.Droid.PlatformDependent
             // Log something?
         }
 
-        private void processStartNotification()
+        private void processStartNotification(Bundle notificationData)
         {
             // Do something. For example, fetch fresh data from backend to create a rich notification?
+            IEnumerable<Appointment> appointments = extractAppointments(notificationData);
+            NOTIFICATION_ID = 1;
+            foreach(Appointment appointment in appointments)
+            {
+                if(isUpcomingAppointment(appointment))
+                    CreateNotification(appointment);
+            }
+        }
 
-            NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
-            builder.SetContentTitle("Scheduled Notification")
-                    .SetAutoCancel(true)
-                    .SetContentText("This notification has been triggered by Notification Service")
-                    .SetSmallIcon(Resource.Drawable.logo);
+        private bool isUpcomingAppointment(Appointment appointment)
+        {
+            DateTime notificationDate = (appointment.AppointmentDate.Equals(default(DateTime)) ? appointment.AppointmentPeriode : appointment.AppointmentDate);
+            if (DateTime.Compare(notificationDate, DateTime.Now) > 0) //TODO: logic is only for debug mode
+                return false;
+            return true;
+        }
 
-            Intent mainIntent = new Intent(this, typeof(NotificationActivity));
-            PendingIntent pendingIntent = PendingIntent.GetActivity(this,
-                    NOTIFICATION_ID,
-                    mainIntent,
-                    PendingIntentFlags.UpdateCurrent);
+        private void CreateNotification(Appointment appointment)
+        {
+            if (NOTIFICATION_ID < 3)
+            {
+                NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
+                builder.SetContentTitle(appointment.GuiFirstLine)
+                        .SetAutoCancel(true)
+                        .SetContentText(appointment.GuiSecondLine)
+                        .SetSmallIcon(Resource.Drawable.logo);
 
-            builder.SetContentIntent(pendingIntent);
-            builder.SetDeleteIntent(NotificationEventReceiver.GetDeleteIntent(this));
+                Intent mainIntent = new Intent(this, typeof(NotificationActivity));
+                string appointmentID = appointment.AppointmentID.ToString();
+                mainIntent.PutExtra("AppointmentID", appointmentID);
+                PendingIntent pendingIntent = PendingIntent.GetActivity(this,
+                        NOTIFICATION_ID,
+                        mainIntent,
+                        PendingIntentFlags.UpdateCurrent);
 
-            NotificationManager manager = (NotificationManager)GetSystemService(NotificationService);
-            manager.Notify(NOTIFICATION_ID, builder.Build());
+                builder.SetContentIntent(pendingIntent);
+                builder.SetDeleteIntent(NotificationEventReceiver.GetDeleteIntent(this));
+
+                NotificationManager manager = (NotificationManager)GetSystemService(NotificationService);
+                manager.Notify(NOTIFICATION_ID, builder.Build());
+                NOTIFICATION_ID++;
+            }     
+        }
+
+        private IEnumerable<Appointment> extractAppointments(Bundle notificationData)
+        {
+            string data = notificationData.GetString("Appointments");
+            if (String.IsNullOrEmpty(data))
+                return new List<Appointment>();
+            return JsonConvert.DeserializeObject<IEnumerable<Appointment>>(data);
         }
     }
 }

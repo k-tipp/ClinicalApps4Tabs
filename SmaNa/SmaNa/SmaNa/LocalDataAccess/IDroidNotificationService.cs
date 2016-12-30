@@ -15,8 +15,6 @@ namespace SmaNa.LocalDataAccess
 
     public interface INotificationEventReceiver
     {
-        void SetupAlarm();
-        void CancelAlarm();
-
+        void UpdateAlarms(IEnumerable<Appointment> appointments);
     }
 }

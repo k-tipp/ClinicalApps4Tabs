@@ -49,6 +49,7 @@ namespace SmaNa.ViewModel
         private void SaveData(object sender, NotifyCollectionChangedEventArgs e)
         {
             _xmlAccess.Save(Appointments);
+            App.NotificationEventReceiver.UpdateAlarms(Appointments.Where(appointment => appointment.AppointmentReminder && !appointment.AppointmentDone));
             Regroup();
         }
 

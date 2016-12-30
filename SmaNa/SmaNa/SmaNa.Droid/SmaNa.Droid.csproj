@@ -175,11 +175,8 @@
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
     <Compile Include="NotificationActivity.cs" />
-    <Compile Include="PlatformDependent\DroidNotificationManager.cs" />
     <Compile Include="PlatformDependent\NotificationEventReceiver.cs" />
     <Compile Include="PlatformDependent\NotificationIntentService.cs" />
-    <Compile Include="PlatformDependent\DroidNotificationServiceBinder.cs" />
-    <Compile Include="PlatformDependent\DroidNotificationServiceConnection.cs" />
     <Compile Include="PlatformDependent\Localization.cs" />
     <Compile Include="PlatformDependent\FileManager.cs" />
     <Compile Include="PlatformDependent\NotificationServiceStarterReceiver.cs" />

@@ -9,11 +9,13 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using SmaNa.LocalDataAccess;
+using SmaNa.Model;
 
 namespace SmaNa.Droid.PlatformDependent
 {
     //Broadcast receiver for: BOOT_COMPLETED, TIMEZONE_CHANGED, and TIME_SET events.Sets Alarm Manager for notification;
-    [BroadcastReceiver(Name = "PlatformDependent.NotificationServiceStarterReceiver", Enabled = true)]
+    [BroadcastReceiver(Enabled = true)]
     [IntentFilter(new[] { Intent.ActionBootCompleted,
         Intent.ActionTimezoneChanged,
         Intent.ActionTimeChanged})]
@@ -22,7 +24,11 @@ namespace SmaNa.Droid.PlatformDependent
 
         public override void OnReceive(Context context, Intent intent)
         {
-            NotificationEventReceiver.SetupAlarm(context);
+            Console.WriteLine("asdfasfasfd");
+            XMLAccess<List<Appointment>> xmlAccess = new XMLAccess<List<Appointment>>("Appointments");
+            IEnumerable<Appointment> appointmentsWithOpenNotifications = xmlAccess.Load().Where(appointment => appointment.AppointmentReminder && !appointment.AppointmentDone);
+
+            NotificationEventReceiver.UpdateAlarms(context, appointmentsWithOpenNotifications);
         }
     }
 }

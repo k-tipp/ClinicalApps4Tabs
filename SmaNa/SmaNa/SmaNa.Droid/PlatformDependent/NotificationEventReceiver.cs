@@ -13,6 +13,8 @@ using Android.Support.V4.Content;
 using Xamarin.Forms;
 using SmaNa.Droid.PlatformDependent;
 using SmaNa.LocalDataAccess;
+using SmaNa.Model;
+using Newtonsoft.Json;
 
 [assembly: Dependency(typeof(NotificationEventReceiver))]
 namespace SmaNa.Droid.PlatformDependent
@@ -20,7 +22,7 @@ namespace SmaNa.Droid.PlatformDependent
 
     //WakefulBroadcastReceiver used to receive intents fired from the AlarmManager for showing notifications
     //and from the notification itself if it is deleted.
-    [BroadcastReceiver(Name = "PlatformDependent.NotificationEventReceiver", Enabled = true)]
+    [BroadcastReceiver(Enabled = true)]
     public class NotificationEventReceiver : WakefulBroadcastReceiver, INotificationEventReceiver
     {
 
@@ -29,21 +31,21 @@ namespace SmaNa.Droid.PlatformDependent
 
         private static readonly int NOTIFICATIONS_INTERVAL_IN_HOURS = 2;
 
-        public static void SetupAlarm()
+        public static void UpdateAlarms(IEnumerable<Appointment> appointments)
         {
             Context context = MainActivity.GetInstance().ApplicationContext;
-            SetupAlarm(context);
+            UpdateAlarms(context, appointments);
         }
 
-        void INotificationEventReceiver.SetupAlarm()
+        void INotificationEventReceiver.UpdateAlarms(IEnumerable<Appointment> appointments)
         {
-            SetupAlarm();
+            UpdateAlarms(appointments);
         }
 
-        public static void SetupAlarm(Context context)
+        public static void UpdateAlarms(Context context, IEnumerable<Appointment> appointments)
         {
             AlarmManager alarmManager = (AlarmManager)context.GetSystemService(Context.AlarmService);
-            PendingIntent alarmIntent = GetStartPendingIntent(context);
+            PendingIntent alarmIntent = GetStartPendingIntent(context, appointments);
             Console.WriteLine(GetTriggerAt(DateTime.UtcNow));
             alarmManager.SetRepeating(AlarmType.RtcWakeup,
                     GetTriggerAt(DateTime.UtcNow),
@@ -51,18 +53,18 @@ namespace SmaNa.Droid.PlatformDependent
                     alarmIntent);
         }
 
-        public static void CancelAlarm()
+        public static void CancelAlarm(IEnumerable<Appointment> appointments)
         {
             Context context = MainActivity.GetInstance().BaseContext.ApplicationContext;
             AlarmManager alarmManager = (AlarmManager)context.GetSystemService(Context.AlarmService);
-            PendingIntent alarmIntent = GetStartPendingIntent(context);
+            PendingIntent alarmIntent = GetStartPendingIntent(context, appointments);
             alarmManager.Cancel(alarmIntent);
         }
 
-        void INotificationEventReceiver.CancelAlarm()
-        {
-            CancelAlarm();
-        }
+        //void INotificationEventReceiver.CancelAlarm(IEnumerable<Appointment> appointments)
+        //{
+        //    CancelAlarm(appointments);
+        //}
 
         private static long GetTriggerAt(DateTime now)
         {
@@ -70,9 +72,11 @@ namespace SmaNa.Droid.PlatformDependent
             return (long)span.TotalMilliseconds;
         }
 
-        private static PendingIntent GetStartPendingIntent(Context context)
+        private static PendingIntent GetStartPendingIntent(Context context, IEnumerable<Appointment> appointments)
         {
             Intent intent = new Intent(context, typeof(NotificationEventReceiver));
+            string s = JsonConvert.SerializeObject(appointments);
+            intent.PutExtra("Appointments", s);
             intent.SetAction(ACTION_START_NOTIFICATION_SERVICE);
             return PendingIntent.GetBroadcast(context, 0, intent, PendingIntentFlags.UpdateCurrent);
         }
@@ -91,7 +95,7 @@ namespace SmaNa.Droid.PlatformDependent
             if (ACTION_START_NOTIFICATION_SERVICE.Equals(action))
             {
                 Console.WriteLine(typeof(NotificationEventReceiver).Name, "onReceive from alarm, starting notification service");
-                serviceIntent = NotificationIntentService.CreateIntentStartNotificationService(context);
+                serviceIntent = NotificationIntentService.CreateIntentStartNotificationService(context, intent.Extras);
             }
             else if (ACTION_DELETE_NOTIFICATION.Equals(action))
             {

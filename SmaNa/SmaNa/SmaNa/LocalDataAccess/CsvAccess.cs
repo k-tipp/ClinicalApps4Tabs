@@ -77,7 +77,7 @@ namespace SmaNa.LocalDataAccess
                 string[] lines = schemaString.Split(Environment.NewLine.ToCharArray());
                 List<Appointment> appointments = new List<Appointment>();
 
-                Schema schema = new Model.Schema();
+                Schema schema = new Schema();
                 schema.filename = schemasStrings.Where(p => p.Value == schemaString).Select(p => p.Key).First<string>();
 
 

@@ -86,11 +86,6 @@ namespace SmaNa.View
             editedAppointment.AppointmentFixed = AppointmentFixed.IsToggled;
             editedAppointment.AppointmentPeriode = AppointmentPeriode.Date;
             editedAppointment.AppointmentReminder = AppointmentReminder.IsToggled;
-            if(editedAppointment.AppointmentReminder)
-            {
-                App.NotificationEventReceiver.SetupAlarm();
-                //App.NotificationEventReceiver.AddAppointment(editedAppointment);
-            }
 
             editedAppointment.Doctor = AppointmentDoctor.Text;
             editedAppointment.Location = AppointmentLocation.Text;
