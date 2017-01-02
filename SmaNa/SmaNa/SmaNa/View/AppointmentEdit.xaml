@@ -9,13 +9,15 @@
         <Label x:Name ="AppointmentTitle" Style="{DynamicResource labelOverviewLine}" />
       </StackLayout>
       <StackLayout Orientation="Vertical">
-        <Entry x:Name="AppointmentName" />
+        <Entry x:Name="AppointmentName" Placeholder="{i18n:Translate EditTerminName}" />
         <Label Text="{i18n:Translate EditTerminName}" Style="{DynamicResource labelDescr}" />
       </StackLayout>
+      <BoxView Style="{DynamicResource Separator}"/>
       <StackLayout Orientation="Vertical">
         <DatePicker Format="MMMM yyyy" x:Name="AppointmentPeriode" TextColor="Black"/>
         <Label Text="{i18n:Translate EditTerminPeriode}" Style="{DynamicResource labelDescr}" />
       </StackLayout>
+      <BoxView Style="{DynamicResource Separator}"/>
       <StackLayout x:Name="AppointmentDateButton">
         <Button Text="{i18n:Translate EditTerminSetDate}" x:Name="btnSetDate" Clicked="OnSetDateClicked"/>
       </StackLayout>
@@ -27,14 +29,17 @@
         </StackLayout>
         <Label Text="{i18n:Translate EditTerminDate}" Style="{DynamicResource labelDescr}" />
       </StackLayout>
+      <BoxView Style="{DynamicResource Separator}"/>
       <StackLayout Orientation="Vertical">
-        <Entry x:Name="AppointmentDoctor" />
+        <Entry x:Name="AppointmentDoctor" Placeholder="{i18n:Translate EditTerminDoctor}" />
         <Label Text="{i18n:Translate EditTerminDoctor}" Style="{DynamicResource labelDescr}" />
       </StackLayout>
+      <BoxView Style="{DynamicResource Separator}"/>
       <StackLayout Orientation="Vertical">
-        <Entry x:Name="AppointmentLocation" />
+        <Entry x:Name="AppointmentLocation" Placeholder="{i18n:Translate EditTerminLocation}" />
         <Label Text="{i18n:Translate EditTerminLocation}" Style="{DynamicResource labelDescr}" />
       </StackLayout>
+      <BoxView Style="{DynamicResource Separator}"/>
       <StackLayout Orientation="Vertical">
         <StackLayout Orientation="Horizontal" VerticalOptions="Start">
           <Switch x:Name="AppointmentReminder"/>

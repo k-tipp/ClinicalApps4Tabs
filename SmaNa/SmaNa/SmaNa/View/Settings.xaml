@@ -9,20 +9,24 @@
         <DatePicker Format="dd.MM.yyyy" x:Name="OperationDate" TextColor="Black" />
         <Label Text="{i18n:Translate SettingsOPDate}" Style="{DynamicResource labelDescr}" />
       </StackLayout>
+      <BoxView Style="{DynamicResource Separator}"/>
       <StackLayout Orientation="Vertical">
         <StackLayout Orientation="Horizontal" VerticalOptions="Start">
           <Switch x:Name="StageingComplete"  VerticalOptions="Start" />
         </StackLayout>
         <Label Text="{i18n:Translate SettingsStageingComplete}"  Style="{DynamicResource labelDescr}" />
       </StackLayout>
+      <BoxView Style="{DynamicResource Separator}"/>
       <StackLayout Orientation="Vertical">
         <Picker x:Name="SettingsSchema" TextColor="Black"/>
         <Label Text="{i18n:Translate SettingsSchema}" Style="{DynamicResource labelDescr}" />
       </StackLayout>
+      <BoxView Style="{DynamicResource Separator}"/>
       <StackLayout Orientation="Vertical">
         <Picker x:Name="Language" TextColor="Black" />
         <Label Text="{i18n:Translate SettingsLanguage}" Style="{DynamicResource labelDescr}" />
       </StackLayout>
+      <BoxView Style="{DynamicResource Separator}"/>
       <StackLayout Orientation="Vertical">
         <StackLayout Orientation="Horizontal" VerticalOptions="Start">
           <Switch x:Name="MiData"  VerticalOptions="Start" Toggled="OnMidataToggled" />
@@ -30,12 +34,15 @@
         <Label Text="{i18n:Translate SettingsMidata}"  Style="{DynamicResource labelDescr}" />
       </StackLayout>
       <StackLayout Orientation="Vertical" x:Name="MidataLayout">
-        <Entry x:Name="MidataWeight" Keyboard="Numeric" />
+        <BoxView Style="{DynamicResource Separator}"/>
+        <Entry x:Name="MidataWeight" Keyboard="Numeric" Placeholder="{i18n:Translate SettingsMidataWeight}"  />
         <Label Text="{i18n:Translate SettingsMidataWeight}"  Style="{DynamicResource labelDescr}" />
         <Button x:Name="btnMidataSend" Text="{i18n:Translate SettingsMidataSend}" Clicked="OnMidataSendClicked"/>
+        <BoxView Style="{DynamicResource Separator}"/>
         <StackLayout Orientation="Vertical" VerticalOptions="Start">
           <Button x:Name="btnMidataGet" Text="{i18n:Translate SettingsMidataGet}" Clicked="OnMidataGetClicked" />
         </StackLayout>
+        <BoxView Style="{DynamicResource Separator}"/>
         <StackLayout>
           <Label x:Name="MidataData" TextColor="Black"/>
         </StackLayout>

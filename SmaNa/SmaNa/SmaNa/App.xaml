@@ -42,6 +42,12 @@
         <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
       </Style>
 
+      <Style x:Key="Separator" TargetType="BoxView">
+        <Setter Property="Color" Value="Gray"/>
+        <Setter Property="WidthRequest" Value="100"/>
+        <Setter Property="HeightRequest" Value="1"/>
+      </Style>
+
     </ResourceDictionary>
 
   </Application.Resources>
