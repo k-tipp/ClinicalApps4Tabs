@@ -15,8 +15,28 @@ namespace SmaNa.Model
         public string Name { get; set; }
         public string Doctor { get; set; }
         public string Location { get; set; }
-        public bool AppointmentFixed { get; set; }
-        public bool AppointmentDone { get; set; }
+        /// <summary>
+        /// if the appointment has a date set, it is fixed.
+        /// </summary>
+        [XmlIgnore]
+        public bool AppointmentFixed
+        {
+            get
+            {
+                return !AppointmentDate.Equals(default(DateTime));
+            }
+        }
+        /// <summary>
+        /// If the appointment is in the past, it is done.
+        /// </summary>
+        [XmlIgnore]
+        public bool AppointmentDone
+        {
+            get
+            {
+                return AppointmentFixed && DateTime.Compare(DateTime.Now, AppointmentDate) > 0;
+            }
+        }
         public bool AppointmentReminder { get; set; }
         public bool Generated { get; set; }
         public Guid AppointmentID { get; set; }
@@ -63,6 +83,23 @@ namespace SmaNa.Model
                 else
                 {
                     return ret + " (" + AppointmentDate.ToString("dd.MM.yyyy") + ")";
+                }
+
+            }
+        }
+
+        [XmlIgnore]
+        public string PushMessageHeader
+        {
+            get
+            {
+                if (AppointmentDate == default(DateTime))
+                {
+                    return "abzumachender Termin: " + AppointmentPeriode.ToString("MMMM yyyy");
+                }
+                else
+                {
+                    return "Termin: " + AppointmentDate.ToString("dd.MM.yyyy HH:mm");
                 }
 
             }

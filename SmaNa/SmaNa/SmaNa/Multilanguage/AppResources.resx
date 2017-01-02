@@ -198,4 +198,25 @@
   <data name="SettingsSchema" xml:space="preserve">
     <value>Schema</value>
   </data>
+  <data name="EditTerminDelete" xml:space="preserve">
+    <value>Termin löschen</value>
+  </data>
+  <data name="EditTerminSetDate" xml:space="preserve">
+    <value>Termin erfassen</value>
+  </data>
+  <data name="EditTerminUnsetDate" xml:space="preserve">
+    <value>X</value>
+  </data>
+  <data name="SettingsMidata" xml:space="preserve">
+    <value>Midata aktivieren</value>
+  </data>
+  <data name="SettingsMidataGet" xml:space="preserve">
+    <value>letztes Gewicht von MiData laden</value>
+  </data>
+  <data name="SettingsMidataSend" xml:space="preserve">
+    <value>Senden</value>
+  </data>
+  <data name="SettingsMidataWeight" xml:space="preserve">
+    <value>Gewicht</value>
+  </data>
 </root>

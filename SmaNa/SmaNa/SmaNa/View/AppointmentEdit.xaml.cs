@@ -26,12 +26,15 @@ namespace SmaNa.View
         public AppointmentEdit(Appointment Appointment)
         {
             InitializeComponent();
-            
+
             _viewModel = new ViewModelAppointmentEdit(Appointment);
             addToolbarItems();
             bindData();
         }
-
+        /// <summary>
+        /// Call this constructor when you come from a pushed message
+        /// </summary>
+        /// <param name="anAppointmentID"></param>
         public AppointmentEdit(Guid anAppointmentID)
         {
             InitializeComponent();
@@ -52,6 +55,7 @@ namespace SmaNa.View
             _viewModel = new ViewModelAppointmentEdit();
             addToolbarItems();
             bindData();
+            DeleteLayout.IsVisible = false;
         }
         /// <summary>
         ///  set all the Attributes of an Appointment to the GUI-Controls
@@ -62,12 +66,22 @@ namespace SmaNa.View
             AppointmentTitle.Text = Appointment.Name;
             AppointmentName.Text = Appointment.Name;
             AppointmentPeriode.Date = Appointment.AppointmentPeriode;
+            // if the AppointmentDate is default, we display the button and not the whole date, so the user first has to click the Create Appointment button.
+            if (Appointment.AppointmentDate.Equals(default(DateTime)))
+            {
+                setAppointmentDateVisibility(false);
+            }
+            else
+            {
+                setAppointmentDateVisibility(true);
+                AppointmentTime.Time = Appointment.AppointmentDate.TimeOfDay;
+            }
             AppointmentDate.Date = Appointment.AppointmentDate;
             AppointmentDoctor.Text = Appointment.Doctor;
             AppointmentLocation.Text = Appointment.Location;
-            AppointmentFixed.IsToggled = Appointment.AppointmentFixed;
             AppointmentReminder.IsToggled = Appointment.AppointmentReminder;
-            AppointmentDone.IsToggled = Appointment.AppointmentDone;
+            // Manually generated Appointments can be deleted
+            DeleteLayout.IsVisible = !Appointment.Generated;
         }
 
         private void addToolbarItems()
@@ -82,8 +96,11 @@ namespace SmaNa.View
         {
             Appointment editedAppointment = _viewModel.Appointment;
             editedAppointment.AppointmentDate = AppointmentDate.Date;
-            editedAppointment.AppointmentDone = AppointmentDone.IsToggled;
-            editedAppointment.AppointmentFixed = AppointmentFixed.IsToggled;
+            if (!AppointmentDate.Date.Equals(default(DateTime)))
+            {
+                editedAppointment.AppointmentDate = editedAppointment.AppointmentDate
+                    .Add(AppointmentTime.Time);
+            }
             editedAppointment.AppointmentPeriode = AppointmentPeriode.Date;
             editedAppointment.AppointmentReminder = AppointmentReminder.IsToggled;
 
@@ -91,6 +108,30 @@ namespace SmaNa.View
             editedAppointment.Location = AppointmentLocation.Text;
             editedAppointment.Name = AppointmentName.Text;
             _viewModel.Save();
+            Navigation.PopAsync();
+        }
+
+        private void setAppointmentDateVisibility(bool dateSet)
+        {
+            AppointmentDateButton.IsVisible = !dateSet;
+            AppointmentDatePicker.IsVisible = dateSet;
+        }
+        public void OnSetDateClicked(object sender, EventArgs e)
+        {
+            setAppointmentDateVisibility(true);
+            AppointmentDate.Date = DateTime.Now;
+            AppointmentTime.Time = DateTime.Now.TimeOfDay;
+        }
+
+        public void OnUnsetDateClicked(object sender, EventArgs e)
+        {
+            setAppointmentDateVisibility(false);
+            AppointmentDate.Date = default(DateTime);
+            AppointmentTime.Time = default(TimeSpan);
+        }
+        public void OnDeleteClicked(object sender, EventArgs e)
+        {
+            _viewModel.DeleteAppointment();
             Navigation.PopAsync();
         }
     }

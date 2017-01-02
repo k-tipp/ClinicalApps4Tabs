@@ -17,7 +17,10 @@ using SmaNa.Droid.PlatformDependent;
 using Android.Support.V4.Content;
 using Android.Support.V4.App;
 using Newtonsoft.Json;
-
+/// <summary>
+/// Created: Kevin
+/// http://stackoverflow.com/questions/20501225/using-service-to-run-background-and-create-notification/34207954
+/// </summary>
 namespace SmaNa.Droid.PlatformDependent
 {
     [Service(Enabled = true, Exported = false)]
@@ -85,7 +88,8 @@ namespace SmaNa.Droid.PlatformDependent
         private bool isUpcomingAppointment(Appointment appointment)
         {
             DateTime notificationDate = (appointment.AppointmentDate.Equals(default(DateTime)) ? appointment.AppointmentPeriode : appointment.AppointmentDate);
-            if (DateTime.Compare(notificationDate, DateTime.Now) > 0) //TODO: logic is only for debug mode
+            if (DateTime.Compare(notificationDate, DateTime.Now.AddDays(15)) < 0 &&
+                DateTime.Compare(notificationDate, DateTime.Now) >= 0)
                 return false;
             return true;
         }
@@ -95,9 +99,9 @@ namespace SmaNa.Droid.PlatformDependent
             if (NOTIFICATION_ID < 3)
             {
                 NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
-                builder.SetContentTitle(appointment.GuiFirstLine)
+                builder.SetContentTitle(appointment.PushMessageHeader)
                         .SetAutoCancel(true)
-                        .SetContentText(appointment.GuiSecondLine)
+                        .SetContentText("")
                         .SetSmallIcon(Resource.Drawable.logo);
 
                 Intent mainIntent = new Intent(this, typeof(NotificationActivity));

@@ -16,14 +16,33 @@
         <Label Text="{i18n:Translate SettingsStageingComplete}"  Style="{DynamicResource labelDescr}" />
       </StackLayout>
       <StackLayout Orientation="Vertical">
-        <Picker Grid.ColumnSpan="2" x:Name="SettingsSchema" TextColor="Black"/>
+        <Picker x:Name="SettingsSchema" TextColor="Black"/>
         <Label Text="{i18n:Translate SettingsSchema}" Style="{DynamicResource labelDescr}" />
       </StackLayout>
       <StackLayout Orientation="Vertical">
         <Picker x:Name="Language" TextColor="Black" />
         <Label Text="{i18n:Translate SettingsLanguage}" Style="{DynamicResource labelDescr}" />
       </StackLayout>
+      <StackLayout Orientation="Vertical">
+        <StackLayout Orientation="Horizontal" VerticalOptions="Start">
+          <Switch x:Name="MiData"  VerticalOptions="Start" Toggled="OnMidataToggled" />
+        </StackLayout>
+        <Label Text="{i18n:Translate SettingsMidata}"  Style="{DynamicResource labelDescr}" />
+      </StackLayout>
+      <StackLayout Orientation="Vertical" x:Name="MidataLayout">
+        <Entry x:Name="MidataWeight" Keyboard="Numeric" />
+        <Label Text="{i18n:Translate SettingsMidataWeight}"  Style="{DynamicResource labelDescr}" />
+        <Button x:Name="btnMidataSend" Text="{i18n:Translate SettingsMidataSend}" Clicked="OnMidataSendClicked"/>
+        <StackLayout Orientation="Vertical" VerticalOptions="Start">
+          <Button x:Name="btnMidataGet" Text="{i18n:Translate SettingsMidataGet}" Clicked="OnMidataGetClicked" />
+        </StackLayout>
+        <StackLayout>
+          <Label x:Name="MidataData" TextColor="Black"/>
+        </StackLayout>
+      </StackLayout>
+
     </StackLayout>
+
   </ScrollView>
 
 </ContentPage>

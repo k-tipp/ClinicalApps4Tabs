@@ -25,7 +25,8 @@ namespace SmaNa
         public static Encrypter Encrypter { private set; get; }
         public static ViewModel.ViewModelSettings ViewModelSettings { private set; get; }
         public static String PushNotifParameter { get; set; }
-        public static App currentApp;
+        public static App currentApp { get; set; }
+        public static MidataLogin Midata { get; set; }
 
         public App(String pushNotifParam = null)
         {
@@ -48,8 +49,8 @@ namespace SmaNa
             Encrypter = new Encrypter(password);
             ViewModelSettings = new ViewModel.ViewModelSettings();
 
-            var midataAccess = new MidataLogin();
-            midataAccess.Login();
+            Midata = new MidataLogin();
+            Midata.Login();
             //BodyWeight bw = new BodyWeight("85", DateTime.Now);
             //midataAccess.SaveWeight(bw);
             

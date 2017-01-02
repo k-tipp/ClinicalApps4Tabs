@@ -23,8 +23,7 @@ namespace SmaNa.View
         The ViewModel conatains all Data displayed on this view
         */
         ViewModelOverview viewModel { get; set; }
-
-        private static int _rowHeight = 60;
+        
         public AppointmentOverview()
         {
             InitializeComponent();
@@ -49,42 +48,6 @@ namespace SmaNa.View
                 await Navigation.PushAsync(edit);
             }));
         }
-
-        //private void DoneAppointments_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
-        //{
-        //    setListViewHeight(DoneAppointmentList, viewModel.DoneAppointments, DoneLabel);
-        //}
-
-        //private void FixedAppointments_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
-        //{
-        //    setListViewHeight(FixedAppointmentList, viewModel.FixedAppointments, FixedLabel);
-        //}
-
-        //private void PlannedAppointments_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
-        //{
-        //    setListViewHeight(PlannedAppointmentList, viewModel.PlannedAppointments, PlannedLabel);
-        //}
-        ///// <summary>
-        ///// sets the lv's height according to the lists count. if count==0 sets visibility of lv and titleLabel to unvisible, otherwhise to visible.
-        ///// </summary>
-        ///// <param name="lv"></param>
-        ///// <param name="list"></param>
-        ///// <param name="titleLabel"></param>
-        //private void setListViewHeight(ListView lv, ObservableCollection<Appointment> list, Label titleLabel)
-        //{
-        //    var count = list.Count;
-        //    if (count > 0)
-        //    {
-        //        lv.IsVisible = true;
-        //        titleLabel.IsVisible = true;
-        //        //lv.HeightRequest = count * _rowHeight;
-        //    }
-        //    else
-        //    {
-        //        lv.IsVisible = false;
-        //        titleLabel.IsVisible = false;
-        //    }
-        //}
 
         public async void OnAppointmentSelected(object sender, SelectedItemChangedEventArgs e)
         {

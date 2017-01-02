@@ -57,8 +57,6 @@ namespace SmaNa.LocalDataAccess
                 appointment.AppointmentPeriode = operationDate.Add(TimeSpan.ParseExact(fields[1], "c", null));
                 appointment.AppointmentDate = default(DateTime);
                 appointment.AppointmentReminder = (fields[2] == "true" ? true : false);
-                appointment.AppointmentFixed = (fields[3] == "true" ? true : false);
-                appointment.AppointmentDone = (fields[4] == "true" ? true : false);
                 appointment.Generated = true;
                 appointments.Add(appointment);
             }

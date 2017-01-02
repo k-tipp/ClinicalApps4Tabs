@@ -40,6 +40,7 @@
     </Compile>
     <Compile Include="LocalDataAccess\CsvAccess.cs" />
     <Compile Include="LocalDataAccess\Encrypter.cs" />
+    <Compile Include="LocalDataAccess\IDroidNotificationService.cs" />
     <Compile Include="LocalDataAccess\IFileManager.cs" />
     <Compile Include="LocalDataAccess\IPasswordManager.cs" />
     <Compile Include="LocalDataAccess\XMLAccess.cs" />

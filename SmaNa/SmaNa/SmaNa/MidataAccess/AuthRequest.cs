@@ -78,7 +78,6 @@ namespace SmaNa.MidataAccess
 
     public class FHIRMessage
     {
-        public string Authorization;
         public BodyWeight Content;
     }
 }

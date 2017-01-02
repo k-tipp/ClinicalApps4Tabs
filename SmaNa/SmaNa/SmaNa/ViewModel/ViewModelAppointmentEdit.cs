@@ -12,7 +12,6 @@ namespace SmaNa.ViewModel
     /// </summary>
     class ViewModelAppointmentEdit
     {
-        private Guid appointmentID;
 
         public Appointment Appointment { get; private set; }
 
@@ -25,9 +24,7 @@ namespace SmaNa.ViewModel
             {
                 AppointmentDate = DateTime.Now,
                 AppointmentPeriode = DateTime.Now,
-                AppointmentReminder = false,
-                AppointmentDone = false,
-                AppointmentFixed = false,
+                AppointmentReminder = true,
                 AppointmentID = Guid.NewGuid()
             };
         }
@@ -39,11 +36,7 @@ namespace SmaNa.ViewModel
         {
             this.Appointment = Appointment;
         }
-
-        public ViewModelAppointmentEdit(Guid appointmentID)
-        {
-            this.appointmentID = appointmentID;
-        }
+        
 
         /// <summary>
         /// Saves the Appointment in the appointment list while holding its sorting after AppointmentDate.
@@ -82,6 +75,12 @@ namespace SmaNa.ViewModel
                 appointmentList.Add(Appointment);
             }
         }
-
+        /// <summary>
+        /// Removes the Appointment from the Appointmentlist.
+        /// </summary>
+        public void DeleteAppointment()
+        {
+            ViewModelOverview.Appointments.Remove(Appointment);
+        }
     }
 }

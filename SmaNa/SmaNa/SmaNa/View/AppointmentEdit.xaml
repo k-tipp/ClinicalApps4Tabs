@@ -16,8 +16,15 @@
         <DatePicker Format="MMMM yyyy" x:Name="AppointmentPeriode" TextColor="Black"/>
         <Label Text="{i18n:Translate EditTerminPeriode}" Style="{DynamicResource labelDescr}" />
       </StackLayout>
-      <StackLayout Orientation="Vertical">
-        <DatePicker Format="dd.MM.yyyy hh:mm" x:Name="AppointmentDate" TextColor="Black" />
+      <StackLayout x:Name="AppointmentDateButton">
+        <Button Text="{i18n:Translate EditTerminSetDate}" x:Name="btnSetDate" Clicked="OnSetDateClicked"/>
+      </StackLayout>
+      <StackLayout Orientation="Vertical" x:Name="AppointmentDatePicker">
+        <StackLayout Orientation="Horizontal">
+          <DatePicker Format="dd.MM.yyyy" x:Name="AppointmentDate" TextColor="Black" />
+          <TimePicker x:Name ="AppointmentTime" TextColor="Black"/>
+          <Button Text ="{i18n:Translate EditTerminUnsetDate}" x:Name="btnUnsetDate" Clicked="OnUnsetDateClicked"/>
+        </StackLayout>
         <Label Text="{i18n:Translate EditTerminDate}" Style="{DynamicResource labelDescr}" />
       </StackLayout>
       <StackLayout Orientation="Vertical">
@@ -30,23 +37,15 @@
       </StackLayout>
       <StackLayout Orientation="Vertical">
         <StackLayout Orientation="Horizontal" VerticalOptions="Start">
-          <Switch x:Name="AppointmentFixed"/>
-        </StackLayout>
-        <Label Text="{i18n:Translate EditTerminFixed}" Style="{DynamicResource labelDescr}" />
-      </StackLayout>
-      <StackLayout Orientation="Vertical">
-        <StackLayout Orientation="Horizontal" VerticalOptions="Start">
           <Switch x:Name="AppointmentReminder"/>
         </StackLayout>
         <Label Text="{i18n:Translate EditTerminRemind}" Style="{DynamicResource labelDescr}" />
       </StackLayout>
-      <StackLayout Orientation="Vertical">
-        <StackLayout Orientation="Horizontal" VerticalOptions="Start">
-          <Switch x:Name="AppointmentDone"/>
-        </StackLayout>
-        <Label Text="{i18n:Translate EditTerminDone}" Style="{DynamicResource labelDescr}" />
+      <StackLayout x:Name="DeleteLayout">
+        <Button x:Name="btnDelete" Text="{i18n:Translate EditTerminDelete}" Clicked="OnDeleteClicked"/>
       </StackLayout>
     </StackLayout>
+    
   </ScrollView>
 
 </ContentPage>

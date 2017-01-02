@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SmaNa.Multilanguage;
+using SmaNa.MidataAccess;
 
 namespace SmaNa.ViewModel
 {
@@ -79,6 +80,36 @@ namespace SmaNa.ViewModel
                 old_schema = SmaNaSettings.Schema;
             }
             _xmlAccess.Save(SmaNaSettings);
+        }
+
+        /// <summary>
+        /// Loads all Schemas from local file storage
+        /// </summary>
+        /// <returns>All Schemas available</returns>
+        public Dictionary<string, Schema> getSchemas()
+        {
+            CsvAccess csv = new CsvAccess("");
+            return csv.LoadSchemas("DE");
+        }
+
+        /// <summary>
+        /// Loads the last weight from MiData
+        /// </summary>
+        /// <returns>the last weight as String</returns>
+        public async Task<string> GetLastWeight()
+        {
+            var bw = await App.Midata.getLastWeight();
+            return bw.valueQuantity.value;
+        }
+
+        /// <summary>
+        /// Saves the given Weight as BodyWeight to MiData
+        /// </summary>
+        /// <param name="Weight">The measured weight</param>
+        public void SaveWeight(string Weight)
+        {
+            BodyWeight bw = new BodyWeight(Weight, DateTime.Now);
+            App.Midata.SaveWeight(bw);
         }
     }
 }

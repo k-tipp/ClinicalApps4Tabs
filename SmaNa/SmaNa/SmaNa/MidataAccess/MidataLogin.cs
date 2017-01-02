@@ -9,7 +9,7 @@ using System.Net.Http;
 
 namespace SmaNa.MidataAccess
 {
-    class MidataLogin
+    public class MidataLogin
     {
         private static readonly string appname = "SmaNa";
         private static readonly string secret = "BuNHh98HVvLi7AuY";
@@ -44,10 +44,6 @@ namespace SmaNa.MidataAccess
                 client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", authResponse.authToken);
                 _loginToken = authResponse.authToken;
                 _refreshToken = authResponse.refreshToken;
-                // get-test :D
-                uri = new Uri(endpoint + "/fhir/Observation?code=3141-9");
-                var get = await client.GetAsync(uri);
-                var result = JsonConvert.DeserializeObject<Response>(get.Content.ReadAsStringAsync().Result);
             }
         }
 
@@ -57,18 +53,19 @@ namespace SmaNa.MidataAccess
             {
                 await Task.Delay(1000);
             }
-            var message = new FHIRMessage() { Authorization = "Bearer " + _loginToken, Content = bw };
-            var data = JsonConvert.SerializeObject(message);
-            var content = new StringContent(data, Encoding.UTF8, "application/json");//+fhir;charset=utf-8
-            
+            //var message = new FHIRMessage() { Content = bw };
+            var data = JsonConvert.SerializeObject(bw);
+            var content = new StringContent(data, Encoding.UTF8, "application/json");
+            var uri = new Uri(endpoint + "/fhir/Observation");
+            var response = await client.PostAsync(uri, content);
         }
 
-        //public async BodyWeight getLastWeight()
-        //{
-        //    var uri = new Uri(endpoint + "/fhir/Observation?code=3141-9");
-        //    var get = await client.GetAsync(uri);
-        //    var result = JsonConvert.DeserializeObject<Response>(get.Content.ReadAsStringAsync().Result);
-        //    return result.entry.FirstOrDefault().resource;
-        //}
+        public async Task<BodyWeight> getLastWeight()
+        {
+            var uri = new Uri(endpoint + "/fhir/Observation?code=3141-9");
+            var get = await client.GetAsync(uri);
+            var result = JsonConvert.DeserializeObject<Response>(get.Content.ReadAsStringAsync().Result);
+            return result.entry.OrderByDescending(x=>x.resource.effectiveDateTime).FirstOrDefault().resource;
+        }
     }
 }
