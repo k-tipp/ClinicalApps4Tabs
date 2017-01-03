@@ -225,4 +225,7 @@
   <data name="SettingsMidataWeight" xml:space="preserve">
     <value>Gewicht</value>
   </data>
+  <data name="saveOperation" xml:space="preserve">
+    <value>Speichern</value>
+  </data>
 </root>

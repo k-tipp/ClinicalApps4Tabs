@@ -197,7 +197,7 @@ namespace SmaNa.Multilanguage {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Meine Behandlungen und Operation.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Meine Behandlungen und Operation ähnelt.
         /// </summary>
         public static string MainMenuOperation {
             get {
@@ -265,6 +265,15 @@ namespace SmaNa.Multilanguage {
         public static string saveAppointment {
             get {
                 return ResourceManager.GetString("saveAppointment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Speichern ähnelt.
+        /// </summary>
+        public static string saveOperation {
+            get {
+                return ResourceManager.GetString("saveOperation", resourceCulture);
             }
         }
         
@@ -368,7 +377,7 @@ namespace SmaNa.Multilanguage {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Meine Operationen.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Meine Operationen ähnelt.
         /// </summary>
         public static string Surgerys {
             get {
@@ -377,7 +386,7 @@ namespace SmaNa.Multilanguage {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Meine Behandlungen.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Meine Behandlungen ähnelt.
         /// </summary>
         public static string Treatments {
             get {

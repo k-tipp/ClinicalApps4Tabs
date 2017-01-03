@@ -113,15 +113,30 @@ namespace SmaNa.Model
         {
             get
             {
+                var prefix = "";
                 if (AppointmentDate == default(DateTime))
                 {
-                    return "abzumachender Termin: " + AppointmentPeriode.ToString("MMMM yyyy");
+                    if (SmaNa.ViewModel.ViewModelSettings.SmaNaSettings.LanguageString.Equals("fr-CH"))
+                    {
+                        prefix = "rendez-vous prévue: ";
+                    }
+                    else
+                    {
+                        prefix = "abzumachender Termin: ";
+                    }
                 }
                 else
                 {
-                    return "Termin: " + AppointmentDate.ToString("dd.MM.yyyy HH:mm");
+                    if (ViewModelSettings.SmaNaSettings.LanguageString.Equals("fr-CH"))
+                    {
+                        prefix = "Rendez-vous: ";
+                    }
+                    else
+                    {
+                        prefix = "Termin: ";
+                    }
                 }
-
+                return prefix + AppointmentDate.ToString("dd.MM.yyyy HH:mm");
             }
         }
 

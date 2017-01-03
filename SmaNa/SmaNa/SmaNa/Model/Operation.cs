@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SmaNa.Model
 {
-    class Operation
+    public class Operation
     {
         public string Treatment { get; set; }
         public string Surgery { get; set; }

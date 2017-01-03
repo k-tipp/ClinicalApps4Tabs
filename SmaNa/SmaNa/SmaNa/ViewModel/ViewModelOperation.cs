@@ -15,7 +15,16 @@ namespace SmaNa.ViewModel
         public ViewModelOperation() {
 
             _xmlAccess = new XMLAccess<Operation>("Operation");
+            Operation = _xmlAccess.Load();
+            if (Operation == null)
+            {
+                Operation = new Operation();
+            }
+        }
 
+        public void Save()
+        {
+            _xmlAccess.Save(Operation);
         }
     }
 }

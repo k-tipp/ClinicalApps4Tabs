@@ -1,20 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SmaNa.View.Operation">
- <StackLayout Orientation="Vertical"> 
-  <StackLayout Orientation="Vertical">
-        <Label x:Name ="FixedLabel" Text="{i18n:Translate Treatments}" Style="{DynamicResource labelTitleLine}" />
-        <ScrollViewer>
-          <TextBlock ScrollViewer.HorizontalScrollBarVisibility="Disabled"  ScrollViewer.VerticalScrollBarVisibility="Auto" />
-        </ScrollViewer>
-  </StackLayout>
-  <StackLayout Orientation="Vertical">
-        <Label x:Name ="FixedLabel" Text="{i18n:Translate Surgerys}" Style="{DynamicResource labelTitleLine}" />
-        <ScrollViewer>
-          <TextBlock ScrollViewer.HorizontalScrollBarVisibility="Disabled"  ScrollViewer.VerticalScrollBarVisibility="Auto" />
-        </ScrollViewer>
-  </StackLayout>
- </StackLayout>
- 
+             x:Class="SmaNa.View.Operation"
+             xmlns:i18n="clr-namespace:SmaNa.Multilanguage;assembly=SmaNa">
+  <ScrollView Orientation="Vertical">
+    <StackLayout Orientation="Vertical">
+      <Editor x:Name="Treatment" HeightRequest="200" />
+      <Label  Text="{i18n:Translate Treatments}" Style="{DynamicResource labelDescr}" HeightRequest="25"/>
+      <BoxView Style="{DynamicResource Separator}"/>
+      <Editor x:Name="Surgery" HeightRequest="200"/>
+      <Label  Text="{i18n:Translate Surgerys}" Style="{DynamicResource labelDescr}" HeightRequest="25" />
+    </StackLayout>
+  </ScrollView>
+
 </ContentPage>

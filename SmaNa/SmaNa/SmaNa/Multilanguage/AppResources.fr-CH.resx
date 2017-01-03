@@ -186,6 +186,15 @@
   <data name="SettingsTNM" xml:space="preserve">
     <value>TNM</value>
   </data>
+  <data name="OverviewDone" xml:space="preserve">
+    <value>Dates effectuées</value>
+  </data>
+  <data name="OverviewFixed" xml:space="preserve">
+    <value>Dates fixées</value>
+  </data>
+  <data name="OverviewPlanned" xml:space="preserve">
+    <value>Dates prévue</value>
+  </data>
   <data name="SettingsSchema" xml:space="preserve">
     <value>Schème</value>
   </data>
@@ -194,5 +203,29 @@
   </data>
   <data name="Treatments" xml:space="preserve">
     <value>Mes traitements</value>
+  </data>
+  <data name="EditTerminDelete" xml:space="preserve">
+    <value>Effacer le rendez-vous</value>
+  </data>
+  <data name="EditTerminSetDate" xml:space="preserve">
+    <value>Enregistrer rendez-vous</value>
+  </data>
+  <data name="EditTerminUnsetDate" xml:space="preserve">
+    <value>X</value>
+  </data>
+  <data name="SettingsMidata" xml:space="preserve">
+    <value>Activer Midata</value>
+  </data>
+  <data name="SettingsMidataGet" xml:space="preserve">
+    <value>Charger le dernier poids de Midata</value>
+  </data>
+  <data name="SettingsMidataSend" xml:space="preserve">
+    <value>Transmettre</value>
+  </data>
+  <data name="SettingsMidataWeight" xml:space="preserve">
+    <value>Poids</value>
+  </data>
+  <data name="saveOperation" xml:space="preserve">
+    <value>Enregistrer</value>
   </data>
 </root>

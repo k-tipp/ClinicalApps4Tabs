@@ -98,6 +98,9 @@ namespace SmaNa.Droid.PlatformDependent
         {
             if (NOTIFICATION_ID < 3)
             {
+                var ci = SmaNa.ViewModel.ViewModelSettings.SmaNaSettings.Language;
+                Thread.CurrentThread.CurrentCulture = ci;
+                Thread.CurrentThread.CurrentUICulture = ci;
                 NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
                 builder.SetContentTitle(appointment.PushMessageHeader)
                         .SetAutoCancel(true)
