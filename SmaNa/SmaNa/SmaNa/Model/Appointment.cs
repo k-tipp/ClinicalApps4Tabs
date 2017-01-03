@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SmaNa.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,7 +13,26 @@ namespace SmaNa.Model
 {
     public class Appointment
     {
-        public string Name { get; set; }
+        [XmlIgnore]
+        public string Name { get
+            {
+                if (ViewModelSettings.SmaNaSettings.LanguageString.Equals("fr-CH"))
+                {
+                    return Name_F!=null? Name_F : Name_D;
+                }
+                else
+                {
+                    return Name_D;
+                }
+            }
+            set
+            {
+                Name_D = value;
+            }
+        }
+
+        public string Name_D { get; set; }
+        public string Name_F { get; set; }
         public string Doctor { get; set; }
         public string Location { get; set; }
         /// <summary>

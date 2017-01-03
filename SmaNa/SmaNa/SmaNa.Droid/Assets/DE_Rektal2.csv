@@ -1,16 +1,16 @@
-﻿Rektum Karzinom T1N0 mit radikaler Resektion
-Klinische Untersuchung|91.00:00:00|true|false|false
-Klinische Untersuchung|182.00:00:00|true|false|false
-Klinische Untersuchung|273.00:00:00|true|false|false
-Klinische Untersuchung|365.00:00:00|true|false|false
-Klinische Untersuchung|547.00:00:00|true|false|false
-Klinische Untersuchung|730.00:00:00|true|false|false
-Klinische Untersuchung|911.00:00:00|true|false|false
-Klinische Untersuchung|1095.00:00:00|true|false|false
-Klinische Untersuchung|1461.00:00:00|true|false|false
-Klinische Untersuchung|1826.00:00:00|true|false|false
-Koloskopie|365.00:00:00|true|false|false
-Koloskopie|1826.00:00:00|true|false|false
-Untere flexible Endoskopie|182.00:00:00|true|false|false
-Untere flexible Endoskopie|547.00:00:00|true|false|false
-Untere flexible Endoskopie|730.00:00:00|true|false|false
+﻿Rektum Karzinom T1N0 mit radikaler Resektion|Cancer du rectum T1 N0 avec résection radicale
+Klinische Untersuchung, CEA-Titer|Examen CEA-Titer|91.00:00:00|true|false|false
+Klinische Untersuchung, CEA-Titer|Examen CEA-Titer|182.00:00:00|true|false|false
+Klinische Untersuchung, CEA-Titer|Examen CEA-Titer|273.00:00:00|true|false|false
+Klinische Untersuchung, CEA-Titer|Examen CEA-Titer|365.00:00:00|true|false|false
+Klinische Untersuchung, CEA-Titer|Examen CEA-Titer|547.00:00:00|true|false|false
+Klinische Untersuchung, CEA-Titer|Examen CEA-Titer|730.00:00:00|true|false|false
+Klinische Untersuchung, CEA-Titer|Examen CEA-Titer|911.00:00:00|true|false|false
+Klinische Untersuchung, CEA-Titer|Examen CEA-Titer|1095.00:00:00|true|false|false
+Klinische Untersuchung, CEA-Titer|Examen CEA-Titer|1461.00:00:00|true|false|false
+Klinische Untersuchung, CEA-Titer|Examen CEA-Titer|1826.00:00:00|true|false|false
+Koloskopie|Coloscopie|365.00:00:00|true|false|false
+Koloskopie|Coloscopie|1826.00:00:00|true|false|false
+Untere flexible Endoskopie|Endoscopie flexible inférieure|182.00:00:00|true|false|false
+Untere flexible Endoskopie|Endoscopie flexible inférieure|547.00:00:00|true|false|false
+Untere flexible Endoskopie|Endoscopie flexible inférieure|730.00:00:00|true|false|false

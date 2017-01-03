@@ -1,7 +1,7 @@
-﻿Kolon Karzinom T1/ T2 N0
-CEA-Titer|365.00:00:00|true|false|false
-CEA-Titer|730.00:00:00|true|false|false
-CEA-Titer|1461.00:00:00|true|false|false
-CEA-Titer|1826.00:00:00|true|false|false
-Koloskopie|365.00:00:00|true|false|false
-Koloskopie|1826.00:00:00|true|false|false
+﻿Kolon Karzinom T1/ T2 N0|Cancer du côlon T1 / T2 N0
+Untersuchung, CEA-Titer|Examen CEA-Titer|365.00:00:00|true|false|false
+Untersuchung, CEA-Titer|Examen CEA-Titer|730.00:00:00|true|false|false
+Untersuchung, CEA-Titer|Examen CEA-Titer|1461.00:00:00|true|false|false
+Untersuchung, CEA-Titer|Examen CEA-Titer|1826.00:00:00|true|false|false
+Koloskopie|Coloscopie|365.00:00:00|true|false|false
+Koloskopie|Coloscopie|1826.00:00:00|true|false|false

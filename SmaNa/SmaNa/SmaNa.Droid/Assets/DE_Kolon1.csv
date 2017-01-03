@@ -1,18 +1,18 @@
-﻿Kolon Karzinom T3/4 oder N+, M0
-Untersuchung, CEA-Titer|91.00:00:00|true|false|false
-Untersuchung, CEA-Titer|182.00:00:00|true|false|false
-Untersuchung, CEA-Titer|273.00:00:00|true|false|false
-Untersuchung, CEA-Titer|365.00:00:00|true|false|false
-Untersuchung, CEA-Titer|547.00:00:00|true|false|false
-Untersuchung, CEA-Titer|730.00:00:00|true|false|false
-Untersuchung, CEA-Titer|911.00:00:00|true|false|false
-Untersuchung, CEA-Titer|1095.00:00:00|true|false|false
-Untersuchung, CEA-Titer|1461.00:00:00|true|false|false
-Untersuchung, CEA-Titer|1826.00:00:00|true|false|false
-Koloskopie|365.00:00:00|true|false|false
-Koloskopie|1826.00:00:00|true|false|false
-CT Thorax-Abdomen|365.00:00:00|true|false|false
-CT Thorax-Abdomen|730.00:00:00|true|false|false
-CT Thorax-Abdomen|1095.00:00:00|true|false|false
-CT Thorax-Abdomen|1461.00:00:00|true|false|false
-CT Thorax-Abdomen|1826.00:00:00|true|false|false
+﻿Kolon Karzinom T3/4 oder N+, M0|Cancer du côlon T3/4 ou N+, M0
+Untersuchung, CEA-Titer|Examen CEA-Titer|91.00:00:00|true|false|false
+Untersuchung, CEA-Titer|Examen CEA-Titer|182.00:00:00|true|false|false
+Untersuchung, CEA-Titer|Examen CEA-Titer|273.00:00:00|true|false|false
+Untersuchung, CEA-Titer|Examen CEA-Titer|365.00:00:00|true|false|false
+Untersuchung, CEA-Titer|Examen CEA-Titer|547.00:00:00|true|false|false
+Untersuchung, CEA-Titer|Examen CEA-Titer|730.00:00:00|true|false|false
+Untersuchung, CEA-Titer|Examen CEA-Titer|911.00:00:00|true|false|false
+Untersuchung, CEA-Titer|Examen CEA-Titer|1095.00:00:00|true|false|false
+Untersuchung, CEA-Titer|Examen CEA-Titer|1461.00:00:00|true|false|false
+Untersuchung, CEA-Titer|Examen CEA-Titer|1826.00:00:00|true|false|false
+Koloskopie|Coloscopie|365.00:00:00|true|false|false
+Koloskopie|Coloscopie|1826.00:00:00|true|false|false
+CT Thorax-Abdomen|CT Thorax-Abdomen|365.00:00:00|true|false|false
+CT Thorax-Abdomen|CT Thorax-Abdomen|730.00:00:00|true|false|false
+CT Thorax-Abdomen|CT Thorax-Abdomen|1095.00:00:00|true|false|false
+CT Thorax-Abdomen|CT Thorax-Abdomen|1461.00:00:00|true|false|false
+CT Thorax-Abdomen|CT Thorax-Abdomen|1826.00:00:00|true|false|false

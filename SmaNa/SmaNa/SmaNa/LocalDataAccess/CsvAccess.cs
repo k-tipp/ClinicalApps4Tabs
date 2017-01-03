@@ -46,17 +46,18 @@ namespace SmaNa.LocalDataAccess
             foreach (string line in lines)
             {
                 string[] fields = line.Split('|');
-                if (fields.Length != 5)
+                if (fields.Length != 6)
                 {
                     continue;
                 }
                 Appointment appointment = new Appointment();
-                appointment.Name = fields[0];
+                appointment.Name_D = fields[0];
+                appointment.Name_F = fields[1];
                 appointment.Location = "";
                 appointment.Doctor = "";
-                appointment.AppointmentPeriode = operationDate.Add(TimeSpan.ParseExact(fields[1], "c", null));
+                appointment.AppointmentPeriode = operationDate.Add(TimeSpan.ParseExact(fields[2], "c", null));
                 appointment.AppointmentDate = default(DateTime);
-                appointment.AppointmentReminder = (fields[2] == "true" ? true : false);
+                appointment.AppointmentReminder = (fields[3] == "true" ? true : false);
                 appointment.Generated = true;
                 appointments.Add(appointment);
             }
@@ -82,14 +83,16 @@ namespace SmaNa.LocalDataAccess
                 foreach (string line in lines)
                 {
                     string[] fields = line.Split('|');
-                    if (fields.Length != 8)
+                    if (fields.Length == 2)
                     {
-                        // the schema name in line 1 is not splitable and therefor does not result in a array
-                        schema.name = line;
+                        // the schema name in line 1 is only splittable in 2 fields and therefor does not larger array
+                        schema.Name_D = fields[0];
+                        schema.Name_F = fields[1];
                         break;
                     }
                     Appointment appointment = new Appointment();
-                    appointment.Name = fields[0];
+                    appointment.Name_D = fields[0];
+                    appointment.Name_F = fields[1];
                     appointment.Generated = true;
                     appointments.Add(appointment);
                 }

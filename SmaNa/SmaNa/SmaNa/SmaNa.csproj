@@ -51,9 +51,11 @@
     <Compile Include="Model\Appointment.cs" />
     <Compile Include="Model\BulkObservableCollection.cs" />
     <Compile Include="Model\Enumerations.cs" />
+    <Compile Include="Model\Operation.cs" />
     <Compile Include="Model\Schema.cs" />
     <Compile Include="Model\Settings.cs" />
     <Compile Include="ViewModel\ViewModelAppointmentEdit.cs" />
+    <Compile Include="ViewModel\ViewModelOperation.cs" />
     <Compile Include="ViewModel\ViewModelOverview.cs" />
     <Compile Include="ViewModel\ViewModelSettings.cs" />
     <Compile Include="View\AppointmentEdit.xaml.cs">

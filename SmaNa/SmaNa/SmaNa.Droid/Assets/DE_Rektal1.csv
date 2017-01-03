@@ -1,25 +1,25 @@
-﻿Rektum Karzinom T1 – 4, N+/-, M05
-Untersuchung, CEA-Titer|91.00:00:00|true|false|false
-Untersuchung, CEA-Titer|182.00:00:00|true|false|false
-Untersuchung, CEA-Titer|273.00:00:00|true|false|false
-Untersuchung, CEA-Titer|365.00:00:00|true|false|false
-Untersuchung, CEA-Titer|547.00:00:00|true|false|false
-Untersuchung, CEA-Titer|730.00:00:00|true|false|false
-Untersuchung, CEA-Titer|911.00:00:00|true|false|false
-Untersuchung, CEA-Titer|1095.00:00:00|true|false|false
-Untersuchung, CEA-Titer|1461.00:00:00|true|false|false
-Untersuchung, CEA-Titer|1826.00:00:00|true|false|false
-Koloskopie|365.00:00:00|true|false|false
-Koloskopie|1826.00:00:00|true|false|false
-Untere flexible Endoskopie|182.00:00:00|true|false|false
-Untere flexible Endoskopie|547.00:00:00|true|false|false
-Untere flexible Endoskopie|730.00:00:00|true|false|false
-Endosonographie oder Becken MRI|182.00:00:00|true|false|false
-Endosonographie oder Becken MRI|365.00:00:00|true|false|false
-Endosonographie oder Becken MRI|547.00:00:00|true|false|false
-Endosonographie oder Becken MRI|730.00:00:00|true|false|false
-CT Thorax-Abdomen-Becken|365.00:00:00|true|false|false
-CT Thorax-Abdomen-Becken|730.00:00:00|true|false|false
-CT Thorax-Abdomen-Becken|1095.00:00:00|true|false|false
-CT Thorax-Abdomen-Becken|1461.00:00:00|true|false|false
-CT Thorax-Abdomen-Becken|1826.00:00:00|true|false|false
+﻿Rektum Karzinom T1 – 4, N+/-, M0|Cancer du rectum T1-4, N+/-, M0
+Untersuchung, CEA-Titer|Examen CEA-Titer|91.00:00:00|true|false|false
+Untersuchung, CEA-Titer|Examen CEA-Titer|182.00:00:00|true|false|false
+Untersuchung, CEA-Titer|Examen CEA-Titer|273.00:00:00|true|false|false
+Untersuchung, CEA-Titer|Examen CEA-Titer|365.00:00:00|true|false|false
+Untersuchung, CEA-Titer|Examen CEA-Titer|547.00:00:00|true|false|false
+Untersuchung, CEA-Titer|Examen CEA-Titer|730.00:00:00|true|false|false
+Untersuchung, CEA-Titer|Examen CEA-Titer|911.00:00:00|true|false|false
+Untersuchung, CEA-Titer|Examen CEA-Titer|1095.00:00:00|true|false|false
+Untersuchung, CEA-Titer|Examen CEA-Titer|1461.00:00:00|true|false|false
+Untersuchung, CEA-Titer|Examen CEA-Titer|1826.00:00:00|true|false|false
+Koloskopie|Coloscopie|365.00:00:00|true|false|false
+Koloskopie|Coloscopie|1826.00:00:00|true|false|false
+Untere flexible Endoskopie|Endoscopie flexible inférieure|182.00:00:00|true|false|false
+Untere flexible Endoskopie|Endoscopie flexible inférieure|547.00:00:00|true|false|false
+Untere flexible Endoskopie|Endoscopie flexible inférieure|730.00:00:00|true|false|false
+Endosonographie oder Becken MRI|Endosonographie ou IRM du bassin|182.00:00:00|true|false|false
+Endosonographie oder Becken MRI|Endosonographie ou IRM du bassin|365.00:00:00|true|false|false
+Endosonographie oder Becken MRI|Endosonographie ou IRM du bassin|547.00:00:00|true|false|false
+Endosonographie oder Becken MRI|Endosonographie ou IRM du bassin|730.00:00:00|true|false|false
+CT Thorax-Abdomen-Becken|CT Thorax-Abdomen-Bassin|365.00:00:00|true|false|false
+CT Thorax-Abdomen-Becken|CT Thorax-Abdomen-Bassin|730.00:00:00|true|false|false
+CT Thorax-Abdomen-Becken|CT Thorax-Abdomen-Bassin|1095.00:00:00|true|false|false
+CT Thorax-Abdomen-Becken|CT Thorax-Abdomen-Bassin|1461.00:00:00|true|false|false
+CT Thorax-Abdomen-Becken|CT Thorax-Abdomen-Bassin|1826.00:00:00|true|false|false

@@ -197,7 +197,11 @@ namespace SmaNa.Multilanguage {
         }
         
         /// <summary>
+<<<<<<< HEAD
+        ///   Sucht eine lokalisierte Zeichenfolge, die Meine Operation ähnelt.
+=======
         ///   Looks up a localized string similar to Meine Behandlungen und Operation.
+>>>>>>> origin/MIchel
         /// </summary>
         public static string MainMenuOperation {
             get {

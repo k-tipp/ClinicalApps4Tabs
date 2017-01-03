@@ -198,12 +198,7 @@
   <data name="SettingsSchema" xml:space="preserve">
     <value>Schema</value>
   </data>
-  <data name="Surgerys" xml:space="preserve">
-    <value>Meine Operationen</value>
-  </data>
-  <data name="Treatments" xml:space="preserve">
-    <value>Meine Behandlungen</value>
-  </data>
+<<<<<<< HEAD
   <data name="EditTerminDelete" xml:space="preserve">
     <value>Termin löschen</value>
   </data>
@@ -224,5 +219,12 @@
   </data>
   <data name="SettingsMidataWeight" xml:space="preserve">
     <value>Gewicht</value>
+=======
+  <data name="Surgerys" xml:space="preserve">
+    <value>Meine Operationen</value>
+  </data>
+  <data name="Treatments" xml:space="preserve">
+    <value>Meine Behandlungen</value>
+>>>>>>> origin/MIchel
   </data>
 </root>
