@@ -5,10 +5,10 @@
              xmlns:i18n="clr-namespace:SmaNa.Multilanguage;assembly=SmaNa">
   <ScrollView>
     <StackLayout Orientation="Vertical">
-      <StackLayout Orientation="Vertical">
+      <StackLayout Orientation="Vertical" x:Name="TitleLayout">
         <Label x:Name ="AppointmentTitle" Style="{DynamicResource labelOverviewLine}" />
       </StackLayout>
-      <StackLayout Orientation="Vertical">
+      <StackLayout Orientation="Vertical" x:Name="EditTitleLayout">
         <Entry x:Name="AppointmentName" Placeholder="{i18n:Translate EditTerminName}" />
         <Label Text="{i18n:Translate EditTerminName}" Style="{DynamicResource labelDescr}" />
       </StackLayout>
@@ -19,13 +19,13 @@
       </StackLayout>
       <BoxView Style="{DynamicResource Separator}"/>
       <StackLayout x:Name="AppointmentDateButton">
-        <Button Text="{i18n:Translate EditTerminSetDate}" x:Name="btnSetDate" Clicked="OnSetDateClicked"/>
+        <Button Text="{i18n:Translate EditTerminSetDate}" x:Name="btnSetDate" TextColor="Black" Clicked="OnSetDateClicked"/>
       </StackLayout>
       <StackLayout Orientation="Vertical" x:Name="AppointmentDatePicker">
         <StackLayout Orientation="Horizontal">
           <DatePicker Format="dd.MM.yyyy" x:Name="AppointmentDate" TextColor="Black" />
           <TimePicker x:Name ="AppointmentTime" TextColor="Black"/>
-          <Button Text ="{i18n:Translate EditTerminUnsetDate}" x:Name="btnUnsetDate" Clicked="OnUnsetDateClicked"/>
+          <Button Text ="{i18n:Translate EditTerminUnsetDate}" x:Name="btnUnsetDate" TextColor="Black" Clicked="OnUnsetDateClicked" HorizontalOptions="End"/>
         </StackLayout>
         <Label Text="{i18n:Translate EditTerminDate}" Style="{DynamicResource labelDescr}" />
       </StackLayout>
@@ -47,7 +47,7 @@
         <Label Text="{i18n:Translate EditTerminRemind}" Style="{DynamicResource labelDescr}" />
       </StackLayout>
       <StackLayout x:Name="DeleteLayout">
-        <Button x:Name="btnDelete" Text="{i18n:Translate EditTerminDelete}" Clicked="OnDeleteClicked"/>
+        <Button x:Name="btnDelete" Text="{i18n:Translate EditTerminDelete}" TextColor="Black" Clicked="OnDeleteClicked"/>
       </StackLayout>
     </StackLayout>
     

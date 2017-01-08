@@ -8,7 +8,7 @@ namespace SmaNa.Model
 {
     public class Operation
     {
-        public string Treatment { get; set; }
+        public string Diagnose { get; set; }
         public string Surgery { get; set; }
 
     }

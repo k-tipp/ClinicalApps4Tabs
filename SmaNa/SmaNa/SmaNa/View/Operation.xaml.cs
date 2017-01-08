@@ -19,7 +19,7 @@ namespace SmaNa.View
 
             ToolbarItems.Add(new ToolbarItem(Multilanguage.TranslateExtension.getString("saveOperation"), "", () => Save()));
             var operation = _viewModel.Operation;
-            Treatment.Text = operation.Treatment;
+            Diagnose.Text = operation.Diagnose;
             Surgery.Text = operation.Surgery;
         }
 
@@ -27,7 +27,7 @@ namespace SmaNa.View
         {
             var opToSave = _viewModel.Operation;
             opToSave.Surgery = Surgery.Text;
-            opToSave.Treatment = Treatment.Text;
+            opToSave.Diagnose = Diagnose.Text;
             _viewModel.Save();
             Navigation.PopAsync();
         }

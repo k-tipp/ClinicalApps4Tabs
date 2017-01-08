@@ -118,25 +118,25 @@ namespace SmaNa.Model
                 {
                     if (SmaNa.ViewModel.ViewModelSettings.SmaNaSettings.LanguageString.Equals("fr-CH"))
                     {
-                        prefix = "rendez-vous prévue: ";
+                        prefix = "rendez-vous prévue: "+ AppointmentPeriode.ToString("MMMM yyyy");
                     }
                     else
                     {
-                        prefix = "abzumachender Termin: ";
+                        prefix = "abzumachender Termin: " + AppointmentPeriode.ToString("MMMM yyyy");
                     }
                 }
                 else
                 {
                     if (ViewModelSettings.SmaNaSettings.LanguageString.Equals("fr-CH"))
                     {
-                        prefix = "Rendez-vous: ";
+                        prefix = "Rendez-vous: " + AppointmentDate.ToString("dd.MM.yyyy HH:mm");
                     }
                     else
                     {
-                        prefix = "Termin: ";
+                        prefix = "Termin: " + AppointmentDate.ToString("dd.MM.yyyy HH:mm");
                     }
                 }
-                return prefix + AppointmentDate.ToString("dd.MM.yyyy HH:mm");
+                return prefix;
             }
         }
 

@@ -6,19 +6,26 @@
   <ScrollView>
     <StackLayout Orientation="Vertical">
       <StackLayout Orientation="Vertical">
-        <DatePicker Format="dd.MM.yyyy" x:Name="OperationDate" TextColor="Black" />
+        <StackLayout Orientation="Horizontal">
+          <DatePicker Format="dd.MM.yyyy" x:Name="OperationDate" TextColor="Black" HorizontalOptions="StartAndExpand" />
+          <Button x:Name="OperationDateInfo" Clicked="onOperationDateInfoClicked" Text="Info" TextColor="Black" HorizontalOptions="End"/>
+        </StackLayout>
         <Label Text="{i18n:Translate SettingsOPDate}" Style="{DynamicResource labelDescr}" />
       </StackLayout>
       <BoxView Style="{DynamicResource Separator}"/>
       <StackLayout Orientation="Vertical">
         <StackLayout Orientation="Horizontal" VerticalOptions="Start">
-          <Switch x:Name="StageingComplete"  VerticalOptions="Start" />
+          <Switch x:Name="StageingComplete" VerticalOptions="Start" HorizontalOptions="StartAndExpand" />
+          <Button x:Name="StageingCompleteInfo" Clicked="onStageingCompleteInfoClicked" Text="Info" TextColor="Black" HorizontalOptions="End"/>
         </StackLayout>
         <Label Text="{i18n:Translate SettingsStageingComplete}"  Style="{DynamicResource labelDescr}" />
       </StackLayout>
       <BoxView Style="{DynamicResource Separator}"/>
       <StackLayout Orientation="Vertical">
-        <Picker x:Name="SettingsSchema" TextColor="Black"/>
+        <StackLayout Orientation="Horizontal">
+          <Picker x:Name="SettingsSchema" TextColor="Black" HorizontalOptions="StartAndExpand"/>
+          <Button x:Name="SchemaInfo" Clicked="onSchemaInfoClicked" Text="Info" TextColor="Black" HorizontalOptions="End"/>
+        </StackLayout>
         <Label Text="{i18n:Translate SettingsSchema}" Style="{DynamicResource labelDescr}" />
       </StackLayout>
       <BoxView Style="{DynamicResource Separator}"/>
@@ -27,7 +34,7 @@
         <Label Text="{i18n:Translate SettingsLanguage}" Style="{DynamicResource labelDescr}" />
       </StackLayout>
       <BoxView Style="{DynamicResource Separator}"/>
-      <StackLayout Orientation="Vertical">
+      <StackLayout Orientation="Vertical" x:Name="MidataSwitch">
         <StackLayout Orientation="Horizontal" VerticalOptions="Start">
           <Switch x:Name="MiData"  VerticalOptions="Start" Toggled="OnMidataToggled" />
         </StackLayout>

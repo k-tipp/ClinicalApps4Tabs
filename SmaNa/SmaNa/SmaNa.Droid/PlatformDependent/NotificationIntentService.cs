@@ -90,13 +90,13 @@ namespace SmaNa.Droid.PlatformDependent
             DateTime notificationDate = (appointment.AppointmentDate.Equals(default(DateTime)) ? appointment.AppointmentPeriode : appointment.AppointmentDate);
             if (DateTime.Compare(notificationDate, DateTime.Now.AddDays(15)) < 0 &&
                 DateTime.Compare(notificationDate, DateTime.Now) >= 0)
-                return false;
-            return true;
+                return true;
+            return false;
         }
 
         private void CreateNotification(Appointment appointment)
         {
-            if (NOTIFICATION_ID < 3)
+            if (NOTIFICATION_ID < 2)
             {
                 var ci = SmaNa.ViewModel.ViewModelSettings.SmaNaSettings.Language;
                 Thread.CurrentThread.CurrentCulture = ci;

@@ -62,7 +62,7 @@ namespace SmaNa.LocalDataAccess
                 appointments.Add(appointment);
             }
 
-            return appointments;
+            return appointments.OrderBy(x=>x.AppointmentPeriode).ToList();
         }
 
         public Dictionary<string, Schema> LoadSchemas(string language)

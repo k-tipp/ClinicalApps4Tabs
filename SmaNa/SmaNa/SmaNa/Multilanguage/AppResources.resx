@@ -201,8 +201,8 @@
   <data name="Surgerys" xml:space="preserve">
     <value>Meine Operationen</value>
   </data>
-  <data name="Treatments" xml:space="preserve">
-    <value>Meine Behandlungen</value>
+  <data name="Diagnose" xml:space="preserve">
+    <value>Meine Diagnose</value>
   </data>
   <data name="EditTerminDelete" xml:space="preserve">
     <value>Termin löschen</value>
@@ -227,5 +227,14 @@
   </data>
   <data name="saveOperation" xml:space="preserve">
     <value>Speichern</value>
+  </data>
+  <data name="SettingsOPDateInfo" xml:space="preserve">
+    <value>Erfassen Sie Ihr OP-Datum, welches sie im Austrittsbericht auffinden.</value>
+  </data>
+  <data name="SettingsSchemaInfo" xml:space="preserve">
+    <value>Wählen sie anhand der Diagnose im Austrittsbericht das richtige Behandlungsschema aus.</value>
+  </data>
+  <data name="SettingsStageingCompleteInfo" xml:space="preserve">
+    <value>Wurden vor der Operation alle Abklärungen durchgeführt?</value>
   </data>
 </root>

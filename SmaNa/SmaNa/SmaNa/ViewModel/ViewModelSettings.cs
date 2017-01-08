@@ -99,7 +99,8 @@ namespace SmaNa.ViewModel
         public async Task<string> GetLastWeight()
         {
             var bw = await App.Midata.getLastWeight();
-            return bw.valueQuantity.value;
+
+            return "Letztes Gewicht: "+bw.valueQuantity.value + " kg ( "+bw.effectiveDateTime.ToString("dd.mm.yyyy HH:mm")+")";
         }
 
         /// <summary>

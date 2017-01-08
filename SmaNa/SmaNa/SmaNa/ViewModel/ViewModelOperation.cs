@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace SmaNa.ViewModel
 {
+    /// <summary>
+    /// Created: Michel
+    /// </summary>
     class ViewModelOperation
     {
         private XMLAccess<Operation> _xmlAccess;

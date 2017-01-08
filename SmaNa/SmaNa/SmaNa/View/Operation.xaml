@@ -5,8 +5,8 @@
              xmlns:i18n="clr-namespace:SmaNa.Multilanguage;assembly=SmaNa">
   <ScrollView Orientation="Vertical">
     <StackLayout Orientation="Vertical">
-      <Editor x:Name="Treatment" HeightRequest="200" />
-      <Label  Text="{i18n:Translate Treatments}" Style="{DynamicResource labelDescr}" HeightRequest="25"/>
+      <Editor x:Name="Diagnose" HeightRequest="200" />
+      <Label  Text="{i18n:Translate Diagnose}" Style="{DynamicResource labelDescr}" HeightRequest="25"/>
       <BoxView Style="{DynamicResource Separator}"/>
       <Editor x:Name="Surgery" HeightRequest="200"/>
       <Label  Text="{i18n:Translate Surgerys}" Style="{DynamicResource labelDescr}" HeightRequest="25" />

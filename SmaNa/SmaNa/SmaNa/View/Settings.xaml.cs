@@ -22,11 +22,16 @@ namespace SmaNa.View
         {
             InitializeComponent();
             _viewModel = App.ViewModelSettings;
+
+            MidataSwitch.IsVisible = true;
+
             ToolbarItems.Add(new ToolbarItem(Multilanguage.TranslateExtension.getString("SaveSettings"), "", () =>
             {
                 var saveSettings = ViewModelSettings.SmaNaSettings;
+
                 Schema schema;
                 SchemaDictionary.TryGetValue(SettingsSchema.Items[SettingsSchema.SelectedIndex], out schema);
+
                 saveSettings.Schema = schema.filename;
                 saveSettings.OperationDate = OperationDate.Date;
                 saveSettings.StageingComplete = StageingComplete.IsToggled;
@@ -48,6 +53,7 @@ namespace SmaNa.View
             InitializeDropdowns();
             var settings = ViewModelSettings.SmaNaSettings;
             SettingsSchema.SelectedIndex = SettingsSchema.Items.IndexOf(SchemaDictionary.FirstOrDefault(x => x.Value.filename == settings.Schema).Key);
+            if (SettingsSchema.SelectedIndex == -1) SettingsSchema.SelectedIndex = 0;
             Language.SelectedIndex = Language.Items.IndexOf(LanguageDictionary.FirstOrDefault(x => x.Value.Name == settings.LanguageString).Key);
             OperationDate.Date = settings.OperationDate;
             StageingComplete.IsToggled = settings.StageingComplete;
@@ -77,17 +83,29 @@ namespace SmaNa.View
         public async void OnMidataGetClicked(object sender, EventArgs e)
         {
             var weight = await _viewModel.GetLastWeight();
-            MidataData.Text = "Letzes erfasstes Midata-Gewicht: " + weight + " kg";
+            MidataData.Text = weight;
         }
         public void OnMidataSendClicked(object sender, EventArgs e)
         {
             _viewModel.SaveWeight(MidataWeight.Text);
             MidataWeight.Text = "";
         }
-        
+
         public void OnMidataToggled(object sender, EventArgs e)
         {
             MidataLayout.IsVisible = MiData.IsToggled;
+        }
+        public void onStageingCompleteInfoClicked(object sender, EventArgs e)
+        {
+            DisplayAlert(Multilanguage.TranslateExtension.getString("SettingsStageingComplete"), Multilanguage.TranslateExtension.getString("SettingsStageingCompleteInfo"), "OK");
+        }
+        public void onSchemaInfoClicked(object sender, EventArgs e)
+        {
+            DisplayAlert(Multilanguage.TranslateExtension.getString("SettingsSchema"), Multilanguage.TranslateExtension.getString("SettingsSchemaInfo"), "OK");
+        }
+        public void onOperationDateInfoClicked(object sender, EventArgs e)
+        {
+            DisplayAlert(Multilanguage.TranslateExtension.getString("SettingsOPDate"), Multilanguage.TranslateExtension.getString("SettingsOPDateInfo"), "OK");
         }
     }
 }

@@ -89,6 +89,15 @@ namespace SmaNa.Multilanguage {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Meine Diagnose ähnelt.
+        /// </summary>
+        public static string Diagnose {
+            get {
+                return ResourceManager.GetString("Diagnose", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Termin ähnelt.
         /// </summary>
         public static string EditTerminDate {
@@ -350,6 +359,15 @@ namespace SmaNa.Multilanguage {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Erfassen Sie Ihr OP-Datum, welches sie im Austrittsbericht auffinden. ähnelt.
+        /// </summary>
+        public static string SettingsOPDateInfo {
+            get {
+                return ResourceManager.GetString("SettingsOPDateInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Schema ähnelt.
         /// </summary>
         public static string SettingsSchema {
@@ -359,11 +377,29 @@ namespace SmaNa.Multilanguage {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Wählen sie anhand der Diagnose im Austrittsbericht das richtige Behandlungsschema aus. ähnelt.
+        /// </summary>
+        public static string SettingsSchemaInfo {
+            get {
+                return ResourceManager.GetString("SettingsSchemaInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Volles Stageing ähnelt.
         /// </summary>
         public static string SettingsStageingComplete {
             get {
                 return ResourceManager.GetString("SettingsStageingComplete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Wurden vor der Operation alle Abklärungen durchgeführt? ähnelt.
+        /// </summary>
+        public static string SettingsStageingCompleteInfo {
+            get {
+                return ResourceManager.GetString("SettingsStageingCompleteInfo", resourceCulture);
             }
         }
         
@@ -382,15 +418,6 @@ namespace SmaNa.Multilanguage {
         public static string Surgerys {
             get {
                 return ResourceManager.GetString("Surgerys", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Meine Behandlungen ähnelt.
-        /// </summary>
-        public static string Treatments {
-            get {
-                return ResourceManager.GetString("Treatments", resourceCulture);
             }
         }
     }

@@ -201,8 +201,8 @@
   <data name="Surgerys" xml:space="preserve">
     <value>Mes opérations</value>
   </data>
-  <data name="Treatments" xml:space="preserve">
-    <value>Mes traitements</value>
+  <data name="Diagnose" xml:space="preserve">
+    <value>Mes diagnostics</value>
   </data>
   <data name="EditTerminDelete" xml:space="preserve">
     <value>Effacer le rendez-vous</value>
@@ -227,5 +227,14 @@
   </data>
   <data name="saveOperation" xml:space="preserve">
     <value>Enregistrer</value>
+  </data>
+  <data name="SettingsOPDateInfo" xml:space="preserve">
+    <value>Choisissez votre date d'opération lequel vous trouvez dans votre lettre de sortie.</value>
+  </data>
+  <data name="SettingsSchemaInfo" xml:space="preserve">
+    <value>Choisissez le schema correcte selon le diagnostic dans votre lettre de sortie.</value>
+  </data>
+  <data name="SettingsStageingCompleteInfo" xml:space="preserve">
+    <value>Est-ce que tout les examen de cancer ont été effectué?</value>
   </data>
 </root>

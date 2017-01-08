@@ -80,8 +80,11 @@ namespace SmaNa.View
             AppointmentDoctor.Text = Appointment.Doctor;
             AppointmentLocation.Text = Appointment.Location;
             AppointmentReminder.IsToggled = Appointment.AppointmentReminder;
-            // Manually generated Appointments can be deleted
+            // Manually generated Appointments can be deleted, their title can be set manually and you can modify the Periode.
             DeleteLayout.IsVisible = !Appointment.Generated;
+            TitleLayout.IsVisible = Appointment.Generated;
+            EditTitleLayout.IsVisible = !Appointment.Generated;
+
         }
 
         private void addToolbarItems()
@@ -96,10 +99,15 @@ namespace SmaNa.View
         {
             Appointment editedAppointment = _viewModel.Appointment;
             editedAppointment.AppointmentDate = AppointmentDate.Date;
-            if (!AppointmentDate.Date.Equals(default(DateTime)))
+            // Comparing with default(DateTime) does not work because min datetime for datepicker is 01.01.1900
+            if (!AppointmentDate.Date.Equals(new DateTime(599266080000000000)))
             {
                 editedAppointment.AppointmentDate = editedAppointment.AppointmentDate
                     .Add(AppointmentTime.Time);
+            }
+            else
+            {
+                editedAppointment.AppointmentDate = new DateTime(0);
             }
             editedAppointment.AppointmentPeriode = AppointmentPeriode.Date;
             editedAppointment.AppointmentReminder = AppointmentReminder.IsToggled;
@@ -119,15 +127,24 @@ namespace SmaNa.View
         public void OnSetDateClicked(object sender, EventArgs e)
         {
             setAppointmentDateVisibility(true);
-            AppointmentDate.Date = DateTime.Now;
-            AppointmentTime.Time = DateTime.Now.TimeOfDay;
+            if (AppointmentPeriode.Date != new DateTime(599266080000000000))
+            {
+                AppointmentDate.Date = AppointmentPeriode.Date;
+                AppointmentTime.Time = default(TimeSpan);
+            }
+            else {
+                AppointmentDate.Date = DateTime.Now;
+                AppointmentTime.Time = DateTime.Now.TimeOfDay;
+            }
         }
 
         public void OnUnsetDateClicked(object sender, EventArgs e)
         {
             setAppointmentDateVisibility(false);
-            AppointmentDate.Date = default(DateTime);
+            AppointmentDate.Date = new DateTime(0);
             AppointmentTime.Time = default(TimeSpan);
+            _viewModel.Appointment.AppointmentDate = new DateTime(0);
+            _viewModel.Appointment.AppointmentTime = default(TimeSpan);
         }
         public void OnDeleteClicked(object sender, EventArgs e)
         {
