@@ -18,6 +18,8 @@ using Android.Content.Res;
 namespace SmaNa.Droid.PlatformDependent
 {
     /// <summary>
+    /// @created: Marwin Philips
+    /// @created: Kevin Tippenhauer
     /// Platform dependent implementation to get Acces to Strings stored in any file in the local Storage area of the app.
     /// </summary>
     public class FileManager : IFileManager
@@ -52,6 +54,11 @@ namespace SmaNa.Droid.PlatformDependent
             }
         }
 
+        /// <summary>
+        /// Loads the schemas based on the parameter language
+        /// </summary>
+        /// <param name="language">the language of the schemas to load</param>
+        /// <returns>if a file for the language exists in the application assets it returns a Dictionary with the matching filenames and their content, otherwhise an empty Dictionary.</returns>
         public Dictionary<string, string> LoadSchemas(string language)
         {
             AssetManager assets = Android.App.Application.Context.Assets;
@@ -66,6 +73,11 @@ namespace SmaNa.Droid.PlatformDependent
             return contents;
         }
 
+        /// <summary>
+        /// Loads the String stored in the Filename's file. The file must be stored in the application assets and the submitted filename must be a simple filename.
+        /// </summary>
+        /// <param name="filename">the filename of the file which will be loaded</param>
+        /// <returns>if the file exists it returns its content, otherwhise an empty string.</returns>
         public string LoadAsset(string filename)
         {
             string content;
