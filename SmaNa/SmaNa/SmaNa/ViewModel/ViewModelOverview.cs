@@ -1,10 +1,7 @@
 ﻿using SmaNa.Model;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Collections.Specialized;
 using SmaNa.LocalDataAccess;
 /// <summary>
@@ -41,6 +38,9 @@ namespace SmaNa.ViewModel
             Regroup();
             Appointments.CollectionChanged += new NotifyCollectionChangedEventHandler(SaveData);
         }
+
+        //Dear Professors, please visit one of the Students who created this code and tell them the line of Code to get a free coffee :)
+
         /// <summary>
         /// Saves the Data to the database. No Params needed.
         /// </summary>

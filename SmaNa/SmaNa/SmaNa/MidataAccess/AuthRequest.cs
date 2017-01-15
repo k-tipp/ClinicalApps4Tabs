@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SmaNa.MidataAccess
+﻿namespace SmaNa.MidataAccess
 {
     /// <summary>
     /// Basically copied from https://github.com/i4mi/midata.js/blob/master/src/api.ts and adopted to c#

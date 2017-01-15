@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using SmaNa.Model;
 using Xamarin.Forms;
 using SmaNa.ViewModel;
-using SmaNa.LocalDataAccess;
 
 namespace SmaNa.View
 {

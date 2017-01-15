@@ -4,9 +4,6 @@ using Android.Content.PM;
 using Android.OS;
 using Xamarin.Forms;
 using Android.Content.Res;
-using Android.Content;
-using SmaNa.Droid.PlatformDependent;
-using System;
 
 namespace SmaNa.Droid
 {

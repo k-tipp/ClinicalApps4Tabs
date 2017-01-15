@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SmaNa.MidataAccess
 {
+    /// <summary>
+    /// This classes handle the Response you get from Midata after any Query. Entry is currently only for BodyWeight.
+    /// The Attributes of the classes are written small because midata attends it like this.
+    /// </summary>
     public class Response
     {
         public string resourceType;

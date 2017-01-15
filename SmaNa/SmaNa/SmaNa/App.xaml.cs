@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 using SmaNa.Multilanguage;
 using Xamarin.Forms;
 using System.Globalization;
 using SmaNa.LocalDataAccess;
-using SmaNa.Model;
-using System.Collections.ObjectModel;
 using SmaNa.MidataAccess;
 using SmaNa.ViewModel;
 
@@ -51,7 +46,7 @@ namespace SmaNa
         /// </summary>
         public static MidataLogin Midata { get; set; }
 
-        public App(String pushNotifParam = null)
+        public App(string pushNotifParam = null)
         {
             PushNotifParameter = pushNotifParam;
             currentApp = this;
@@ -88,7 +83,7 @@ namespace SmaNa
                 }
             }
         }
-
+        
         /// <summary>
         /// Sets the Apps culture to ci
         /// </summary>
@@ -107,6 +102,7 @@ namespace SmaNa
             {
                 currentApp.MainPage = new NavigationPage(new View.MainMenu());
                 ((NavigationPage)currentApp.MainPage).PushAsync(new View.AppointmentEdit(Guid.Parse(PushNotifParameter)));
+                PushNotifParameter = null;
             }
         }
     }

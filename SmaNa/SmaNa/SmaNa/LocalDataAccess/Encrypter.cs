@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using PCLCrypto;
 /// <summary>
 /// Basic class setup comes from http://www.c-sharpcorner.com/uploadfile/4088a7/using-cryptography-in-portable-xamarin-formswindows-phone/

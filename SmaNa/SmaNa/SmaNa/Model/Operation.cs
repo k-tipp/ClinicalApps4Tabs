@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SmaNa.Model
+﻿namespace SmaNa.Model
 {
+    /// <summary>
+    /// POCO to store the Data of a Operation
+    /// @Created: Michel Murbach
+    /// </summary>
     public class Operation
     {
         public string Diagnose { get; set; }

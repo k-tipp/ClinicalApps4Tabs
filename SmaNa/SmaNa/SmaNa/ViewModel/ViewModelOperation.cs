@@ -1,14 +1,10 @@
 ﻿using SmaNa.LocalDataAccess;
 using SmaNa.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SmaNa.ViewModel
 {
     /// <summary>
+    /// ViewModel to edit the OperationData
     /// Created: Michel
     /// </summary>
     class ViewModelOperation

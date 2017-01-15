@@ -4,13 +4,15 @@ using Xamarin.Forms;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using SmaNa.Multilanguage;
 using SmaNa.MidataAccess;
 
 namespace SmaNa.ViewModel
 {
+    /// <summary>
+    /// ViewModel to edit and save the Settings
+    /// </summary>
     public class ViewModelSettings
     {
         private XMLAccess<Settings> _xmlAccess;
@@ -100,7 +102,7 @@ namespace SmaNa.ViewModel
         {
             var bw = await App.Midata.getLastWeight();
 
-            return "Letztes Gewicht: "+bw.valueQuantity.value + " kg ( "+bw.effectiveDateTime.ToString("dd.mm.yyyy HH:mm")+")";
+            return "Letztes Gewicht: "+bw.valueQuantity.value + " kg ( "+bw.effectiveDateTime.ToString("dd.MM.yyyy HH:mm")+")";
         }
 
         /// <summary>

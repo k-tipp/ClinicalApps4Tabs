@@ -1,18 +1,17 @@
-﻿using SmaNa.LocalDataAccess;
-using SmaNa.MidataAccess;
-using SmaNa.Model;
+﻿using SmaNa.Model;
 using SmaNa.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using Xamarin.Forms;
 
 namespace SmaNa.View
 {
+    /// <summary>
+    /// On This page the user can edit the apps settings
+    /// </summary>
     public partial class Settings : ContentPage
     {
         private ViewModelSettings _viewModel;

@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 
 
 /*
 Data to Put
+With the objects in this file we can make the following JSON-String.
 data = {
         resourceType: 'Observation',
         code: {

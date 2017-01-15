@@ -1,13 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Serialization;
 
 namespace SmaNa.Model
 {
+    /// <summary>
+    /// POCO to save the Settings
+    /// </summary>
     public class Settings
     {
         // the selected Langauge

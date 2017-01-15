@@ -1,12 +1,11 @@
 ﻿using SmaNa.ViewModel;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SmaNa.Model
 {
+    /// <summary>
+    /// POCO to save the Schema with its data.
+    /// </summary>
     public class Schema
     {
         public string filename { get; set; }
